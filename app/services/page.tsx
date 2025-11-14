@@ -63,11 +63,11 @@ export default function ServicesPage() {
     <>
       <Section className="bg-muted/30">
         <div className="mx-auto max-w-4xl">
-          <Link href="/" className="mb-6 inline-flex items-center text-sm text-muted-foreground hover:text-foreground">
+          <Link href="/" className="mb-4 inline-flex items-center text-sm text-muted-foreground hover:text-foreground">
             <ArrowLeft className="mr-2 h-4 w-4" />
             Επιστροφή στην Αρχική
           </Link>
-          <div className="mb-6 text-center">
+          <div className="mb-4 text-center">
             <h1 className="mb-3 text-4xl font-bold md:text-5xl">Τι προσφέρουμε</h1>
           </div>
         </div>

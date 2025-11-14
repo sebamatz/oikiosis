@@ -8,9 +8,9 @@ export default function Footer() {
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
           {/* Brand Section */}
           <div className="space-y-4">
-            <h3 className="text-xl font-bold text-primary">Οικίωσις</h3>
+            <h3 className="text-xl font-bold text-primary">Οικείωσις</h3>
             <p className="text-sm text-muted-foreground">
-              Όταν η σύγκρουση γίνεται καταιγίδα, η Οικίωσις είναι καταφύγιο και πυξίδα.
+              Όταν η σύγκρουση γίνεται καταιγίδα, η Οικείωσις είναι καταφύγιο και πυξίδα.
             </p>
           </div>
 
@@ -78,7 +78,7 @@ export default function Footer() {
               Ψυχολόγος - Ψυχοθεραπευτής
             </p>
             <p className="text-xs">
-              © {new Date().getFullYear()} Οικίωσις. Όλα τα δικαιώματα διατηρούνται.
+              © {new Date().getFullYear()} Οικείωσις. Όλα τα δικαιώματα διατηρούνται.
             </p>
           </div>
         </div>

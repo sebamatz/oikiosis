@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import Image from "next/image";
+import { Phone } from "lucide-react";
 
 export default function Hero() {
   return (
@@ -15,24 +16,53 @@ export default function Hero() {
         <div className="grid lg:grid-cols-2 gap-8 items-center">
           {/* Text Content */}
           <div className="text-center lg:text-left">
-            <h1 className="mb-4 text-3xl font-bold leading-tight tracking-tight md:text-4xl lg:text-5xl">
-              Όταν η σύγκρουση γίνεται καταιγίδα, η{" "}
-              <span className="text-primary">Οικίωσις</span> είναι καταφύγιο και
-              πυξίδα.
+            <h1 className="mb-6 text-2xl font-bold leading-tight tracking-tight md:text-3xl lg:text-4xl">
+              Όταν η σύγκρουση γίνεται καταιγίδα, δεν χρειάζεται να είσαι μόνος.
             </h1>
             <p className="mb-4 text-base text-muted-foreground md:text-lg lg:text-xl">
-              Για σχέσεις υψηλής σύγκρουσης & γονεϊκή αποξένωση
+              Η <span className="font-semibold text-foreground">Οικείωσις</span> είναι ένας ήρεμος, προστατευμένος χώρος για ανθρώπους που ζουν:
             </p>
-            <p className="mb-6 text-sm text-muted-foreground md:text-base lg:text-lg">
-              Δεν χρειάζεται να εξηγήσεις πόσο πονάς, αρκεί να έρθεις.
+            <ul className="mb-6 space-y-2 text-left text-base text-muted-foreground md:text-lg">
+              <li className="flex items-start gap-2">
+                <span className="text-primary mt-1">•</span>
+                <span>σχέσεις σε υψηλή σύγκρουση</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-primary mt-1">•</span>
+                <span>δύσκολο ή επώδυνο διαζύγιο</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-primary mt-1">•</span>
+                <span>γονεϊκή αποξένωση</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-primary mt-1">•</span>
+                <span>Οικογένειες ή ζευγάρια σε σύγχυση και αποδρομή</span>
+              </li>
+            </ul>
+            <p className="mb-4 text-base font-medium text-foreground md:text-lg lg:text-xl">
+              Ο πόνος σου δεν είναι «υπερβολή». Είναι βάρος που κουβαλάς μόνος σου εδώ και καιρό.
             </p>
-            <div className="flex flex-col gap-3 sm:flex-row sm:justify-center lg:justify-start">
-              <Button size="lg" className="w-full sm:w-auto" asChild>
-                <Link href="/booking">Κλείστε Συνεδρία</Link>
+            <p className="mb-6 text-base text-muted-foreground md:text-lg lg:text-xl">
+              Εδώ, σε ακούμε, σε πιστεύουμε και σε βοηθάμε να πάρεις την πρώτη ανάσα.
+            </p>
+            <div className="flex flex-col items-center lg:items-start">
+              <Button 
+                size="lg"
+                className="mb-4 text-lg font-semibold px-8 py-4 shadow-lg hover:shadow-xl transition-shadow"
+                asChild
+              >
+                <Link href="/sos-page" className="flex items-center gap-2">
+                  <Phone className="h-5 w-5" />
+                  <span>10λεπτη Κλήση S.O.S. – Χρειάζομαι άμεση βοήθεια</span>
+                </Link>
               </Button>
-              <Button size="lg" variant="outline" className="w-full sm:w-auto" asChild>
-                <Link href="/services">Δείτε τις Υπηρεσίες μας</Link>
-              </Button>
+              <p className="text-sm text-muted-foreground mb-2 text-center lg:text-left">
+                Δωρεάν, σύντομη κλήση 10 λεπτών με τον Ιωάννη Γιαννόπουλο.
+              </p>
+              <p className="text-sm text-center lg:text-left leading-relaxed">
+                Μιλάμε για αυτό που περνάς, βρίσκουμε σαφήνεια και καθορίζουμε μαζί το επόμενο βήμα.
+              </p>
             </div>
           </div>
           
@@ -40,7 +70,7 @@ export default function Hero() {
           <div className="relative hidden lg:block">
             <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl">
               <Image
-                src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=800&h=600&fit=crop&q=80"
+                src="/images/hero.jpg"
                 alt="Θεραπευτική συνεδρία - Ψυχολόγος και ασθενής με χαμόγελο"
                 fill
                 className="object-cover"

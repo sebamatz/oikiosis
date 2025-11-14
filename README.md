@@ -1,6 +1,6 @@
-# Οικίωσις Website
+# Οικείωσις Website
 
-Professional website for Οικίωσις therapy practice, specializing in high-conflict relationships and parental alienation.
+Professional website for Οικείωσις therapy practice, specializing in high-conflict relationships and parental alienation.
 
 ## Technology Stack
 
@@ -67,4 +67,4 @@ The website uses a calming color palette with blue/teal tones, designed to creat
 
 ## License
 
-Private project for Οικίωσις therapy practice.
+Private project for Οικείωσις therapy practice.

@@ -8,11 +8,11 @@ export default function ContactPage() {
     <>
       <Section className="bg-muted/30">
         <div className="mx-auto max-w-4xl">
-          <Link href="/" className="mb-6 inline-flex items-center text-sm text-muted-foreground hover:text-foreground">
+          <Link href="/" className="mb-4 inline-flex items-center text-sm text-muted-foreground hover:text-foreground">
             <ArrowLeft className="mr-2 h-4 w-4" />
             Επιστροφή στην Αρχική
           </Link>
-          <div className="mb-6 text-center">
+          <div className="mb-4 text-center">
             <h1 className="mb-3 text-4xl font-bold md:text-5xl">Επικοινωνία</h1>
           </div>
         </div>
@@ -85,9 +85,9 @@ export default function ContactPage() {
       </Section>
 
       {/* What to Expect */}
-      <Section className="bg-muted/30">
+      <Section>
         <div className="mx-auto max-w-3xl">
-          <div className="mb-6 text-center">
+          <div className="mb-4 text-center">
             <h2 className="mb-3 text-3xl font-bold">Τι να περιμένεις</h2>
           </div>
           <div className="space-y-3">
@@ -117,15 +117,15 @@ export default function ContactPage() {
       </Section>
 
       {/* Message */}
-      <Section>
+      <Section className="bg-muted/30">
         <div className="mx-auto max-w-3xl text-center">
-          <Card className="border-primary/20 bg-muted/30">
+          <Card className="border-primary/20">
             <CardContent className="pt-6">
               <p className="mb-4 text-lg font-semibold">
                 Δεν χρειάζεται να εξηγήσεις πόσο πονάς, αρκεί να έρθεις.
               </p>
               <p className="text-muted-foreground">
-                Η Οικίωσις είναι ένας ασφαλής χώρος, όπου ο ψυχικός πόνος συναντά άμεση και ουσιαστική ανταπόκριση με κατανόηση, επιστημονική τεκμηρίωση και ανθρώπινη παρουσία.
+                Η Οικείωσις είναι ένας ασφαλής χώρος, όπου ο ψυχικός πόνος συναντά άμεση και ουσιαστική ανταπόκριση με κατανόηση, επιστημονική τεκμηρίωση και ανθρώπινη παρουσία.
               </p>
             </CardContent>
           </Card>
@@ -133,7 +133,7 @@ export default function ContactPage() {
       </Section>
 
       {/* Signature */}
-      <Section className="bg-muted/30">
+      <Section>
         <div className="mx-auto max-w-2xl text-center">
           <div className="space-y-2">
             <p className="text-sm text-muted-foreground">Με εκτίμηση,</p>

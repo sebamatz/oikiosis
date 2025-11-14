@@ -3,7 +3,7 @@ import Section from "@/components/Section";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Heart, Users, Shield, ArrowRight } from "lucide-react";
+import { Heart, Users, Shield, ArrowRight, Phone, AlertCircle } from "lucide-react";
 import Image from "next/image";
 
 export default function Home() {
@@ -11,32 +11,133 @@ export default function Home() {
     <>
       <Hero />
 
-      {/* Who We Are */}
-      <Section className="bg-muted/30">
-        <div className="mx-auto max-w-3xl text-center">
-          <h2 className="mb-4 text-3xl font-bold md:text-4xl">Ποιοι είμαστε</h2>
-          <div className="space-y-3 text-lg text-muted-foreground">
-            <p>
-              Η <span className="font-semibold text-foreground">Οικίωσις</span> είναι ένας ασφαλής χώρος, όπου ο ψυχικός πόνος συναντά άμεση και ουσιαστική ανταπόκριση με κατανόηση, επιστημονική τεκμηρίωση και ανθρώπινη παρουσία.
-            </p>
-            <p>
-              <span className="font-semibold text-foreground">Ομάδα Οικίωσις:</span> Ιωάννης Γιαννόπουλος & Σοφία Μίαρη (PhD, MSc), Ψυχολόγοι – Ψυχοθεραπευτές.
-            </p>
-            <p>
-              Εξειδίκευση στη γονεϊκή αποξένωση και στις σχέσεις υψηλής σύγκρουσης, εκεί όπου η σύνδεση απειλείται από θυμό, σύγχυση ρόλων και απώλεια ορίων.
+      {/* How We Help You */}
+      <Section>
+        <div className="mx-auto max-w-4xl">
+          <h2 className="mb-8 text-center text-3xl font-bold md:text-4xl">Πώς σε βοηθάμε</h2>
+          <div className="space-y-8">
+            <div className="space-y-4 text-center">
+              <p className="text-lg text-muted-foreground">
+                Στην <span className="font-semibold text-foreground">Οικείωσις</span>, δεν ξεκινάμε με το «τι κάνεις λάθος».
+              </p>
+              <p className="text-xl font-medium text-foreground">
+                Ξεκινάμε από το: «Πώς είναι να είσαι εσύ μέσα σε αυτή τη σύγκρουση;»
+              </p>
+            </div>
+            <div className="space-y-4 text-center">
+              <p className="text-base leading-relaxed text-muted-foreground">
+                Σε βοηθάμε να μειωθεί η ένταση μέσα σου, ώστε να μπορείς να σκεφτείς πιο καθαρά.
+              </p>
+              <p className="text-base leading-relaxed text-muted-foreground">
+                Σε στηρίζουμε να προστατεύσεις όσο γίνεται τη σχέση με τα παιδιά σου, μέσα σε διαζύγιο ή γονεϊκή αποξένωση.
+              </p>
+              <p className="text-base leading-relaxed text-muted-foreground">
+                Σε καθοδηγούμε βήμα–βήμα σε δύσκολες επικοινωνίες, συζητήσεις με τον/την πρώην και κρίσιμες αποφάσεις.
+              </p>
+              <p className="text-base leading-relaxed text-muted-foreground">
+                Σε υποστηρίζουμε στην δημιουργία υγιών σχέσεων με τους δικούς ανθρώπους
+              </p>
+            </div>
+            <p className="pt-2 text-center text-base italic leading-relaxed text-foreground">
+              Είναι ένας χώρος όπου δεν χρειάζεται να είσαι «δυνατός». Αρκεί να είσαι ειλικρινής με αυτό που περνάς.
             </p>
           </div>
         </div>
       </Section>
 
-      {/* Philosophy */}
+      {/* Who We Are */}
+      <Section className="bg-muted/30">
+        <div className="mx-auto max-w-4xl">
+          <h2 className="mb-4 text-center text-3xl font-bold md:text-4xl">Ποιοι είμαστε</h2>
+          <p className="mb-8 text-center text-lg text-muted-foreground">
+            Είμαστε δύο ψυχολόγοι με κοινό στόχο: να σε βοηθήσουμε να βγεις από την εξουθενωτική σύγκρουση, με σεβασμό σε εσένα και στα παιδιά και να δημιουργήσεις υγιείς σχέσεις.
+          </p>
+          <div className="grid gap-6 md:grid-cols-2">
+            <Card className="shadow-md">
+              <CardHeader>
+                <CardTitle className="text-xl">Ιωάννης Γιαννόπουλος, Ψυχολόγος</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-3 text-muted-foreground">
+                <p>
+                  Εξειδικεύεται σε σχέσεις υψηλής σύγκρουσης, διαζύγιο και γονεϊκή αποξένωση.
+                </p>
+                <p>
+                  Είναι ο εμπνευστής και δημιουργός του θεραπευτικού μοντέλου «Αντίστροφη Ορμή» (Reverse Momentum Model), που σχεδιάστηκε ειδικά για αυτές τις περιπτώσεις.
+                </p>
+              </CardContent>
+            </Card>
+            <Card className="shadow-md">
+              <CardHeader>
+                <CardTitle className="text-xl">Σοφία Μίαρη, Ψυχολόγος PhD, MSc</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-3 text-muted-foreground">
+                <p>
+                  Εξειδικεύεται στη θεραπεία ζεύγους, οικογενειακή θεραπεία και υποστήριξη νέων.
+                </p>
+                <p>
+                  Δουλεύει με ζευγάρια και οικογένειες που θέλουν να σταματήσουν την κλιμάκωση και να χτίσουν πιο ασφαλείς σχέσεις.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+          <p className="mt-8 text-center text-lg text-muted-foreground">
+            Δουλεύουμε σε συνεργασία, ώστε να καλύπτουμε όλο το φάσμα: από την κρίση και το διαζύγιο, μέχρι τη θεραπεία ζεύγους και τη στήριξη των παιδιών.
+          </p>
+        </div>
+      </Section>
+
+      {/* Our Model */}
       <Section>
         <div className="mx-auto max-w-4xl">
-          <div className="mb-6 text-center">
+          <h2 className="mb-8 text-center text-3xl font-bold md:text-4xl">Το Μοντέλο μας «Αντίστροφη Ορμή»</h2>
+          <div className="space-y-6">
+            <p className="text-center text-lg text-muted-foreground">
+              Στις σχέσεις υψηλής σύγκρουσης, η κρίση μοιάζει σαν να σε σπρώχνει με δύναμη προς έναν τοίχο.
+            </p>
+            <p className="text-center text-lg font-medium text-foreground">
+              Το μοντέλο Αντίστροφης Ορμής (Reverse Momentum Model):
+            </p>
+            <div className="space-y-4 text-center">
+              <p className="text-base leading-relaxed text-muted-foreground">
+                δεν σε κατηγορεί για την πρόσκρουση
+              </p>
+              <p className="text-base leading-relaxed text-muted-foreground">
+                χρησιμοποιεί τη δύναμη της κρίσης, αντί να την αγνοεί.
+              </p>
+              <p className="text-base leading-relaxed text-muted-foreground">
+                τη μετατρέπει σε σταδιακά, πρακτικά βήματα αλλαγής.
+              </p>
+            </div>
+            <div className="">
+              <p className="mb-4 text-center text-base text-muted-foreground">
+                Είναι ένα απλό, εξειδικευμένο και δοκιμασμένο μοντέλο, φτιαγμένο ειδικά για:
+              </p>
+              <ul className="space-y-2 text-center text-base text-muted-foreground">
+                <li>σχέσεις υψηλής σύγκρουσης</li>
+                <li>διαζύγια με ένταση</li>
+                <li>γονεϊκή αποξένωση</li>
+              </ul>
+            </div>
+            <div className="pt-6 border-t">
+              <p className="text-center text-lg font-medium text-foreground">
+                Κεντρικός στόχος:
+              </p>
+              <p className="mt-2 text-center text-base leading-relaxed text-muted-foreground">
+                να νιώσεις πρώτα πιο ασφαλής και πιο σταθερός, και μετά, με καθαρό μυαλό, να πάρεις τις αποφάσεις που χρειάζεται.
+              </p>
+            </div>
+          </div>
+        </div>
+      </Section>
+
+      {/* Philosophy */}
+      <Section className="bg-muted/30">
+        <div className="mx-auto max-w-4xl">
+          <div className="mb-4 text-center">
             <h2 className="mb-3 text-3xl font-bold md:text-4xl">Η φιλοσοφία μας</h2>
           </div>
           <Card className="border-primary/20 shadow-lg">
-            <CardHeader>
+            <CardHeader>-
               <CardTitle className="text-2xl">Reverse Momentum Model</CardTitle>
               <CardDescription className="text-lg">Μοντέλο Αντίστροφης Ορμής</CardDescription>
             </CardHeader>
@@ -61,9 +162,9 @@ export default function Home() {
       </Section>
 
       {/* Who It's For */}
-      <Section className="bg-muted/30">
+      <Section>
         <div className="mx-auto max-w-4xl">
-          <div className="mb-6 text-center">
+          <div className="mb-4 text-center">
             <h2 className="mb-3 text-3xl font-bold md:text-4xl">Σε ποιους απευθύνεται</h2>
           </div>
           <div className="grid gap-4 md:grid-cols-2">
@@ -126,7 +227,7 @@ export default function Home() {
       {/* Services Preview */}
       <Section>
         <div className="mx-auto max-w-6xl">
-          <div className="mb-6 text-center">
+          <div className="mb-4 text-center">
             <h2 className="mb-3 text-3xl font-bold md:text-4xl">Τι προσφέρουμε</h2>
           </div>
           <div className="grid gap-5 md:grid-cols-2">
@@ -238,9 +339,9 @@ export default function Home() {
       </Section>
 
       {/* Why Oikiosis */}
-      <Section className="bg-muted/30">
+      <Section>
         <div className="mx-auto max-w-3xl text-center">
-          <h2 className="mb-4 text-3xl font-bold md:text-4xl">Γιατί Οικίωσις</h2>
+          <h2 className="mb-4 text-3xl font-bold md:text-4xl">Γιατί Οικείωσις</h2>
           <div className="space-y-4 text-lg">
             <Card>
               <CardContent className="pt-6">
@@ -265,7 +366,7 @@ export default function Home() {
               </CardContent>
             </Card>
             <p className="text-xl font-semibold text-primary">
-              Οικίωσις σημαίνει να επιστρέφεις στο ανθρώπινο.
+              Οικείωσις σημαίνει να επιστρέφεις στο ανθρώπινο.
             </p>
             <p className="text-lg text-muted-foreground">
               Και εδώ, κάθε επιστροφή είναι δυνατή.
@@ -275,9 +376,9 @@ export default function Home() {
       </Section>
 
       {/* What to Expect */}
-      <Section>
+      <Section className="bg-muted/30">
         <div className="mx-auto max-w-3xl">
-          <div className="mb-6 text-center">
+          <div className="mb-4 text-center">
             <h2 className="mb-3 text-3xl font-bold md:text-4xl">Τι να περιμένεις</h2>
           </div>
           <div className="grid gap-4 md:grid-cols-3">
@@ -312,6 +413,24 @@ export default function Home() {
               </CardContent>
             </Card>
           </div>
+        </div>
+      </Section>
+
+      {/* Second Call to Action */}
+      <Section className="bg-muted/30">
+        <div className="mx-auto max-w-2xl text-center">
+          <Button 
+            size="lg" 
+            className="mb-4 text-lg font-semibold px-8 py-4 shadow-lg hover:shadow-xl transition-shadow"
+            asChild
+          >
+            <Link href="/services">
+              Δείτε πώς μπορούμε να σας βοηθήσουμε
+            </Link>
+          </Button>
+          <p className="text-sm text-muted-foreground">
+            Υπηρεσίες για άτομα, ζευγάρια, γονείς και επαγγελματίες.
+          </p>
         </div>
       </Section>
     </>

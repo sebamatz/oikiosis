@@ -10,20 +10,20 @@ export default function AboutPage() {
     <>
       <Section className="bg-muted/30">
         <div className="mx-auto max-w-4xl">
-          <Link href="/" className="mb-6 inline-flex items-center text-sm text-muted-foreground hover:text-foreground">
+          <Link href="/" className="mb-4 inline-flex items-center text-sm text-muted-foreground hover:text-foreground">
             <ArrowLeft className="mr-2 h-4 w-4" />
             Επιστροφή στην Αρχική
           </Link>
-          <div className="mb-6 text-center">
+          <div className="mb-4 text-center">
             <h1 className="mb-3 text-4xl font-bold md:text-5xl">Σχετικά με εμάς</h1>
           </div>
         </div>
       </Section>
 
       {/* Philosophy */}
-      <Section>
+      <Section className="bg-muted/30">
         <div className="mx-auto max-w-4xl">
-          <div className="mb-6 text-center">
+          <div className="mb-4 text-center">
             <h2 className="mb-3 text-3xl font-bold md:text-4xl">Η φιλοσοφία μας</h2>
           </div>
           <Card className="overflow-hidden border-primary/20 shadow-lg">
@@ -64,9 +64,9 @@ export default function AboutPage() {
       </Section>
 
       {/* How We Work */}
-      <Section className="bg-muted/30">
+      <Section>
         <div className="mx-auto max-w-4xl">
-          <div className="mb-6 text-center">
+          <div className="mb-4 text-center">
             <h2 className="mb-3 text-3xl font-bold md:text-4xl">Πώς δουλεύουμε</h2>
           </div>
           <div className="grid gap-4 md:grid-cols-2">
@@ -115,9 +115,9 @@ export default function AboutPage() {
       </Section>
 
       {/* Team Members */}
-      <Section>
+      <Section className="bg-muted/30">
         <div className="mx-auto max-w-4xl">
-          <div className="mb-6 text-center">
+          <div className="mb-4 text-center">
             <h2 className="mb-3 text-3xl font-bold md:text-4xl">Η Ομάδα μας</h2>
           </div>
           <div className="space-y-6">
@@ -276,7 +276,7 @@ export default function AboutPage() {
         </div>
       </Section>
 
-      <Section className="bg-muted/30">
+      <Section>
         <div className="mx-auto max-w-2xl text-center">
           <Button size="lg" asChild>
             <Link href="/contact">Επικοινωνήστε μαζί μας</Link>
