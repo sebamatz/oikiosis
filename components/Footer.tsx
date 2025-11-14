@@ -50,13 +50,6 @@ export default function Footer() {
             <h4 className="font-semibold">Επικοινωνία</h4>
             <div className="space-y-2 text-sm text-muted-foreground">
               <a
-                href="tel:+306947302694"
-                className="flex items-center gap-2 hover:text-foreground transition-colors"
-              >
-                <Phone className="h-4 w-4" />
-                +30 694 730 2694
-              </a>
-              <a
                 href="tel:+306989940588"
                 className="flex items-center gap-2 hover:text-foreground transition-colors"
               >
@@ -77,6 +70,15 @@ export default function Footer() {
               <br />
               Ψυχολόγος - Ψυχοθεραπευτής
             </p>
+            <p>
+              <span className="font-semibold text-foreground">
+                Σοφία Μίαρη
+              </span>
+              <br />
+              Ψυχολόγος, PhD, MSc
+            </p>
+            
+            
             <p className="text-xs">
               © {new Date().getFullYear()} Οικείωσις. Όλα τα δικαιώματα διατηρούνται.
             </p>

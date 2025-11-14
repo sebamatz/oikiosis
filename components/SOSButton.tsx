@@ -37,7 +37,7 @@ export default function SOSButton({
   const defaultDescription = (
     <div className="flex flex-col items-start">
       <p className={cn("text-xs sm:text-sm md:text-base lg:text-lg text-muted-foreground mb-2 break-words")}>
-        Η 10λεπτη κλήση σου για άμεσο Προσανατολισμό & Σταθεροποίηση.
+        Η 10λεπτη δωρεάν κλήση σου για άμεσο Προσανατολισμό & Σταθεροποίηση.
       </p>
     </div>
   );

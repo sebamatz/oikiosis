@@ -36,7 +36,7 @@ export default function Hero() {
           <div className="relative hidden lg:block min-w-0">
             <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl">
               <Image
-                src="/images/hero.jpg"
+                src="/images/compass.jpg"
                 alt="Φάρος - Πρώτο Πλάνο"
                 fill
                 className="object-cover"

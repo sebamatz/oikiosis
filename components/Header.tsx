@@ -14,7 +14,7 @@ export default function Header() {
     { href: "/services", label: "Υπηρεσίες" },
     { href: "/about", label: "Σχετικά" },
     { href: "/contact", label: "Επικοινωνία" },
-    { href: "/booking", label: "Κράτηση Συνεδρίας" },
+    // { href: "/booking", label: "Κράτηση Συνεδρίας" },
   ];
 
   return (
@@ -35,9 +35,6 @@ export default function Header() {
               {item.label}
             </Link>
           ))}
-          <Button size="sm" variant="outline" className="whitespace-normal overflow-hidden" asChild>
-            <Link href="/booking" className="break-words whitespace-normal min-w-0 overflow-hidden">Κράτηση Συνεδρίας</Link>
-          </Button>
         </div>
 
         {/* Mobile Menu Button */}
