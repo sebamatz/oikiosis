@@ -159,9 +159,9 @@ export default function BookingPage() {
               size="lg" 
               onClick={handleBooking}
               disabled={!date || !selectedTime || !selectedPsychologist}
-              className="w-full md:w-auto"
+              className="w-full md:w-auto max-w-[400px] whitespace-normal overflow-hidden"
             >
-              Κλείστε Συνεδρία
+              <span className="break-words whitespace-normal min-w-0">Κλείστε Συνεδρία</span>
             </Button>
           </div>
 

@@ -35,8 +35,8 @@ export default function Header() {
               {item.label}
             </Link>
           ))}
-          <Button size="sm" variant="outline" asChild>
-            <Link href="/booking">Κράτηση Συνεδρίας</Link>
+          <Button size="sm" variant="outline" className="whitespace-normal overflow-hidden" asChild>
+            <Link href="/booking" className="break-words whitespace-normal min-w-0 overflow-hidden">Κράτηση Συνεδρίας</Link>
           </Button>
         </div>
 
@@ -68,8 +68,8 @@ export default function Header() {
                 {item.label}
               </Link>
             ))}
-            <Button className="w-full" asChild>
-              <Link href="/contact" onClick={() => setMobileMenuOpen(false)}>
+            <Button className="w-full whitespace-normal overflow-hidden" asChild>
+              <Link href="/contact" onClick={() => setMobileMenuOpen(false)} className="break-words whitespace-normal min-w-0 overflow-hidden">
                 Επικοινωνία
               </Link>
             </Button>

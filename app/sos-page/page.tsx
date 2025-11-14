@@ -166,12 +166,12 @@ export default function SOSPage() {
             <div className="pt-8 text-center">
               <Button 
                 size="lg" 
-                className="text-lg font-semibold px-8 py-4 shadow-lg hover:shadow-xl transition-shadow"
+                className="text-lg font-semibold px-8 py-4 shadow-lg hover:shadow-xl transition-shadow max-w-[400px] w-full whitespace-normal overflow-hidden"
                 asChild
               >
-                <Link href="/booking">
-                  <Phone className="mr-2 h-5 w-5" />
-                  Κράτηση 10λεπτης Κλήσης S.O.S.
+                <Link href="/booking" className="flex items-center justify-center gap-2 min-w-0 overflow-hidden">
+                  <Phone className="h-5 w-5 flex-shrink-0" />
+                  <span className="break-words text-center whitespace-normal min-w-0 text-sm md:text-normal">Κράτηση 10λεπτης Κλήσης S.O.S.</span>
                 </Link>
               </Button>
             </div>

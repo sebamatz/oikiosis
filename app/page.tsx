@@ -328,10 +328,15 @@ export default function Home() {
             </Card>
           </div>
           <div className="mt-8 text-center">
-            <Button size="lg" variant="outline" asChild>
-              <Link href="/services">
-                Δείτε όλες τις Υπηρεσίες
-                <ArrowRight className="ml-2 h-4 w-4" />
+            <Button 
+              size="lg" 
+              variant="outline" 
+              className="max-w-[400px] w-full whitespace-normal overflow-hidden"
+              asChild
+            >
+              <Link href="/services" className="flex items-center justify-center gap-2 min-w-0 overflow-hidden">
+                <span className="break-words whitespace-normal min-w-0">Δείτε όλες τις Υπηρεσίες</span>
+                <ArrowRight className="h-4 w-4 flex-shrink-0" />
               </Link>
             </Button>
           </div>
@@ -421,10 +426,10 @@ export default function Home() {
         <div className="mx-auto max-w-2xl text-center">
           <Button 
             size="lg" 
-            className="mb-4 text-lg font-semibold px-8 py-4 shadow-lg hover:shadow-xl transition-shadow"
+            className="mb-4 text-lg font-semibold py-4 shadow-lg hover:shadow-xl transition-shadow max-w-[400px] w-full whitespace-normal overflow-hidden"
             asChild
           >
-            <Link href="/services">
+            <Link href="/services" className="break-words text-center whitespace-normal">
               Δείτε πώς μπορούμε να σας βοηθήσουμε
             </Link>
           </Button>

@@ -59,7 +59,9 @@ export default function SOSButton({
           "py-3 sm:py-4",
           "shadow-lg hover:shadow-xl",
           "transition-all duration-200",
-          "max-w-full",
+          "max-w-[400px]",
+          "whitespace-normal",
+          "overflow-hidden",
           fullWidth ? "w-full sm:w-auto" : "w-auto",
           variant === "outline" && "border-2 border-primary",
           variant === "ghost" && "bg-transparent hover:bg-primary/10"
@@ -68,10 +70,10 @@ export default function SOSButton({
       >
         <Link
           href={href}
-          className="flex items-center justify-center gap-2 sm:gap-3 w-full sm:w-auto"
+          className="flex items-center justify-center gap-2 sm:gap-3 w-full sm:w-auto min-w-0 overflow-hidden"
         >
           <Phone className="h-5 w-5 sm:h-6 sm:w-6 flex-shrink-0 transition-transform group-hover:scale-110" />
-          <span className="text-sm sm:text-base md:text-lg lg:text-xl font-semibold leading-tight">
+          <span className="text-sm sm:text-base md:text-lg font-semibold leading-tight break-words text-center whitespace-normal min-w-0">
             Χρειάζομαι άμεση βοήθεια
           </span>
         </Link>

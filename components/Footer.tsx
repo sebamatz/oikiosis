@@ -68,7 +68,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-8 border-t pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
+          <div className="flex flex-col md:flex-row justify-between  items-start md:items-center gap-4 text-sm text-muted-foreground">
             <p>
               Με εκτίμηση,<br />
               <span className="font-semibold text-foreground">

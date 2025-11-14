@@ -178,8 +178,14 @@ export default function ServicesPage() {
             </CardContent>
           </Card>
           <div className="mt-8">
-            <Button size="lg" asChild>
-              <Link href="/contact">Επικοινωνήστε μαζί μας</Link>
+            <Button 
+              size="lg" 
+              className="max-w-[400px] w-full whitespace-normal overflow-hidden"
+              asChild
+            >
+              <Link href="/contact" className="break-words text-center whitespace-normal min-w-0 overflow-hidden">
+                Επικοινωνήστε μαζί μας
+              </Link>
             </Button>
           </div>
         </div>
