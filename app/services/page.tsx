@@ -103,24 +103,24 @@ export default function ServicesPage() {
       <Section>
         <div className="mx-auto max-w-5xl space-y-6">
           {services.map((service, index) => (
-            <Card key={index} className="overflow-hidden border-primary/20 shadow-lg hover:shadow-xl transition-shadow">
-              <div className="grid md:grid-cols-2 gap-0">
+            <Card key={index} className="overflow-hidden border-primary/20 shadow-lg hover:shadow-xl transition-shadow p-4 ">
+              <div className="grid md:grid-cols-2 gap-4">
                 <div className="relative h-64 md:h-auto">
                   <Image
                     src={service.image}
                     alt={service.title}
                     fill
-                    className="object-cover"
+                    className="object-cover rounded-lg"
                   />
                 </div>
                 <div>
-                  <CardHeader>
+                  <CardHeader className="p-0 md:p-4">
                     <CardTitle className="text-xl md:text-2xl">{service.title}</CardTitle>
                     {service.subtitle && (
                       <CardDescription className="text-lg">{service.subtitle}</CardDescription>
                     )}
                   </CardHeader>
-                  <CardContent className="space-y-3">
+                  <CardContent className="space-y-3 p-0 md:p-4">
                     {service.description.map((item, idx) => (
                       <p key={idx} className="text-muted-foreground leading-relaxed">
                         {item}
