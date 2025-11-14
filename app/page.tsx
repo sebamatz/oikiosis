@@ -426,7 +426,7 @@ export default function Home() {
         <div className="mx-auto max-w-2xl text-center">
           <Button 
             size="lg" 
-            className="mb-4 text-lg font-semibold py-4 shadow-lg hover:shadow-xl transition-shadow max-w-[400px] w-full whitespace-normal overflow-hidden"
+            className="mb-4 text-lg font-semibold text-sm md:text-base lg:text-lg py-4 shadow-lg hover:shadow-xl transition-shadow max-w-[400px] w-full whitespace-normal overflow-hidden"
             asChild
           >
             <Link href="/services" className="break-words text-center whitespace-normal">
