@@ -61,7 +61,7 @@ export default function Footer() {
                 className="flex items-center gap-2 hover:text-foreground transition-colors"
               >
                 <Phone className="h-4 w-4" />
-                +30 698 994 0588
+                6989940588
               </a>
             </div>
           </div>

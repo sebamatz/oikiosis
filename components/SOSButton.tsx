@@ -36,11 +36,8 @@ export default function SOSButton({
 
   const defaultDescription = (
     <div className="flex flex-col items-start">
-      <p className={cn("text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground mb-2 break-words", textAlignmentClasses[align])}>
-        Δωρεάν, σύντομη κλήση 10 λεπτών με τον Ιωάννη Γιαννόπουλο.
-      </p>
-      <p className={cn("text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed break-words", textAlignmentClasses[align])}>
-        Μιλάμε για αυτό που περνάς, βρίσκουμε σαφήνεια και καθορίζουμε μαζί το επόμενο βήμα.
+      <p className={cn("text-xs sm:text-sm md:text-base lg:text-lg text-muted-foreground mb-2 break-words")}>
+        Η 10λεπτη κλήση σου για άμεσο Προσανατολισμό & Σταθεροποίηση.
       </p>
     </div>
   );
@@ -74,7 +71,7 @@ export default function SOSButton({
         >
           <Phone className="h-5 w-5 sm:h-6 sm:w-6 flex-shrink-0 transition-transform group-hover:scale-110" />
           <span className="text-sm sm:text-base md:text-lg font-semibold leading-tight break-words text-center whitespace-normal min-w-0">
-            Χρειάζομαι άμεση βοήθεια
+            ΕΝΕΡΓΟΠΟΙΗΣΗ S.O.S.
           </span>
         </Link>
       </Button>

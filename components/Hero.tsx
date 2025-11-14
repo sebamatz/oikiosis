@@ -15,34 +15,13 @@ export default function Hero() {
           {/* Text Content */}
           <div className="text-center lg:text-left min-w-0 w-full max-w-full">
             <h1 className="mb-4 sm:mb-6 text-xl sm:text-2xl md:text-3xl font-bold leading-tight tracking-tight break-words">
-              Όταν η σύγκρουση γίνεται καταιγίδα, δεν χρειάζεται να είσαι μόνος.
+              Όταν η σύγκρουση γίνεται καταιγίδα, η Οικείωσις είναι καταφύγιο και πυξίδα.
             </h1>
             <p className="mb-3 sm:mb-4 text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground break-words">
-              Η <span className="font-semibold text-foreground">Οικείωσις</span> είναι ένας ήρεμος, προστατευμένος χώρος για ανθρώπους που ζουν:
+              Πλοήγηση σε Σχέσεις Υψηλής Σύγκρουσης & Γονεϊκή Αποξένωση.
             </p>
-            <ul className="mb-4 sm:mb-6 space-y-2 text-left text-sm sm:text-base md:text-lg text-muted-foreground">
-              <li className="flex items-start gap-2 min-w-0">
-                <span className="text-primary mt-1 flex-shrink-0">•</span>
-                <span className="break-words">σχέσεις σε υψηλή σύγκρουση</span>
-              </li>
-              <li className="flex items-start gap-2 min-w-0">
-                <span className="text-primary mt-1 flex-shrink-0">•</span>
-                <span className="break-words">δύσκολο ή επώδυνο διαζύγιο</span>
-              </li>
-              <li className="flex items-start gap-2 min-w-0">
-                <span className="text-primary mt-1 flex-shrink-0">•</span>
-                <span className="break-words">γονεϊκή αποξένωση</span>
-              </li>
-              <li className="flex items-start gap-2 min-w-0">
-                <span className="text-primary mt-1 flex-shrink-0">•</span>
-                <span className="break-words">Οικογένειες ή ζευγάρια σε σύγχυση και αποδρομή</span>
-              </li>
-            </ul>
-            <p className="mb-3 sm:mb-4 text-sm sm:text-base md:text-lg lg:text-xl font-medium text-foreground break-words">
-              Ο πόνος σου δεν είναι «υπερβολή». Είναι βάρος που κουβαλάς μόνος σου εδώ και καιρό.
-            </p>
-            <p className="mb-4 sm:mb-6 text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground break-words">
-              Εδώ, σε ακούμε, σε πιστεύουμε και σε βοηθάμε να πάρεις την πρώτη ανάσα.
+            <p className="mb-4 sm:mb-6 text-sm sm:text-base md:text-lg lg:text-xl font-medium text-foreground break-words">
+              Ο πόνος σου αναγνωρίζεται. Η πλοήγησή σου ξεκινά εδώ.
             </p>
             <div className="w-full">
               <SOSButton 
@@ -58,7 +37,7 @@ export default function Hero() {
             <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl">
               <Image
                 src="/images/hero.jpg"
-                alt="Θεραπευτική συνεδρία - Ψυχολόγος και ασθενής με χαμόγελο"
+                alt="Φάρος - Πρώτο Πλάνο"
                 fill
                 className="object-cover"
                 priority

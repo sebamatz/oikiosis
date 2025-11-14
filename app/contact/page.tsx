@@ -40,12 +40,11 @@ export default function ContactPage() {
                   </a>
                 </div>
                 <div className="mt-4">
-                  <p className="mb-2 text-sm font-semibold text-muted-foreground">Σοφία Μίαρη</p>
                   <a
                     href="tel:+306989940588"
                     className="text-lg font-medium text-primary hover:underline"
                   >
-                    +30 698 994 0588
+                    6989940588
                   </a>
                 </div>
               </CardContent>
@@ -69,7 +68,7 @@ export default function ContactPage() {
                 <div className="mt-4">
                   <p className="mb-2 font-semibold">Διάρκεια</p>
                   <p className="text-sm text-muted-foreground">
-                    50′ (παρεμβάσεις επανασύνδεσης: 50′–80′ ανά στάδιο).
+                    60 λεπτά
                   </p>
                 </div>
                 <div className="mt-4">

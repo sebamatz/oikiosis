@@ -8,54 +8,81 @@ import Image from "next/image";
 export default function ServicesPage() {
   const services = [
     {
-      title: "1. Ατομική Ψυχοθεραπεία",
-      subtitle: "Ενήλικες",
-      image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=800&h=500&fit=crop&q=80",
-      description: [
-        "Ρύθμιση συναισθηματικής έντασης",
-        "Επαναπλαισίωση ιστορίας",
-        "Δεξιότητες ορίων και επικοινωνίας",
-      ],
-    },
-    {
-      title: "2. Συνεδρίες Συν-Γονέων",
-      subtitle: "Co-parenting",
-      image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&h=500&fit=crop&q=80",
-      description: [
-        "Απο-κλιμάκωση σύγκρουσης",
-        "Συμφωνίες ελαχίστων κινδύνων",
-        "Πρακτικά πρωτόκολλα για το παιδί",
-      ],
-    },
-    {
-      title: "3. Παρέμβαση Επανασύνδεσης Γονέα–Παιδιού",
+      title: "Πλοήγηση Κρίσης S.O.S. (Διαζύγιο HCD & Σχέσεις)",
       subtitle: "",
-      image: "https://images.unsplash.com/photo-1511988617509-a57c8a288659?w=800&h=500&fit=crop&q=80",
+      image: "/images/hero.jpg",
       description: [
-        "Σταδιακή αποκατάσταση δεσμού με ασφάλεια",
-        "Προστασία από πισωγυρίσματα",
-        "Συνεργασία με το οικογενειακό σύστημα",
+        "Όταν το «σπίτι καίγεται», δεν αναλύουμε. Παρεμβαίνουμε.",
+        "Αυτή είναι η επείγουσα υπηρεσία First Responder του μοντέλου R.M.",
+        "Εφαρμόζουμε άμεσα το πρωτόκολλο S.O.S.* (Ασφάλεια, Προσανατολισμός, Σταθεροποίηση) για να μειώσουμε την Ταχύτητα (v) της κρίσης, να διαχειριστούμε το χάος του HCD* και να σχεδιάσουμε την «Πυξίδα των 72 Ωρών» σας.",
+        "Στόχος: άμεση Σταθεροποίηση.",
       ],
     },
     {
-      title: "4. Συμβουλευτική Διαζυγίου & Μεταβάσεων",
+      title: "Παρέμβαση Επανασύνδεσης (Γονεϊκή Αποξένωση – PA)",
       subtitle: "",
-      image: "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=800&h=500&fit=crop&q=80",
+      image: "/images/Παρέμβαση Επανασύνδεσης Γονέα Παιδιού.jpg",
       description: [
-        "Πλοήγηση σε δικαστικές/νομικές συνθήκες",
-        "Ψυχοεκπαίδευση για το παιδί",
-        "Σταθεροποίηση ρουτίνας",
+        "Η Γονεϊκή Αποξένωση (PA)* είναι ο «τοίχος» που μπλοκάρει τη σχέση.",
+        "Η προσέγγισή μας είναι 100% Παιδοκεντρική (Child-Centric). Δεν παίρνουμε «μέρος».",
+        "Λειτουργούμε ως Πλοηγοί που χτίζουν μια ασφαλή «γέφυρα» επανασύνδεσης, εφαρμόζοντας το δομημένο πρωτόκολλο R.E.A.C.H.* για να ξαναχτιστεί η εμπιστοσύνη σε ένα σταθερό, ρυθμισμένο περιβάλλον.",
       ],
     },
     {
-      title: "5. Εποπτεία & Εκπαίδευση Επαγγελματιών",
+      title: "Ατομική Θεραπεία R.E.A.C.H. (Αναδόμηση & PTG)",
       subtitle: "",
-      image: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&h=500&fit=crop&q=80",
+      image: "/images/Ατομική Ψυχοθεραπεία.jpg",
       description: [
-        "Κλινική εποπτεία",
-        "Πρωτόκολλα διαχείρισης υψηλής σύγκρουσης",
-        "Εργαστήρια για ομάδες",
+        "Αφού η «φωτιά» (S.O.S.) σταθεροποιηθεί, ξεκινά η Αναδόμηση.",
+        "Εδώ εφαρμόζουμε πλήρως τον Χάρτη 5 Φάσεων (R.E.A.C.H.).",
+        "Πλοηγούμαστε μαζί σε κάθε βήμα (Ρύθμιση, Απο-σύμπλεξη, Ανασύνδεση, Συνεπίλυση) με τελικό στόχο την Αναδόμηση (Harvest).",
+        "Όπως στο Kintsugi, οι ρωγμές της κρίσης γίνονται έδαφος για Μετατραυματική Ανάπτυξη (PTG).",
       ],
+    },
+    {
+      title: "Σχεδιασμός Συν-Γονεϊκότητας (Co-Parenting Design)",
+      subtitle: "",
+      image: "/images/Συνεδρίες ΣυνΓονέων.jpg",
+      description: [
+        "Στην Υψηλή Σύγκρουση, ο στόχος δεν είναι η «φιλία», αλλά η Λειτουργική Συνεργασία.",
+        "Αυτή η υπηρεσία είναι ο σχεδιασμός του νέου σας «λειτουργικού συστήματος».",
+        "Σας εκπαιδεύουμε στα «εργαλεία πλοήγησης» (BIFF*, S.A.F.E.) και χτίζουμε ένα παιδοκεντρικό πλάνο που λειτουργεί με ακρίβεια, σαν γρανάζια, προστατεύοντας τα παιδιά από την τριβή.",
+      ],
+    },
+    {
+      title: "Συμβουλευτική Γονέων (Συστημική Υποστήριξη)",
+      subtitle: "",
+      image: "/images/Συμβουλευτική Γονέων.jpeg",
+      description: [
+        "Πριν η τριβή γίνει καταιγίδα.",
+        "Αυτή η υπηρεσία είναι η Συστημική Υποστήριξη.",
+        "Βλέπουμε την οικογένεια ως δέντρο: εστιάζουμε στις ρίζες (ασφάλεια γονέων) και στην κόμη (προστασία παιδιού), πλοηγώντας τις αναπτυξιακές προκλήσεις με ηρεμία και σύνδεση.",
+      ],
+    },
+    {
+      title: "Εποπτεία & Εκπαίδευση (R.M. Professional Track)",
+      subtitle: "",
+      image: "/images/Εποπτεία Εκπαίδευση Επαγγελματιών.jpg",
+      description: [
+        "Η Υψηλή Σύγκρουση απαιτεί εξειδικευμένο χάρτη, όχι γενική θεωρία.",
+        "Η υπηρεσία αυτή απευθύνεται σε επαγγελματίες (ψυχολόγους, νομικούς) που πλοηγούν υποθέσεις HCD* και PA*.",
+        "Παρέχουμε δομημένη εποπτεία και εκπαίδευση στο μοντέλο R.M., μεταφέροντας τη «Μάζα» (m) – τη στρατηγική – και τα «εργαλεία πλοήγησης» που απαιτούνται για την αποτελεσματική διαχείριση των πιο απαιτητικών περιστατικών.",
+      ],
+    },
+    {
+      title: "Ο Κόμβος R.E.A.C.H. (Ασύγχρονη Πλοήγηση)",
+      subtitle: "",
+      image: "/images/το αποτέλεσμα.jpg",
+      description: [
+        "Κατανοούμε ότι δεν χρειάζονται όλοι ατομική θεραπεία, αλλά όλοι αξίζουν πρόσβαση στον χάρτη.",
+        "Ο Κόμβος R.E.A.C.H. είναι η ψηφιακή, συνδρομητική μας πλατφόρμα ψυχοεκπαίδευσης.",
+        "Για όσους θέλουν να πλοηγηθούν με τον δικό τους ρυθμό.",
+        "Για όσους χρειάζονται πρακτικά εργαλεία (BIFF, S.A.F.E.) και την εξειδικευμένη γνώση του R.M. με πιο προσιτό τρόπο.",
+        "Αποκτάτε πρόσβαση σε βιβλιοθήκη workshops, σε audio–video «Νευρο-Άγκυρες» και στα μηνιαία Live Q&A.",
+      ],
+      hasButton: true,
+      buttonText: "ΓΙΝΕΤΕ ΜΕΛΟΣ ΣΤΟΝ ΚΟΜΒΟ",
+      buttonHref: "#", // Update with actual link when available
     },
   ];
 
@@ -68,7 +95,7 @@ export default function ServicesPage() {
             Επιστροφή στην Αρχική
           </Link>
           <div className="mb-4 text-center">
-            <h1 className="mb-3 text-2xl font-bold md:text-3xl">Τι προσφέρουμε</h1>
+            <h1 className="mb-3 text-2xl font-bold md:text-3xl">Υπηρεσίες</h1>
           </div>
         </div>
       </Section>
@@ -88,20 +115,30 @@ export default function ServicesPage() {
                 </div>
                 <div>
                   <CardHeader>
-                    <CardTitle className="text-2xl">{service.title}</CardTitle>
+                    <CardTitle className="text-xl md:text-2xl">{service.title}</CardTitle>
                     {service.subtitle && (
                       <CardDescription className="text-lg">{service.subtitle}</CardDescription>
                     )}
                   </CardHeader>
-                  <CardContent>
-                    <ul className="space-y-2">
-                      {service.description.map((item, idx) => (
-                        <li key={idx} className="flex items-start gap-3">
-                          <span className="mt-1 text-primary">•</span>
-                          <span className="text-muted-foreground">{item}</span>
-                        </li>
-                      ))}
-                    </ul>
+                  <CardContent className="space-y-3">
+                    {service.description.map((item, idx) => (
+                      <p key={idx} className="text-muted-foreground leading-relaxed">
+                        {item}
+                      </p>
+                    ))}
+                    {service.hasButton && (
+                      <div className="pt-4">
+                        <Button 
+                          size="lg" 
+                          className="w-full md:w-auto"
+                          asChild
+                        >
+                          <Link href={service.buttonHref || "#"}>
+                            {service.buttonText}
+                          </Link>
+                        </Button>
+                      </div>
+                    )}
                   </CardContent>
                 </div>
               </div>
@@ -112,55 +149,6 @@ export default function ServicesPage() {
 
       <Section className="bg-muted/30">
         <div className="mx-auto max-w-3xl text-center">
-          <h2 className="mb-4 text-3xl font-bold">Πώς δουλεύουμε</h2>
-          <div className="grid gap-4 md:grid-cols-2">
-            <Card className="shadow-md hover:shadow-lg transition-shadow">
-              <CardHeader>
-                <CardTitle>Αποτύπωση & Στόχευση</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">
-                  Σύντομη κλινική χαρτογράφηση και καθορισμός άμεσων στόχων ασφάλειας.
-                </p>
-              </CardContent>
-            </Card>
-            <Card className="shadow-md hover:shadow-lg transition-shadow">
-              <CardHeader>
-                <CardTitle>Reverse Momentum Model</CardTitle>
-                <CardDescription>Μοντέλο Αντίστροφης Ορμής</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">
-                  Μετατρέπουμε την εσωτερική αντίσταση σε μικρά, εφαρμόσιμα βήματα προόδου.
-                </p>
-              </CardContent>
-            </Card>
-            <Card className="shadow-md hover:shadow-lg transition-shadow">
-              <CardHeader>
-                <CardTitle>Εστίαση στη σχέση</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">
-                  Αποκατάσταση δεσμών, επαναφορά ορίων, ενίσχυση συναισθηματικής ασφάλειας.
-                </p>
-              </CardContent>
-            </Card>
-            <Card className="shadow-md hover:shadow-lg transition-shadow">
-              <CardHeader>
-                <CardTitle>Μετρήσιμα βήματα</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">
-                  Σαφείς δείκτες βελτίωσης για διατήρηση της πορείας.
-                </p>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </Section>
-
-      <Section>
-        <div className="mx-auto max-w-3xl text-center">
           <h2 className="mb-4 text-3xl font-bold">Μορφή συνεδριών</h2>
           <Card className="shadow-lg">
             <CardContent className="pt-6">
@@ -169,7 +157,7 @@ export default function ServicesPage() {
                   <span className="font-semibold">Διαδικτυακά:</span> Ασφαλής πλατφόρμα, απόρρητο.
                 </p>
                 <p>
-                  <span className="font-semibold">Διάρκεια:</span> 50′ (παρεμβάσεις επανασύνδεσης: 50′–80′ ανά στάδιο).
+                  <span className="font-semibold">Διάρκεια:</span> 60 λεπτά
                 </p>
                 <p>
                   <span className="font-semibold">Συχνότητα:</span> Εβδομαδιαία ή εντατική, ανάλογα με τη φάση και τον στόχο.
@@ -190,7 +178,69 @@ export default function ServicesPage() {
           </div>
         </div>
       </Section>
+
+      {/* Glossary */}
+      <Section>
+        <div className="mx-auto max-w-4xl">
+          <h2 className="mb-6 text-center text-2xl font-bold md:text-3xl">ΓΛΩΣΣΑΡΙΟ ΑΚΡΩΝΥΜΙΩΝ R.M.</h2>
+          <div className="space-y-4">
+            <Card className="shadow-md">
+              <CardContent className="pt-6">
+                <div className="space-y-4 text-left">
+                  <div>
+                    <p className="font-semibold text-foreground mb-1">
+                      S.O.S.:
+                    </p>
+                    <p className="text-muted-foreground">
+                      Safety (Ασφάλεια), Orientation (Προσανατολισμός), Stabilization (Σταθεροποίηση) – Πρωτόκολλο επείγουσας παρέμβασης.
+                    </p>
+                  </div>
+                  <div>
+                    <p className="font-semibold text-foreground mb-1">
+                      HCD:
+                    </p>
+                    <p className="text-muted-foreground">
+                      High-Conflict Divorce (Διαζύγιο Υψηλής Σύγκρουσης).
+                    </p>
+                  </div>
+                  <div>
+                    <p className="font-semibold text-foreground mb-1">
+                      PA:
+                    </p>
+                    <p className="text-muted-foreground">
+                      Parental Alienation (Γονεϊκή Αποξένωση).
+                    </p>
+                  </div>
+                  <div>
+                    <p className="font-semibold text-foreground mb-1">
+                      R.E.A.C.H.:
+                    </p>
+                    <p className="text-muted-foreground">
+                      Regulate (Ρύθμιση), Extract (Απο-σύμπλεξη), Align (Ανασύνδεση), Co-resolve (Συνεπίλυση), Harvest (Αναδόμηση) – Χάρτης 5 φάσεων του μοντέλου.
+                    </p>
+                  </div>
+                  <div>
+                    <p className="font-semibold text-foreground mb-1">
+                      BIFF:
+                    </p>
+                    <p className="text-muted-foreground">
+                      Brief (Σύντομο), Informative (Πληροφοριακό), Friendly (Φιλικό), Firm (Σταθερό) – Εργαλείο επικοινωνίας σε HCD.
+                    </p>
+                  </div>
+                  <div>
+                    <p className="font-semibold text-foreground mb-1">
+                      PTG:
+                    </p>
+                    <p className="text-muted-foreground">
+                      Posttraumatic Growth (Μετατραυματική Ανάπτυξη).
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </Section>
     </>
   );
 }
-
