@@ -14,7 +14,7 @@ export default function Home() {
       {/* How We Help You */}
       <Section>
         <div className="mx-auto max-w-4xl">
-          <h2 className="mb-8 text-center text-3xl font-bold md:text-4xl">Πώς σε βοηθάμε</h2>
+          <h2 className="mb-8 text-center text-2xl font-bold md:text-3xl">Πώς σε βοηθάμε</h2>
           <div className="space-y-8">
             <div className="space-y-4 text-center">
               <p className="text-lg text-muted-foreground">
@@ -48,7 +48,7 @@ export default function Home() {
       {/* Who We Are */}
       <Section className="bg-muted/30">
         <div className="mx-auto max-w-4xl">
-          <h2 className="mb-4 text-center text-3xl font-bold md:text-4xl">Ποιοι είμαστε</h2>
+          <h2 className="mb-4 text-center text-2xl font-bold md:text-3xl">Ποιοι είμαστε</h2>
           <p className="mb-8 text-center text-lg text-muted-foreground">
             Είμαστε δύο ψυχολόγοι με κοινό στόχο: να σε βοηθήσουμε να βγεις από την εξουθενωτική σύγκρουση, με σεβασμό σε εσένα και στα παιδιά και να δημιουργήσεις υγιείς σχέσεις.
           </p>
@@ -89,7 +89,7 @@ export default function Home() {
       {/* Our Model */}
       <Section>
         <div className="mx-auto max-w-4xl">
-          <h2 className="mb-8 text-center text-3xl font-bold md:text-4xl">Το Μοντέλο μας «Αντίστροφη Ορμή»</h2>
+          <h2 className="mb-8 text-center text-2xl font-bold md:text-3xl">Το Μοντέλο μας «Αντίστροφη Ορμή»</h2>
           <div className="space-y-6">
             <p className="text-center text-lg text-muted-foreground">
               Στις σχέσεις υψηλής σύγκρουσης, η κρίση μοιάζει σαν να σε σπρώχνει με δύναμη προς έναν τοίχο.
@@ -134,7 +134,7 @@ export default function Home() {
       <Section className="bg-muted/30">
         <div className="mx-auto max-w-4xl">
           <div className="mb-4 text-center">
-            <h2 className="mb-3 text-3xl font-bold md:text-4xl">Η φιλοσοφία μας</h2>
+            <h2 className="mb-3 text-2xl font-bold md:text-3xl">Η φιλοσοφία μας</h2>
           </div>
           <Card className="border-primary/20 shadow-lg">
             <CardHeader>-
@@ -165,7 +165,7 @@ export default function Home() {
       <Section>
         <div className="mx-auto max-w-4xl">
           <div className="mb-4 text-center">
-            <h2 className="mb-3 text-3xl font-bold md:text-4xl">Σε ποιους απευθύνεται</h2>
+            <h2 className="mb-3 text-2xl font-bold md:text-3xl">Σε ποιους απευθύνεται</h2>
           </div>
           <div className="grid gap-4 md:grid-cols-2">
             <Card className="shadow-md hover:shadow-lg transition-shadow">
@@ -228,7 +228,7 @@ export default function Home() {
       <Section>
         <div className="mx-auto max-w-6xl">
           <div className="mb-4 text-center">
-            <h2 className="mb-3 text-3xl font-bold md:text-4xl">Τι προσφέρουμε</h2>
+            <h2 className="mb-3 text-2xl font-bold md:text-3xl">Τι προσφέρουμε</h2>
           </div>
           <div className="grid gap-5 md:grid-cols-2">
             <Card className="overflow-hidden border-primary/20 shadow-lg hover:shadow-xl transition-shadow">
@@ -341,7 +341,7 @@ export default function Home() {
       {/* Why Oikiosis */}
       <Section>
         <div className="mx-auto max-w-3xl text-center">
-          <h2 className="mb-4 text-3xl font-bold md:text-4xl">Γιατί Οικείωσις</h2>
+          <h2 className="mb-4 text-2xl font-bold md:text-3xl">Γιατί Οικείωσις</h2>
           <div className="space-y-4 text-lg">
             <Card>
               <CardContent className="pt-6">
@@ -379,7 +379,7 @@ export default function Home() {
       <Section className="bg-muted/30">
         <div className="mx-auto max-w-3xl">
           <div className="mb-4 text-center">
-            <h2 className="mb-3 text-3xl font-bold md:text-4xl">Τι να περιμένεις</h2>
+            <h2 className="mb-3 text-2xl font-bold md:text-3xl">Τι να περιμένεις</h2>
           </div>
           <div className="grid gap-4 md:grid-cols-3">
             <Card>

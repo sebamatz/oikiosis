@@ -45,7 +45,7 @@ export default function BookingPage() {
             Επιστροφή στην Αρχική
           </Link>
           <div className="mb-4 text-center">
-            <h1 className="mb-3 text-4xl font-bold md:text-5xl">Κράτηση Συνεδρίας</h1>
+            <h1 className="mb-3 text-2xl font-bold md:text-3xl">Κράτηση Συνεδρίας</h1>
             <p className="text-muted-foreground">Επιλέξτε ημερομηνία, ώρα και ψυχολόγο για τη συνεδρία σας</p>
           </div>
         </div>

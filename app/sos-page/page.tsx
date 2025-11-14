@@ -14,7 +14,7 @@ export default function SOSPage() {
             Επιστροφή στην Αρχική
           </Link>
           <div className="mb-4 text-center">
-            <h1 className="mb-3 text-4xl font-bold md:text-5xl">Ενεργοποίηση Πρωτοκόλλου S.O.S.</h1>
+            <h1 className="mb-3 text-2xl font-bold md:text-3xl">Ενεργοποίηση Πρωτοκόλλου S.O.S.</h1>
             <p className="text-lg text-muted-foreground">
               Safety (Ασφάλεια), Orientation (Προσανατολισμός), Stabilization (Σταθεροποίηση) – Πρωτόκολλο επείγουσας παρέμβασης.
             </p>
@@ -50,7 +50,7 @@ export default function SOSPage() {
       {/* What is the 10-minute SOS Call */}
       <Section className="bg-muted/30">
         <div className="mx-auto max-w-4xl">
-          <h2 className="mb-8 text-center text-3xl font-bold md:text-4xl">Τι είναι η 10λεπτη Κλήση S.O.S.</h2>
+          <h2 className="mb-8 text-center text-2xl font-bold md:text-3xl">Τι είναι η 10λεπτη Κλήση S.O.S.</h2>
           <div className="space-y-6">
             <p className="text-base leading-relaxed text-muted-foreground">
               Η κλήση γίνεται με τον <span className="font-semibold text-foreground">Ιωάννη Γιαννόπουλο</span>, ψυχολόγο και δημιουργό του μοντέλου <span className="font-semibold text-foreground">Αντίστροφη Ορμή</span> (Reverse Momentum Model), ειδικά σχεδιασμένου για:
@@ -73,7 +73,7 @@ export default function SOSPage() {
       {/* What we do in these 10 minutes */}
       <Section>
         <div className="mx-auto max-w-4xl">
-          <h2 className="mb-4 text-center text-3xl font-bold md:text-4xl">Τι κάνουμε σε αυτά τα 10 λεπτά</h2>
+          <h2 className="mb-4 text-center text-2xl font-bold md:text-3xl">Τι κάνουμε σε αυτά τα 10 λεπτά</h2>
           <p className="mb-10 text-center text-base leading-relaxed text-muted-foreground italic">
             Σκέψου την κλήση σαν έναν μικρό «θάλαμο ηρεμίας» μέσα στην καταιγίδα.
           </p>
@@ -140,7 +140,7 @@ export default function SOSPage() {
       {/* Step 1: Book the call */}
       <Section className="bg-muted/30">
         <div className="mx-auto max-w-4xl">
-          <h2 className="mb-8 text-center text-3xl font-bold md:text-4xl">Βήμα 1: Κλείστε την 10λεπτη Κλήση S.O.S.</h2>
+          <h2 className="mb-8 text-center text-2xl font-bold md:text-3xl">Βήμα 1: Κλείστε την 10λεπτη Κλήση S.O.S.</h2>
           <div className="space-y-6">
             <p className="text-center text-base leading-relaxed text-muted-foreground">
               Επίλεξε την ημέρα και την ώρα που σε εξυπηρετεί.
@@ -182,7 +182,7 @@ export default function SOSPage() {
       {/* Step 2: Fill Black Box Data */}
       <Section>
         <div className="mx-auto max-w-4xl">
-          <h2 className="mb-8 text-center text-3xl font-bold md:text-4xl">Βήμα 2: Συμπλήρωσε τα Δεδομένα «Black Box»</h2>
+          <h2 className="mb-8 text-center text-2xl font-bold md:text-3xl">Βήμα 2: Συμπλήρωσε τα Δεδομένα «Black Box»</h2>
           <div className="space-y-8">
             <p className="text-center text-base leading-relaxed text-muted-foreground">
               Μετά την επιλογή ώρας, θα σου ζητηθούν 4 σύντομα στοιχεία.
@@ -226,7 +226,7 @@ export default function SOSPage() {
       {/* What happens after booking */}
       <Section className="bg-muted/30">
         <div className="mx-auto max-w-4xl">
-          <h2 className="mb-8 text-center text-3xl font-bold md:text-4xl">Τι συμβαίνει μετά την κράτηση</h2>
+          <h2 className="mb-8 text-center text-2xl font-bold md:text-3xl">Τι συμβαίνει μετά την κράτηση</h2>
           <div className="space-y-8">
             <p className="text-center text-base leading-relaxed text-muted-foreground">
               Μόλις ολοκληρώσεις αυτά τα βήματα, το <span className="font-semibold text-foreground">Πρωτόκολλο S.O.S.</span> έχει ουσιαστικά ενεργοποιηθεί.

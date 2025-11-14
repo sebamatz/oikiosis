@@ -1,73 +1,60 @@
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
 import Image from "next/image";
-import { Phone } from "lucide-react";
+import SOSButton from "@/components/SOSButton";
 
 export default function Hero() {
   return (
-    <section className="relative py-10 md:py-14 lg:py-16 overflow-hidden">
+    <section className="relative py-6 sm:py-8 md:py-14 lg:py-16 overflow-hidden">
       {/* Background decorative elements */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl"></div>
+      <div className="absolute inset-0 -z-10 overflow-hidden">
+        <div className="absolute top-0 right-0 w-48 h-48 sm:w-64 sm:h-64 md:w-96 md:h-96 bg-primary/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 left-0 w-48 h-48 sm:w-64 sm:h-64 md:w-96 md:h-96 bg-accent/5 rounded-full blur-3xl"></div>
       </div>
       
-      <div className="container mx-auto px-4">
-        <div className="grid lg:grid-cols-2 gap-8 items-center">
+      <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
+        <div className="grid lg:grid-cols-2 gap-6 md:gap-8 items-center">
           {/* Text Content */}
-          <div className="text-center lg:text-left">
-            <h1 className="mb-6 text-2xl font-bold leading-tight tracking-tight md:text-3xl lg:text-4xl">
+          <div className="text-center lg:text-left min-w-0 w-full max-w-full">
+            <h1 className="mb-4 sm:mb-6 text-xl sm:text-2xl md:text-3xl font-bold leading-tight tracking-tight break-words">
               Όταν η σύγκρουση γίνεται καταιγίδα, δεν χρειάζεται να είσαι μόνος.
             </h1>
-            <p className="mb-4 text-base text-muted-foreground md:text-lg lg:text-xl">
+            <p className="mb-3 sm:mb-4 text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground break-words">
               Η <span className="font-semibold text-foreground">Οικείωσις</span> είναι ένας ήρεμος, προστατευμένος χώρος για ανθρώπους που ζουν:
             </p>
-            <ul className="mb-6 space-y-2 text-left text-base text-muted-foreground md:text-lg">
-              <li className="flex items-start gap-2">
-                <span className="text-primary mt-1">•</span>
-                <span>σχέσεις σε υψηλή σύγκρουση</span>
+            <ul className="mb-4 sm:mb-6 space-y-2 text-left text-sm sm:text-base md:text-lg text-muted-foreground">
+              <li className="flex items-start gap-2 min-w-0">
+                <span className="text-primary mt-1 flex-shrink-0">•</span>
+                <span className="break-words">σχέσεις σε υψηλή σύγκρουση</span>
               </li>
-              <li className="flex items-start gap-2">
-                <span className="text-primary mt-1">•</span>
-                <span>δύσκολο ή επώδυνο διαζύγιο</span>
+              <li className="flex items-start gap-2 min-w-0">
+                <span className="text-primary mt-1 flex-shrink-0">•</span>
+                <span className="break-words">δύσκολο ή επώδυνο διαζύγιο</span>
               </li>
-              <li className="flex items-start gap-2">
-                <span className="text-primary mt-1">•</span>
-                <span>γονεϊκή αποξένωση</span>
+              <li className="flex items-start gap-2 min-w-0">
+                <span className="text-primary mt-1 flex-shrink-0">•</span>
+                <span className="break-words">γονεϊκή αποξένωση</span>
               </li>
-              <li className="flex items-start gap-2">
-                <span className="text-primary mt-1">•</span>
-                <span>Οικογένειες ή ζευγάρια σε σύγχυση και αποδρομή</span>
+              <li className="flex items-start gap-2 min-w-0">
+                <span className="text-primary mt-1 flex-shrink-0">•</span>
+                <span className="break-words">Οικογένειες ή ζευγάρια σε σύγχυση και αποδρομή</span>
               </li>
             </ul>
-            <p className="mb-4 text-base font-medium text-foreground md:text-lg lg:text-xl">
+            <p className="mb-3 sm:mb-4 text-sm sm:text-base md:text-lg lg:text-xl font-medium text-foreground break-words">
               Ο πόνος σου δεν είναι «υπερβολή». Είναι βάρος που κουβαλάς μόνος σου εδώ και καιρό.
             </p>
-            <p className="mb-6 text-base text-muted-foreground md:text-lg lg:text-xl">
+            <p className="mb-4 sm:mb-6 text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground break-words">
               Εδώ, σε ακούμε, σε πιστεύουμε και σε βοηθάμε να πάρεις την πρώτη ανάσα.
             </p>
-            <div className="flex flex-col items-center lg:items-start">
-              <Button 
-                size="lg"
-                className="mb-4 text-lg font-semibold px-8 py-4 shadow-lg hover:shadow-xl transition-shadow"
-                asChild
-              >
-                <Link href="/sos-page" className="flex items-center gap-2">
-                  <Phone className="h-5 w-5" />
-                  <span>10λεπτη Κλήση S.O.S. – Χρειάζομαι άμεση βοήθεια</span>
-                </Link>
-              </Button>
-              <p className="text-sm text-muted-foreground mb-2 text-center lg:text-left">
-                Δωρεάν, σύντομη κλήση 10 λεπτών με τον Ιωάννη Γιαννόπουλο.
-              </p>
-              <p className="text-sm text-center lg:text-left leading-relaxed">
-                Μιλάμε για αυτό που περνάς, βρίσκουμε σαφήνεια και καθορίζουμε μαζί το επόμενο βήμα.
-              </p>
+            <div className="w-full">
+              <SOSButton 
+                align="center"
+                className="text-center lg:text-left lg:items-start"
+                showDescription={true}
+              />
             </div>
           </div>
           
           {/* Image */}
-          <div className="relative hidden lg:block">
+          <div className="relative hidden lg:block min-w-0">
             <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl">
               <Image
                 src="/images/hero.jpg"

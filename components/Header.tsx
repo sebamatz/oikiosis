@@ -18,10 +18,10 @@ export default function Header() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <nav className="container mx-auto flex h-16 items-center justify-between px-4">
-        <Link href="/" className="flex items-center space-x-2">
-          <span className="text-2xl font-bold text-primary">Οικείωσις</span>
+    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 overflow-hidden">
+      <nav className="container mx-auto flex h-16 items-center justify-between px-4 max-w-7xl">
+        <Link href="/" className="flex items-center space-x-2 min-w-0">
+          <span className="text-xl sm:text-2xl font-bold text-primary break-words">Οικείωσις</span>
         </Link>
 
         {/* Desktop Navigation */}

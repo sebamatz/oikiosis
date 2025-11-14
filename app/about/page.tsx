@@ -15,7 +15,7 @@ export default function AboutPage() {
             Επιστροφή στην Αρχική
           </Link>
           <div className="mb-4 text-center">
-            <h1 className="mb-3 text-4xl font-bold md:text-5xl">Σχετικά με εμάς</h1>
+            <h1 className="mb-3 text-2xl font-bold md:text-3xl">Σχετικά με εμάς</h1>
           </div>
         </div>
       </Section>
@@ -24,7 +24,7 @@ export default function AboutPage() {
       <Section className="bg-muted/30">
         <div className="mx-auto max-w-4xl">
           <div className="mb-4 text-center">
-            <h2 className="mb-3 text-3xl font-bold md:text-4xl">Η φιλοσοφία μας</h2>
+            <h2 className="mb-3 text-2xl font-bold md:text-3xl">Η φιλοσοφία μας</h2>
           </div>
           <Card className="overflow-hidden border-primary/20 shadow-lg">
             {/* <div className="relative h-64 w-full">
@@ -67,7 +67,7 @@ export default function AboutPage() {
       <Section>
         <div className="mx-auto max-w-4xl">
           <div className="mb-4 text-center">
-            <h2 className="mb-3 text-3xl font-bold md:text-4xl">Πώς δουλεύουμε</h2>
+            <h2 className="mb-3 text-2xl font-bold md:text-3xl">Πώς δουλεύουμε</h2>
           </div>
           <div className="grid gap-4 md:grid-cols-2">
             <Card className="shadow-md hover:shadow-lg transition-shadow">
@@ -118,7 +118,7 @@ export default function AboutPage() {
       <Section className="bg-muted/30">
         <div className="mx-auto max-w-4xl">
           <div className="mb-4 text-center">
-            <h2 className="mb-3 text-3xl font-bold md:text-4xl">Η Ομάδα μας</h2>
+            <h2 className="mb-3 text-2xl font-bold md:text-3xl">Η Ομάδα μας</h2>
           </div>
           <div className="space-y-6">
             {/* Ioannis */}

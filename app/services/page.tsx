@@ -68,7 +68,7 @@ export default function ServicesPage() {
             Επιστροφή στην Αρχική
           </Link>
           <div className="mb-4 text-center">
-            <h1 className="mb-3 text-4xl font-bold md:text-5xl">Τι προσφέρουμε</h1>
+            <h1 className="mb-3 text-2xl font-bold md:text-3xl">Τι προσφέρουμε</h1>
           </div>
         </div>
       </Section>
