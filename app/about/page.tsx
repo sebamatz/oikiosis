@@ -20,93 +20,113 @@ export default function AboutPage() {
         </div>
       </Section>
 
-      {/* Philosophy */}
+      {/* Your Navigator */}
+      <Section>
+        <div className="mx-auto max-w-4xl">
+          <h2 className="mb-6 text-center text-2xl font-bold md:text-3xl">Ο Πλοηγός σας</h2>
+          <div className="relative h-64 md:h-96 rounded-lg overflow-hidden shadow-lg">
+            <Image
+              src="/images/About Page.jpg"
+              alt="Ο Πλοηγός σας"
+              fill
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent"></div>
+          </div>
+        </div>
+      </Section>
+
+      {/* The Model */}
       <Section className="bg-muted/30">
         <div className="mx-auto max-w-4xl">
           <div className="mb-4 text-center">
-            <h2 className="mb-3 text-2xl font-bold md:text-3xl">Η φιλοσοφία μας</h2>
+            <h2 className="mb-3 text-2xl font-bold md:text-3xl">Το Μοντέλο</h2>
+            <h3 className="mb-6 text-xl font-semibold text-foreground">Μοντέλο Αντίστροφης Ορμής (Reverse Momentum Model)</h3>
           </div>
           <Card className="overflow-hidden border-primary/20 shadow-lg">
-            {/* <div className="relative h-64 w-full">
-              <Image
-                src="https://images.unsplash.com/photo-1504813184591-01572f98c85f?w=800&h=400&fit=crop&q=80"
-                alt="Reverse Momentum Model - Μοντέλο Αντίστροφης Ορμής"
-                fill
-                className="object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/40 to-transparent"></div>
-            </div> */}
             <CardHeader>
-              <CardTitle className="text-2xl">Reverse Momentum Model</CardTitle>
-              <CardDescription className="text-lg">Μοντέλο Αντίστροφης Ορμής</CardDescription>
+              <CardTitle className="text-2xl">Η κρίση δεν είναι «πρόβλημα». Είναι δύναμη – Ορμή.</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4 text-lg">
               <p>
-                Το θεραπευτικό μας πλαίσιο, <span className="font-semibold">Reverse Momentum Model (Μοντέλο Αντίστροφης Ορμής)</span>, στηρίζεται στην ιδέα ότι κάθε πτώση και κάθε εσωτερική αντίσταση μπορούν να μετατραπούν σε ώθηση για επανεκκίνηση, νόημα και ζωή.
+                Το θεραπευτικό μας μοντέλο δεν προσπαθεί να σταματήσει την πρόσκρουση. Σχεδιάζουμε μαζί σου, αξιοποιώντας τη δύναμή της.
               </p>
-              <p>
-                Δεν σε βλέπουμε ως «πρόβλημα προς επίλυση», αλλά ως άνθρωπο σε διαδικασία επαναφοράς.
-              </p>
-              <div className="rounded-lg bg-muted/50 p-4">
-                <p className="font-semibold">Στόχος μας:</p>
-                <ul className="ml-6 mt-2 list-disc space-y-2">
-                  <li>Ο πόνος σου ακούγεται.</li>
-                  <li>Η ιστορία σου κατανοείται.</li>
-                  <li>Η ψυχή σου ξαναβρίσκει κατεύθυνση.</li>
-                </ul>
-              </div>
-              <p>
-                Εργαζόμαστε για να αποκατασταθούν οι δεσμοί, να αποσυμφορηθεί ο ψυχικός πόνος και να χτιστεί ξανά η συναισθηματική ασφάλεια, ακόμη και σε σχέσεις που μοιάζουν διαλυμένες.
+              <ul className="space-y-3 ml-6 list-disc text-muted-foreground">
+                <li>
+                  <span className="font-semibold text-foreground">Ο πόνος σου ακούγεται.</span>
+                  <br />
+                  <span className="text-sm">(S.O.S. – Safety / Ασφάλεια)</span>
+                </li>
+                <li>
+                  <span className="font-semibold text-foreground">Η ιστορία σου αποκτά νόημα.</span>
+                  <br />
+                  <span className="text-sm">(R.E.A.C.H. – Extract / Απο-σύμπλεξη)</span>
+                </li>
+                <li>
+                  <span className="font-semibold text-foreground">Η πορεία σου βρίσκει πυξίδα.</span>
+                  <br />
+                  <span className="text-sm">(S.O.S. – Orientation / Προσανατολισμός)</span>
+                </li>
+              </ul>
+              <p className="mt-4 font-semibold text-foreground">
+                Δουλειά μας είναι να χτίσουμε ασφάλεια μέσα στην καταιγίδα και να πλοηγηθούμε προς την αναδόμηση.
               </p>
             </CardContent>
           </Card>
         </div>
       </Section>
 
-      {/* How We Work */}
+      {/* The Process */}
       <Section>
         <div className="mx-auto max-w-4xl">
           <div className="mb-4 text-center">
-            <h2 className="mb-3 text-2xl font-bold md:text-3xl">Πώς δουλεύουμε</h2>
+            <h2 className="mb-3 text-2xl font-bold md:text-3xl">Η Διαδικασία</h2>
+            <h3 className="mb-6 text-xl font-semibold text-foreground">Πώς δουλεύουμε</h3>
+            <p className="mb-8 text-lg text-muted-foreground">
+              Έτσι μετατρέπουμε την κρίση σε Ορμή:
+            </p>
           </div>
-          <div className="grid gap-4 md:grid-cols-2">
+          <div className="space-y-6">
             <Card className="shadow-md hover:shadow-lg transition-shadow">
               <CardHeader>
-                <CardTitle>1. Άμεση αποτύπωση</CardTitle>
+                <CardTitle className="text-xl">1. ΑΣΦΑΛΕΙΑ & ΣΤΑΘΕΡΟΠΟΙΗΣΗ (S.O.S.)</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-muted-foreground">
-                  Ακούμε σε βάθος την ιστορία και χαρτογραφούμε τα μοτίβα σύγκρουσης.
+                <p className="text-muted-foreground leading-relaxed">
+                  Ρόλος First Responder. Παρέχουμε άμεση ρυθμιστική υποστήριξη (S.O.S. – Safety / Ασφάλεια, Orientation / Προσανατολισμός, Stabilization / Σταθεροποίηση).
+                </p>
+                <p className="text-muted-foreground leading-relaxed mt-3">
+                  Θέτουμε όρια, μειώνουμε την Ταχύτητα (v – velocity) της σύγκρουσης και προστατεύουμε τον παιδοκεντρικό δεσμό.
                 </p>
               </CardContent>
             </Card>
             <Card className="shadow-md hover:shadow-lg transition-shadow">
               <CardHeader>
-                <CardTitle>2. Στόχοι ασφαλείας</CardTitle>
+                <CardTitle className="text-xl">2. ΠΡΟΣΑΝΑΤΟΛΙΣΜΟΣ & «BLACK BOX»</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-muted-foreground">
-                  Βάζουμε όρια, μειώνουμε την ένταση, προστατεύουμε τον δεσμό γονέα–παιδιού.
+                <p className="text-muted-foreground leading-relaxed">
+                  Ακούμε σε βάθος την ιστορία σας (Επικύρωση). Χαρτογραφούμε τα μοτίβα σύγκρουσης και «εξάγουμε» (Extract) τα δεδομένα-κλειδιά που οδηγούν στην πρόσκρουση.
                 </p>
               </CardContent>
             </Card>
             <Card className="shadow-md hover:shadow-lg transition-shadow">
               <CardHeader>
-                <CardTitle>3. Αντίστροφη Ορμή</CardTitle>
+                <CardTitle className="text-xl">3. ΑΝΑΣΥΝΔΕΣΗ & ΣΥΝ-ΕΠΙΛΥΣΗ (Align & Co-Resolve)</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-muted-foreground">
-                  Μετατρέπουμε την εσωτερική αντίσταση σε μικρά, εφαρμόσιμα βήματα αλλαγής.
+                <p className="text-muted-foreground leading-relaxed">
+                  Αλλάζουμε το «διάνυσμα». Μετατρέπουμε την ενέργεια της κρίσης (Ορμή) σε πρακτικά, εφαρμόσιμα βήματα (π.χ. BIFF)* και ανασυνδεόμαστε με τις Αξίες (Values) σας.
                 </p>
               </CardContent>
             </Card>
             <Card className="shadow-md hover:shadow-lg transition-shadow">
               <CardHeader>
-                <CardTitle>4. Σταθεροποίηση</CardTitle>
+                <CardTitle className="text-xl">4. ΑΝΑΔΟΜΗΣΗ & ΑΝΘΕΚΤΙΚΟΤΗΤΑ (Harvest)</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-muted-foreground">
-                  Καλλιεργούμε δεξιότητες σχέσης, ανθεκτικότητα και βιώσιμη πορεία.
+                <p className="text-muted-foreground leading-relaxed">
+                  Από την κρίση στην Αναδόμηση. Καλλιεργούμε δεξιότητες ανθεκτικότητας (PTG)* και σχεδιάζουμε τη «νέα κανονικότητα» (New Normality) – μια βιώσιμη, πλοηγήσιμη πορεία.
                 </p>
               </CardContent>
             </Card>
@@ -292,4 +312,3 @@ export default function AboutPage() {
     </>
   );
 }
-

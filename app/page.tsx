@@ -1,29 +1,88 @@
 import Hero from "@/components/Hero";
 import Section from "@/components/Section";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import SOSButton from "@/components/SOSButton";
 
 export default function Home() {
   return (
     <>
       <Hero />
 
-      {/* Who We Are */}
-      <Section className="bg-muted/30">
-        <div className="mx-auto max-w-4xl">
-          <h2 className="mb-4 text-center text-2xl font-bold md:text-3xl">Ποιοι είμαστε</h2>
-          <p className="mb-8 text-center text-lg leading-relaxed text-muted-foreground">
-            Η <span className="font-semibold text-foreground">Οικείωσις</span> είναι ένας ασφαλής χώρος, όπου ο ρόλος μας ως <span className="font-semibold text-foreground">First Responder</span> (Πρώτος Αναγκαίος Βοηθός) γίνεται πράξη.
+      {/* S.O.S. Button Section */}
+      <Section>
+        <div className="mx-auto max-w-4xl text-center">
+          <SOSButton 
+            align="center"
+            className="mb-4"
+            showDescription={false}
+          />
+          <p className="text-sm sm:text-base md:text-lg text-muted-foreground mb-2">
+            Δωρεάν, σύντομη κλήση 10 λεπτών με τον Ιωάννη Γιαννόπουλο.
           </p>
-          <p className="mb-8 text-center text-lg leading-relaxed text-muted-foreground">
-            Εδώ, ο ψυχικός πόνος δεν λαμβάνει απλώς κατανόηση, αλλά άμεση, ρυθμιστική παρέμβαση (S.O.S.)* που βασίζεται στην επιστημονική τεκμηρίωση και την ανθρώπινη παρουσία.
+          <p className="text-sm sm:text-base md:text-lg text-muted-foreground">
+            Λέμε σε ασφαλές πλαίσιο τι συμβαίνει, βάζουμε σε τάξη το χάος και ξεκαθαρίζουμε ποιο είναι το αμέσως επόμενο βήμα.
           </p>
         </div>
       </Section>
 
-      {/* Our Team */}
+      {/* How We Help You */}
+      <Section className="bg-muted/30">
+        <div className="mx-auto max-w-4xl">
+          <h2 className="mb-4 text-center text-2xl font-bold md:text-3xl">Πώς σε βοηθάμε</h2>
+          <p className="mb-6 text-center text-lg leading-relaxed text-muted-foreground">
+            Στην Οικείωση, δεν ξεκινάμε με το «τι κάνεις λάθος».
+          </p>
+          <p className="mb-8 text-center text-lg font-semibold text-foreground">
+            Ξεκινάμε από το: «Πώς είναι να είσαι εσύ μέσα σε αυτή τη σύγκρουση;»
+          </p>
+          <div className="space-y-6">
+            <Card className="shadow-md">
+              <CardContent className="pt-6">
+                <p className="text-muted-foreground leading-relaxed">
+                  Σε βοηθάμε να μειωθεί η ένταση μέσα σου, ώστε να μπορείς να σκεφτείς πιο καθαρά.
+                </p>
+              </CardContent>
+            </Card>
+            <Card className="shadow-md">
+              <CardContent className="pt-6">
+                <p className="text-muted-foreground leading-relaxed">
+                  Σε στηρίζουμε να προστατεύσεις όσο γίνεται τη σχέση με τα παιδιά σου, μέσα σε διαζύγιο ή γονεϊκή αποξένωση.
+                </p>
+              </CardContent>
+            </Card>
+            <Card className="shadow-md">
+              <CardContent className="pt-6">
+                <p className="text-muted-foreground leading-relaxed">
+                  Σε καθοδηγούμε βήμα–βήμα σε δύσκολες επικοινωνίες, συζητήσεις με τον/την πρώην και κρίσιμες αποφάσεις.
+                </p>
+              </CardContent>
+            </Card>
+            <Card className="shadow-md">
+              <CardContent className="pt-6">
+                <p className="text-muted-foreground leading-relaxed">
+                  Σε υποστηρίζουμε στην δημιουργία υγιών σχέσεων με τους δικούς σου ανθρώπους.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+          <p className="mt-8 text-center text-lg leading-relaxed text-muted-foreground">
+            Είναι ένας χώρος όπου δεν χρειάζεται να είσαι «δυνατός». Αρκεί να είσαι ειλικρινής με αυτό που περνάς.
+          </p>
+        </div>
+      </Section>
+
+      {/* Who We Are */}
       <Section>
         <div className="mx-auto max-w-4xl">
-          <h2 className="mb-4 text-center text-2xl font-bold md:text-3xl">Η ομάδα μας</h2>
+          <h2 className="mb-4 text-center text-2xl font-bold md:text-3xl">Ποιοι είμαστε</h2>
+          <p className="mb-8 text-center text-lg leading-relaxed text-muted-foreground">
+            Είμαστε δύο ψυχολόγοι με κοινό στόχο:
+          </p>
+          <p className="mb-8 text-center text-lg leading-relaxed text-foreground font-semibold">
+            Να σε βοηθήσουμε να βγεις από την εξουθενωτική σύγκρουση, με σεβασμό σε εσένα και στα παιδιά και να δημιουργήσεις υγιείς σχέσεις.
+          </p>
           <div className="grid gap-6 md:grid-cols-2">
             <Card className="shadow-md">
               <CardHeader>
@@ -31,163 +90,83 @@ export default function Home() {
               </CardHeader>
               <CardContent className="space-y-3 text-muted-foreground">
                 <p>
-                  Founder, Reverse Momentum Model. Εξειδίκευση στη Διαχείριση Σχέσεων Υψηλής Σύγκρουσης & Γονεϊκής Αποξένωσης.
+                  Εξειδικεύεται σε σχέσεις υψηλής σύγκρουσης, διαζύγιο και γονεϊκή αποξένωση.
+                </p>
+                <p>
+                  Είναι ο εμπνευστής και δημιουργός του θεραπευτικού μοντέλου «Αντίστροφη Ορμή» (Reverse Momentum Model), που σχεδιάστηκε ειδικά για αυτές τις περιπτώσεις.
                 </p>
               </CardContent>
             </Card>
             <Card className="shadow-md">
               <CardHeader>
-                <CardTitle className="text-xl">Σοφία Μίαρη, Ψυχολόγος, PhD, MSc</CardTitle>
+                <CardTitle className="text-xl">Σοφία Μίαρη, Ψυχολόγος PhD, MSc</CardTitle>
               </CardHeader>
               <CardContent className="space-y-3 text-muted-foreground">
                 <p>
-                  Συστημική θεραπεία, Θεραπεία Ζεύγους, Συμβουλευτική Γονέων & Εφήβων, Εκπαιδεύτρια Ενηλίκων.
+                  Εξειδικεύεται στη θεραπεία ζεύγους, οικογενειακή θεραπεία και υποστήριξη νέων.
+                </p>
+                <p>
+                  Δουλεύει με ζευγάρια και οικογένειες που θέλουν να σταματήσουν την κλιμάκωση και να χτίσουν πιο ασφαλείς σχέσεις.
                 </p>
               </CardContent>
             </Card>
           </div>
           <p className="mt-8 text-center text-lg leading-relaxed text-muted-foreground">
-            Η κοινή μας αποστολή είναι να πλοηγήσουμε το χάος της σύγκρουσης (High-Conflict) και να το μετατρέψουμε σε Ορμή (Momentum) για αναδόμηση.
+            Δουλεύουμε σε συνεργασία, ώστε να καλύπτουμε όλο το φάσμα: από την κρίση και το διαζύγιο, μέχρι τη θεραπεία ζεύγους και τη στήριξη των παιδιών.
           </p>
         </div>
       </Section>
 
-      {/* Philosophy */}
+      {/* Our Model - Reverse Momentum */}
       <Section className="bg-muted/30">
         <div className="mx-auto max-w-4xl">
-          <div className="mb-4 text-center">
-            <h2 className="mb-3 text-2xl font-bold md:text-3xl">Η φιλοσοφία μας</h2>
-          </div>
+          <h2 className="mb-4 text-center text-2xl font-bold md:text-3xl">Το Μοντέλο μας «Αντίστροφη Ορμή»</h2>
           <div className="space-y-6 text-lg leading-relaxed">
-            <p className="text-center font-semibold text-foreground">
-              Η αναγνώριση προηγείται της θεραπείας.
-            </p>
-            <p className="text-center text-muted-foreground">
-              Δεν είστε «χαλασμένοι». Δεν είστε «το πρόβλημα».
-            </p>
             <p className="text-muted-foreground">
-              Αυτό που βιώνετε – η αίσθηση της καταιγίδας (High-Conflict), ο πόνος της σύγκρουσης, ο φόβος της αποξένωσης (PA)* – βγάζει απόλυτο νευροβιολογικό νόημα.
+              Στις σχέσεις υψηλής σύγκρουσης, η κρίση μοιάζει σαν να σε σπρώχνει με δύναμη προς έναν τοίχο, δίχως να μπορείς να το αποφύγεις.
             </p>
+            <p className="font-semibold text-foreground">
+              Το μοντέλο Αντίστροφης Ορμής (Reverse Momentum Model):
+            </p>
+            <ul className="space-y-3 ml-6 list-disc text-muted-foreground">
+              <li>δεν σε κατηγορεί για την πρόσκρουση</li>
+              <li>χρησιμοποιεί τη δύναμη της κρίσης, αντί να την αγνοεί.</li>
+              <li>τη μετατρέπει σε σταδιακά, πρακτικά βήματα αλλαγής.</li>
+            </ul>
             <p className="text-muted-foreground">
-              Η στάση μας, ως θεραπευτές και First Responders, δεν είναι να σας αναλύσουμε παθητικά, αλλά να σας συν-ρυθμίσουμε (co-regulate) ενεργητικά.
+              Είναι ένα απλό, εξειδικευμένο και δοκιμασμένο μοντέλο, φτιαγμένο ειδικά για:
             </p>
-            <p className="text-muted-foreground">
-              Η ενσυναίσθηση δεν είναι απλώς μια «αρετή». Είναι η πρώτη, πρακτική πράξη Σταθεροποίησης (S.O.S.).
-            </p>
-            <p className="text-muted-foreground">
-              Η δουλειά μας δεν ξεκινά ρωτώντας «τι είναι λάθος με εσάς;». Ξεκινά προσφέροντας το καταφύγιο (Safety / Ασφάλεια) και την πυξίδα (Orientation / Προσανατολισμός) που χρειάζεται ο εγκέφαλός σας τώρα.
-            </p>
-            <p className="text-muted-foreground">
-              Αφού παρέμβουμε στο επείγον – στη «φωτιά» – με το Πρωτόκολλο ΤΕΠΨΥ / ER-Flow, τότε, και μόνο τότε, έχουμε τη σταθερότητα να αναδομήσουμε τον νέο σας χάρτη (Πρωτόκολλο R.E.A.C.H.)*.
-            </p>
-            <p className="text-center font-semibold text-foreground">
-              Η φιλοσοφία μας είναι ότι η κρίση – η «πρόσκρουσή» σας – δεν είναι παθολογία. Είναι η Ορμή (p) που, με τον σωστό πλοηγό, μπορεί να γίνει το καύσιμο για την πιο ανθεκτική εκδοχή του εαυτού σας.
-            </p>
-          </div>
-        </div>
-      </Section>
-
-      {/* Why Oikiosis */}
-      <Section>
-        <div className="mx-auto max-w-4xl">
-          <h2 className="mb-4 text-center text-2xl font-bold md:text-3xl">Γιατί Οικείωσις – Η Πυξίδα μας</h2>
-          <div className="space-y-6 text-lg leading-relaxed">
-            <p className="text-center font-semibold text-foreground">
-              Η «Μάζα» (m) μας: Δεν είμαστε γενικοί θεραπευτές. Η εξειδίκευσή μας – ο «Φάρος» μας – εστιάζει στην πλοήγηση της Υψηλής Σύγκρουσης (HCD)* και της Γονεϊκής Αποξένωσης (PA)*, στην Οικογενειακή Θεραπεία και στη Συμβουλευτική Γονέων & Συν-Γονέων.
-            </p>
-            <div className="space-y-4">
-              <p className="font-semibold text-foreground">
-                Το Πρωτόκολλο S.O.S. είναι η δέσμευσή μας:
+            <ul className="space-y-2 ml-6 list-disc text-muted-foreground">
+              <li>σχέσεις υψηλής σύγκρουσης</li>
+              <li>διαζύγια με ένταση</li>
+              <li>γονεϊκή αποξένωση</li>
+              <li>Οικογένειες ή ζευγάρια σε σύγχυση και αποδρομή</li>
+            </ul>
+            <div className="mt-6 p-4 bg-background rounded-lg border border-primary/20">
+              <p className="font-semibold text-foreground mb-2">Κεντρικός στόχος:</p>
+              <p className="text-muted-foreground">
+                να νιώσεις πρώτα πιο ασφαλής και πιο σταθερός, και μετά, με καθαρό μυαλό, να πάρεις τις αποφάσεις που χρειάζεται.
               </p>
-              <div className="space-y-4 pl-4 border-l-2 border-primary/30">
-                <div>
-                  <p className="font-semibold text-foreground mb-2">
-                    Ασφάλεια (Safety):
-                  </p>
-                  <p className="text-muted-foreground">
-                    Παιδοκεντρική (Child-Centric) προσέγγιση, με απόλυτο σεβασμό στην αξιοπρέπεια και την εμπειρία κάθε μέλους.
-                  </p>
-                </div>
-                <div>
-                  <p className="font-semibold text-foreground mb-2">
-                    Προσανατολισμός (Orientation):
-                  </p>
-                  <p className="text-muted-foreground">
-                    Όχι αόριστη θεωρία. Παρέχουμε έναν σαφή Χάρτη 5 Φάσεων (R.E.A.C.H.)* και «εργαλεία πλοήγησης» (π.χ. BIFF)* από την πρώτη μέρα.
-                  </p>
-                </div>
-                <div>
-                  <p className="font-semibold text-foreground mb-2">
-                    Σταθεροποίηση (Stabilization):
-                  </p>
-                  <p className="text-muted-foreground">
-                    Αυτός είναι ο ρόλος μας ως First Responders. Επιστημονική σκέψη και ρεαλισμός. Προσφέρουμε άμεση Σταθεροποίηση (S.O.S.)*, όχι «μαγικές λύσεις».
-                  </p>
-                </div>
-              </div>
             </div>
           </div>
         </div>
       </Section>
+
+      {/* Second Call to Action */}
       <Section>
-        <div className="mx-auto max-w-4xl">
-          <h2 className="mb-6 text-center text-2xl font-bold md:text-3xl">ΓΛΩΣΣΑΡΙΟ ΑΚΡΩΝΥΜΙΩΝ R.M.</h2>
-          <div className="space-y-4">
-            <Card className="shadow-md">
-              <CardContent className="pt-6">
-                <div className="space-y-4 text-left">
-                  <div>
-                    <p className="font-semibold text-foreground mb-1">
-                      S.O.S.:
-                    </p>
-                    <p className="text-muted-foreground">
-                      Safety (Ασφάλεια), Orientation (Προσανατολισμός), Stabilization (Σταθεροποίηση) – Πρωτόκολλο επείγουσας παρέμβασης.
-                    </p>
-                  </div>
-                  <div>
-                    <p className="font-semibold text-foreground mb-1">
-                      HCD:
-                    </p>
-                    <p className="text-muted-foreground">
-                      High-Conflict Divorce (Διαζύγιο Υψηλής Σύγκρουσης).
-                    </p>
-                  </div>
-                  <div>
-                    <p className="font-semibold text-foreground mb-1">
-                      PA:
-                    </p>
-                    <p className="text-muted-foreground">
-                      Parental Alienation (Γονεϊκή Αποξένωση).
-                    </p>
-                  </div>
-                  <div>
-                    <p className="font-semibold text-foreground mb-1">
-                      R.E.A.C.H.:
-                    </p>
-                    <p className="text-muted-foreground">
-                      Regulate (Ρύθμιση), Extract (Απο-σύμπλεξη), Align (Ανασύνδεση), Co-resolve (Συνεπίλυση), Harvest (Αναδόμηση) – Χάρτης 5 φάσεων του μοντέλου.
-                    </p>
-                  </div>
-                  <div>
-                    <p className="font-semibold text-foreground mb-1">
-                      BIFF:
-                    </p>
-                    <p className="text-muted-foreground">
-                      Brief (Σύντομο), Informative (Πληροφοριακό), Friendly (Φιλικό), Firm (Σταθερό) – Εργαλείο επικοινωνίας σε HCD.
-                    </p>
-                  </div>
-                  <div>
-                    <p className="font-semibold text-foreground mb-1">
-                      PTG:
-                    </p>
-                    <p className="text-muted-foreground">
-                      Posttraumatic Growth (Μετατραυματική Ανάπτυξη).
-                    </p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
+        <div className="mx-auto max-w-4xl text-center">
+          <Button 
+            size="lg" 
+            className="mb-3 max-w-[400px] w-full whitespace-normal overflow-hidden"
+            asChild
+          >
+            <Link href="/services" className="break-words text-center whitespace-normal min-w-0 overflow-hidden">
+              Δείτε πώς μπορούμε να σας βοηθήσουμε
+            </Link>
+          </Button>
+          <p className="text-sm sm:text-base text-muted-foreground">
+            Υπηρεσίες για άτομα, ζευγάρια, γονείς και επαγγελματίες.
+          </p>
         </div>
       </Section>
     </>

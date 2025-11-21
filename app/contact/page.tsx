@@ -33,18 +33,10 @@ export default function ContactPage() {
                 <div>
                   <p className="mb-2 text-sm font-semibold text-muted-foreground">Ιωάννης Γιαννόπουλος</p>
                   <a
-                    href="tel:+306947302694"
-                    className="text-lg font-medium text-primary hover:underline"
-                  >
-                    +30 694 730 2694
-                  </a>
-                </div>
-                <div className="mt-4">
-                  <a
                     href="tel:+306989940588"
                     className="text-lg font-medium text-primary hover:underline"
                   >
-                    6989940588
+                    698 994 0588
                   </a>
                 </div>
               </CardContent>

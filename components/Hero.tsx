@@ -15,21 +15,23 @@ export default function Hero() {
           {/* Text Content */}
           <div className="text-center lg:text-left min-w-0 w-full max-w-full">
             <h1 className="mb-4 sm:mb-6 text-xl sm:text-2xl md:text-3xl font-bold leading-tight tracking-tight break-words">
-              Όταν η σύγκρουση γίνεται καταιγίδα, η Οικείωσις είναι καταφύγιο και πυξίδα.
+              Όταν η σύγκρουση γίνεται καταιγίδα, δεν χρειάζεται να είσαι μόνος.
             </h1>
             <p className="mb-3 sm:mb-4 text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground break-words">
-              Πλοήγηση σε Σχέσεις Υψηλής Σύγκρουσης & Γονεϊκή Αποξένωση.
+              Η Οικείωσις είναι ένας ήρεμος, προστατευμένος χώρος για ανθρώπους που ζουν:
             </p>
+            <ul className="mb-4 sm:mb-6 text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground space-y-2 list-disc list-inside lg:list-outside lg:ml-6 break-words">
+              <li>Σχέσεις σε σύγχυση και αποδρομή (ζευγάρια, γονείς, οικογένειες)</li>
+              <li>Διαζύγιο υψηλής σύγκρουσης, σε εξέλιξη</li>
+              <li>Μακροχρόνια συγκρουσιακή σχέση διαζευγμένων</li>
+              <li>Γονεϊκή αποξένωση</li>
+            </ul>
             <p className="mb-4 sm:mb-6 text-sm sm:text-base md:text-lg lg:text-xl font-medium text-foreground break-words">
-              Ο πόνος σου αναγνωρίζεται. Η πλοήγησή σου ξεκινά εδώ.
+              Ο πόνος σου δεν είναι «υπερβολή». Είναι βάρος που κουβαλάς μόνος σου εδώ και καιρό.
             </p>
-            <div className="w-full">
-              <SOSButton 
-                align="center"
-                className="text-center lg:text-left lg:items-start"
-                showDescription={true}
-              />
-            </div>
+            <p className="mb-4 sm:mb-6 text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground break-words">
+              Εδώ, σε ακούμε, σε πιστεύουμε και σε βοηθάμε να πάρεις την πρώτη ανάσα.
+            </p>
           </div>
           
           {/* Image */}

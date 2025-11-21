@@ -10,13 +10,16 @@ export default function ServicesPage() {
     {
       title: "Πλοήγηση Κρίσης S.O.S. (Διαζύγιο HCD & Σχέσεις)",
       subtitle: "",
-      image: "/images/hero.jpg",
+      image: "/images/compass.jpg",
       description: [
         "Όταν το «σπίτι καίγεται», δεν αναλύουμε. Παρεμβαίνουμε.",
         "Αυτή είναι η επείγουσα υπηρεσία First Responder του μοντέλου R.M.",
         "Εφαρμόζουμε άμεσα το πρωτόκολλο S.O.S.* (Ασφάλεια, Προσανατολισμός, Σταθεροποίηση) για να μειώσουμε την Ταχύτητα (v) της κρίσης, να διαχειριστούμε το χάος του HCD* και να σχεδιάσουμε την «Πυξίδα των 72 Ωρών» σας.",
         "Στόχος: άμεση Σταθεροποίηση.",
       ],
+      hasButton: true,
+      buttonText: "ΕΝΕΡΓΟΠΟΙΗΣΗ ΚΛΗΣΗΣ S.O.S.",
+      buttonHref: "/sos-page",
     },
     {
       title: "Παρέμβαση Επανασύνδεσης (Γονεϊκή Αποξένωση – PA)",
@@ -82,7 +85,7 @@ export default function ServicesPage() {
       ],
       hasButton: true,
       buttonText: "ΓΙΝΕΤΕ ΜΕΛΟΣ ΣΤΟΝ ΚΟΜΒΟ",
-      buttonHref: "#", // Update with actual link when available
+      buttonHref: "/reach-hub",
     },
   ];
 

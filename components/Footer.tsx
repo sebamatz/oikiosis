@@ -60,28 +60,35 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-8 border-t pt-8">
-          <div className="flex flex-col md:flex-row justify-between  items-start md:items-center gap-4 text-sm text-muted-foreground">
-            <p>
-              Με εκτίμηση,<br />
+        <div className="mt-8 border-t pt-8 flex flex-row justify-between items-start gap-4">
+          <div className="flex w-full">
+          <div className="flex justify-between  items-start  gap-4 text-sm text-muted-foreground">
+          <div className="flex flex-col justify-between  items-start  gap-4 text-sm text-muted-foreground flex-grow">
+
+            <div className="mb-2">Με εκτίμηση,</div>
+            <div>
+              <p>
               <span className="font-semibold text-foreground">
                 Γιαννόπουλος Ιωάννης
               </span>
               <br />
               Ψυχολόγος - Ψυχοθεραπευτής
             </p>
-            <p>
-              <span className="font-semibold text-foreground">
+            <p className="pt-0 md:pt-4">
+          
+              <span className="font-semibold text-foreground ">
                 Σοφία Μίαρη
               </span>
               <br />
               Ψυχολόγος, PhD, MSc
             </p>
+            </div>
+            </div>
             
-            
-            <p className="text-xs">
+            <p className="flex text-xs self-end">
               © {new Date().getFullYear()} Οικείωσις. Όλα τα δικαιώματα διατηρούνται.
             </p>
+          </div>
           </div>
         </div>
       </div>
