@@ -80,7 +80,7 @@ export default function Home() {
             <Card className="shadow-md border-primary/20">
               <CardHeader>
                 <CardTitle className="text-xl">
-                  3. Ατομική συνεδρία μαζί μου
+                  3. Ατομική συνεδρία μαζί μας
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
@@ -105,18 +105,18 @@ export default function Home() {
       </Section>
 
       {/* S.O.S. Button Section */}
-      <Section>
+      {/* <Section>
         <div className="mx-auto max-w-4xl text-center">
           <SOSButton align="center" className="mb-4" showDescription={false} />
           <p className="text-sm sm:text-base md:text-lg text-muted-foreground mb-2">
-            Δωρεάν, σύντομη κλήση 10 λεπτών με τον Ιωάννη Γιαννόπουλο.
+            Δωρεάν, σύντομο S.O.S. μήνυμα με τον Ιωάννη Γιαννόπουλο.
           </p>
           <p className="text-sm sm:text-base md:text-lg text-muted-foreground">
             Λέμε σε ασφαλές πλαίσιο τι συμβαίνει, βάζουμε σε τάξη το χάος και
             ξεκαθαρίζουμε ποιο είναι το αμέσως επόμενο βήμα.
           </p>
         </div>
-      </Section>
+      </Section> */}
 
       {/* How We Help You */}
       <Section className="bg-muted/30">

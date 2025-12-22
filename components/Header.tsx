@@ -12,7 +12,7 @@ export default function Header() {
   const navItems = [
     { href: "/", label: "Αρχική" },
     { href: "/services", label: "Υπηρεσίες" },
-    { href: "/about", label: "Σχετικά" },
+    { href: "/about", label: "Σχετικά με εμάς" },
     { href: "/contact", label: "Επικοινωνία" },
     // { href: "/booking", label: "Κράτηση Συνεδρίας" },
   ];
@@ -21,7 +21,9 @@ export default function Header() {
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 overflow-hidden">
       <nav className="container mx-auto flex h-16 items-center justify-between px-4 max-w-7xl">
         <Link href="/" className="flex items-center space-x-2 min-w-0">
-          <span className="text-xl sm:text-2xl font-bold text-primary break-words">Οικείωσις</span>
+          <span className="text-xl sm:text-2xl font-bold text-primary break-words">
+            Οικείωσις
+          </span>
         </Link>
 
         {/* Desktop Navigation */}
@@ -65,8 +67,15 @@ export default function Header() {
                 {item.label}
               </Link>
             ))}
-            <Button className="w-full whitespace-normal overflow-hidden" asChild>
-              <Link href="/contact" onClick={() => setMobileMenuOpen(false)} className="break-words whitespace-normal min-w-0 overflow-hidden">
+            <Button
+              className="w-full whitespace-normal overflow-hidden"
+              asChild
+            >
+              <Link
+                href="/contact"
+                onClick={() => setMobileMenuOpen(false)}
+                className="break-words whitespace-normal min-w-0 overflow-hidden"
+              >
                 Επικοινωνία
               </Link>
             </Button>
@@ -76,4 +85,3 @@ export default function Header() {
     </header>
   );
 }
-

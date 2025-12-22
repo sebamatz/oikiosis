@@ -10,7 +10,8 @@ export default function Footer() {
           <div className="space-y-4">
             <h3 className="text-xl font-bold text-primary">Οικείωσις</h3>
             <p className="text-sm text-muted-foreground">
-              Όταν η σύγκρουση γίνεται καταιγίδα, η Οικείωσις είναι καταφύγιο και πυξίδα.
+              Όταν η σύγκρουση γίνεται καταιγίδα, η Οικείωσις είναι καταφύγιο
+              και πυξίδα.
             </p>
           </div>
 
@@ -62,37 +63,39 @@ export default function Footer() {
 
         <div className="mt-8 border-t pt-8 flex flex-row justify-between items-start gap-4">
           <div className="flex w-full">
-          <div className="flex justify-between  items-start  gap-4 text-sm text-muted-foreground">
-          <div className="flex flex-col justify-between  items-start  gap-4 text-sm text-muted-foreground flex-grow">
+            <div className="flex justify-between  items-start  gap-4 text-sm text-muted-foreground">
+              <div className="flex flex-col justify-between  items-start  gap-4 text-sm text-muted-foreground flex-grow">
+                <div className="mb-2">Με εκτίμηση,</div>
+                <div>
+                  <p>
+                    <span className="font-semibold text-foreground">
+                      Γιαννόπουλος Ιωάννης
+                    </span>
+                    <br />
+                    Ψυχολόγος - Ψυχοθεραπευτής
+                    <br />
+                    <span className="text-sm">
+                      Founder, Reverse Momentum Model (RMM) Therapy
+                    </span>
+                  </p>
+                  <p className="pt-0 md:pt-4">
+                    <span className="font-semibold text-foreground ">
+                      Σοφία Μίαρη
+                    </span>
+                    <br />
+                    Ψυχολόγος – Ψυχοθεραπεύτρια (MSc, PhD)
+                  </p>
+                </div>
+              </div>
 
-            <div className="mb-2">Με εκτίμηση,</div>
-            <div>
-              <p>
-              <span className="font-semibold text-foreground">
-                Γιαννόπουλος Ιωάννης
-              </span>
-              <br />
-              Ψυχολόγος - Ψυχοθεραπευτής
-            </p>
-            <p className="pt-0 md:pt-4">
-          
-              <span className="font-semibold text-foreground ">
-                Σοφία Μίαρη
-              </span>
-              <br />
-              Ψυχολόγος, PhD, MSc
-            </p>
+              <p className="flex text-xs self-end">
+                © {new Date().getFullYear()} Οικείωσις. Όλα τα δικαιώματα
+                διατηρούνται.
+              </p>
             </div>
-            </div>
-            
-            <p className="flex text-xs self-end">
-              © {new Date().getFullYear()} Οικείωσις. Όλα τα δικαιώματα διατηρούνται.
-            </p>
-          </div>
           </div>
         </div>
       </div>
     </footer>
   );
 }
-

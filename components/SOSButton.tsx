@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { Phone, AlertCircle } from "lucide-react";
+import { MessageCircle, AlertCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface SOSButtonProps {
@@ -36,15 +36,19 @@ export default function SOSButton({
 
   const defaultDescription = (
     <div className="flex flex-col items-start">
-      <p className={cn("text-xs sm:text-sm md:text-base lg:text-lg text-muted-foreground mb-2 break-words")}>
-        Η 10λεπτη δωρεάν κλήση σου για άμεσο Προσανατολισμό & Σταθεροποίηση.
+      <p
+        className={cn(
+          "text-xs sm:text-sm md:text-base lg:text-lg text-muted-foreground mb-2 break-words"
+        )}
+      >
+        Το δωρεάν S.O.S. μήνυμά σου για άμεσο Προσανατολισμό & Σταθεροποίηση.
       </p>
     </div>
   );
 
   // Handle responsive alignment via className override
   const baseAlignment = alignmentClasses[align];
-  
+
   return (
     <div className={cn("flex flex-col w-full", baseAlignment, className)}>
       <Button
@@ -69,7 +73,7 @@ export default function SOSButton({
           href={href}
           className="flex items-center justify-center gap-2 sm:gap-3 w-full sm:w-auto min-w-0 overflow-hidden"
         >
-          <Phone className="h-5 w-5 sm:h-6 sm:w-6 flex-shrink-0 transition-transform group-hover:scale-110" />
+          <MessageCircle className="h-5 w-5 sm:h-6 sm:w-6 flex-shrink-0 transition-transform group-hover:scale-110" />
           <span className="text-sm sm:text-base md:text-lg font-semibold leading-tight break-words text-center whitespace-normal min-w-0">
             ΕΝΕΡΓΟΠΟΙΗΣΗ S.O.S.
           </span>
@@ -78,7 +82,12 @@ export default function SOSButton({
       {showDescription && (
         <div>
           {description ? (
-            <p className={cn("text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground leading-relaxed break-words", textAlignmentClasses[align])}>
+            <p
+              className={cn(
+                "text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground leading-relaxed break-words",
+                textAlignmentClasses[align]
+              )}
+            >
               {description}
             </p>
           ) : (
@@ -89,4 +98,3 @@ export default function SOSButton({
     </div>
   );
 }
-

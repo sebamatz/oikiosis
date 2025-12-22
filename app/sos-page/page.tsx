@@ -1,8 +1,10 @@
+"use client";
+
 import Section from "@/components/Section";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { ArrowLeft, Phone, CheckCircle } from "lucide-react";
+import { ArrowLeft, CheckCircle } from "lucide-react";
 
 export default function SOSPage() {
   return (
@@ -22,16 +24,16 @@ export default function SOSPage() {
         </div>
       </Section>
 
-      {/* Introduction - The 10-minute SOS Call */}
+      {/* Introduction - The S.O.S. Message */}
       <Section>
         <div className="mx-auto max-w-4xl">
           <div className="space-y-6">
-            <h2 className="mb-4 text-center text-2xl font-bold md:text-3xl">Τι είναι η 10λεπτη Κλήση S.O.S.</h2>
+            <h2 className="mb-4 text-center text-2xl font-bold md:text-3xl">Τι είναι το S.O.S. μήνυμα</h2>
             <p className="text-center text-lg leading-relaxed text-muted-foreground">
               Όταν όλα μοιάζουν να «τρέχουν» πιο γρήγορα απ' όσο αντέχεις, χρειάζεσαι ένα ασφαλές σημείο επανεκκίνησης και προσανατολισμού.
             </p>
             <p className="text-center text-lg leading-relaxed text-muted-foreground">
-              Η 10λεπτη Κλήση S.O.S. είναι αυτό ακριβώς: ένα σύντομο, ασφαλές «διάλειμμα» μαζί μου, για να πούμε δυνατά τι συμβαίνει και να βάλουμε σε τάξη το χάος των επόμενων ημερών.
+              Το S.O.S. μήνυμα είναι αυτό ακριβώς: ένα σύντομο, ασφαλές «διάλειμμα» μέσα από το site, για να πούμε δυνατά τι συμβαίνει και να βάλουμε σε τάξη το χάος των επόμενων ημερών.
             </p>
             <div className="grid gap-4 md:grid-cols-3 mt-6">
               <Card className="border-primary/20">
@@ -52,7 +54,7 @@ export default function SOSPage() {
             </div>
             <Card className="mt-6 border-primary/20 bg-muted/30">
               <CardHeader>
-                <CardTitle className="text-xl">Η κλήση γίνεται με τον Ιωάννη Γιαννόπουλο</CardTitle>
+                <CardTitle className="text-xl">Το μήνυμα διαβάζεται από τον Ιωάννη Γιαννόπουλο</CardTitle>
               </CardHeader>
               <CardContent className="space-y-3">
                 <p className="text-base leading-relaxed text-muted-foreground">
@@ -64,7 +66,7 @@ export default function SOSPage() {
                   <li>γονεϊκή αποξένωση</li>
                 </ul>
                 <p className="text-base leading-relaxed text-muted-foreground mt-4">
-                  <span className="font-semibold text-foreground">Μέσα σε 10 λεπτά:</span>
+                  <span className="font-semibold text-foreground">Μέσα από το S.O.S. μήνυμα:</span>
                 </p>
                 <ul className="list-disc list-inside space-y-2 text-muted-foreground ml-4">
                   <li>δεν «λύνεται» όλη η κατάσταση</li>
@@ -77,12 +79,12 @@ export default function SOSPage() {
         </div>
       </Section>
 
-      {/* What we do in 10 minutes */}
+      {/* What we do through the S.O.S. message */}
       <Section className="bg-muted/30">
         <div className="mx-auto max-w-4xl">
-          <h2 className="mb-6 text-center text-2xl font-bold md:text-3xl">Τι κάνουμε σε αυτά τα 10 λεπτά</h2>
+          <h2 className="mb-6 text-center text-2xl font-bold md:text-3xl">Τι κάνουμε μέσα από το S.O.S. μήνυμα</h2>
           <p className="text-center text-lg leading-relaxed text-muted-foreground mb-6">
-            Σκέψου την κλήση σαν έναν μικρό «θάλαμο ηρεμίας» μέσα στην καταιγίδα.
+            Σκέψου το μήνυμα σαν έναν μικρό «θάλαμο ηρεμίας» μέσα στην καταιγίδα.
           </p>
           <div className="space-y-6">
             <Card className="shadow-md">
@@ -147,7 +149,7 @@ export default function SOSPage() {
             <Card className="border-primary/20 bg-muted/30 mt-6">
               <CardContent className="pt-6">
                 <p className="text-center text-lg font-semibold text-foreground">
-                  Στόχος της κλήσης: να κλείσεις το τηλέφωνο νιώθοντας λιγότερο μόνος και λίγο πιο σταθερός, ακόμα κι αν τίποτα γύρω δεν έχει αλλάξει (ακόμα).
+                  Στόχος του μηνύματος: να νιώσεις λιγότερο μόνος και λίγο πιο σταθερός, ακόμα κι αν τίποτα γύρω δεν έχει αλλάξει (ακόμα).
                 </p>
               </CardContent>
             </Card>
@@ -155,23 +157,23 @@ export default function SOSPage() {
         </div>
       </Section>
 
-      {/* Step 1: Book the call */}
+      {/* Step 1: Send the S.O.S. message */}
       <Section>
         <div className="mx-auto max-w-4xl">
-          <h2 className="mb-6 text-center text-2xl font-bold md:text-3xl">Βήμα 1: Κλείστε την 10λεπτη Κλήση S.O.S.</h2>
+          <h2 className="mb-6 text-center text-2xl font-bold md:text-3xl">Βήμα 1: Στείλε το S.O.S. μήνυμά σου</h2>
           <div className="space-y-6">
             <p className="text-center text-base leading-relaxed text-muted-foreground">
-              Επίλεξε την ημέρα και την ώρα που σε εξυπηρετεί.
+              Γράψε με απλά λόγια τι σε δυσκολεύει και σου απαντώ μέσα από το S.O.S. chat.
             </p>
             <Card className="border-primary/20 bg-muted/30">
               <CardContent className="pt-6">
                 <p className="text-sm text-muted-foreground text-center space-y-2">
-                  <span className="block">• Πατάς στο κουμπί Κράτηση 10λεπτης Κλήσης S.O.S.</span>
-                  <span className="block">• Ανοίγει το ημερολόγιο (π.χ. Calendly)</span>
-                  <span className="block">• Βλέπεις μόνο τις διαθέσιμες 10λεπτες υποδοχές.</span>
+                  <span className="block">• Πατάς στο κουμπί S.O.S. μήνυμα</span>
+                  <span className="block">• Ανοίγει το chat</span>
+                  <span className="block">• Γράφεις το μήνυμά σου.</span>
                 </p>
                 <p className="text-sm text-muted-foreground text-center mt-4">
-                  Δεν χρειάζεται να γράψεις πολλά. Σε αυτή τη φάση είναι αρκετό να βρούμε έναν κοινό χρόνο.
+                  Δεν χρειάζεται να γράψεις πολλά. Αρκεί να πεις τι σε δυσκολεύει.
                 </p>
               </CardContent>
             </Card>
@@ -179,12 +181,13 @@ export default function SOSPage() {
               <Button 
                 size="lg" 
                 className="text-lg font-semibold px-8 py-4 shadow-lg hover:shadow-xl transition-shadow max-w-[400px] w-full whitespace-normal overflow-hidden"
-                asChild
+                onClick={() => {
+                  if (typeof window !== "undefined") {
+                    window.dispatchEvent(new CustomEvent("openSOSChat"));
+                  }
+                }}
               >
-                <Link href="/booking" className="flex items-center justify-center gap-2 min-w-0 overflow-hidden">
-                  <Phone className="h-5 w-5 flex-shrink-0" />
-                  <span className="break-words text-center whitespace-normal min-w-0 text-sm md:text-base">Κράτηση 10λεπτης Κλήσης S.O.S.</span>
-                </Link>
+                <span className="break-words text-center whitespace-normal min-w-0 text-sm md:text-base">Στείλε S.O.S. μήνυμα</span>
               </Button>
             </div>
           </div>
@@ -197,10 +200,10 @@ export default function SOSPage() {
           <h2 className="mb-6 text-center text-2xl font-bold md:text-3xl">Βήμα 2: Συμπληρώστε τα Δεδομένα «Black Box»</h2>
           <div className="space-y-6">
             <p className="text-center text-base leading-relaxed text-muted-foreground">
-              Μετά την επιλογή ώρας, θα σου ζητηθούν 4 σύντομα στοιχεία.
+              Μετά την αποστολή του μηνύματος, θα σου ζητηθούν 3 σύντομα στοιχεία.
             </p>
             <p className="text-center text-sm leading-relaxed text-muted-foreground italic">
-              Η λέξη «Black Box» εδώ σημαίνει: τα απολύτως βασικά που χρειάζομαι για να σε καταλάβω καλύτερα πριν μιλήσουμε.
+              Η λέξη «Black Box» εδώ σημαίνει: τα απολύτως βασικά που χρειάζομαι για να σε καταλάβω καλύτερα πριν απαντήσω.
             </p>
             <Card className="border-primary/20">
               <CardContent className="pt-6">
@@ -215,13 +218,7 @@ export default function SOSPage() {
                     <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
                     <div>
                       <p className="text-base font-semibold text-foreground mb-1">Email</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                    <div>
-                      <p className="text-base font-semibold text-foreground mb-1">Κινητό τηλέφωνο</p>
-                      <p className="text-sm text-muted-foreground">(για την κλήση)</p>
+                      <p className="text-sm text-muted-foreground">(για την απάντηση στο μήνυμα)</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
@@ -246,7 +243,7 @@ export default function SOSPage() {
       {/* What happens after */}
       <Section>
         <div className="mx-auto max-w-4xl">
-          <h2 className="mb-6 text-center text-2xl font-bold md:text-3xl">Τι συμβαίνει μετά την κράτηση</h2>
+          <h2 className="mb-6 text-center text-2xl font-bold md:text-3xl">Τι συμβαίνει μετά την αποστολή</h2>
           <div className="space-y-6">
             <p className="text-center text-lg leading-relaxed text-muted-foreground">
               Μόλις ολοκληρώσεις αυτά τα βήματα, το Πρωτόκολλο S.O.S. έχει ουσιαστικά ενεργοποιηθεί.
@@ -257,9 +254,9 @@ export default function SOSPage() {
                   <div className="flex items-start gap-3">
                     <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
                     <div>
-                      <p className="text-base font-semibold text-foreground mb-1">1. Λαμβάνεις ένα email επιβεβαίωσης</p>
+                      <p className="text-base font-semibold text-foreground mb-1">1. Λαμβάνεις επιβεβαίωση</p>
                       <p className="text-base leading-relaxed text-muted-foreground">
-                        με την ημέρα και την ώρα της κλήσης.
+                        ότι το μήνυμά σου έχει σταλεί.
                       </p>
                     </div>
                   </div>
@@ -270,9 +267,9 @@ export default function SOSPage() {
                   <div className="flex items-start gap-3">
                     <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
                     <div>
-                      <p className="text-base font-semibold text-foreground mb-1">2. Την καθορισμένη ώρα, σε καλώ προσωπικά</p>
+                      <p className="text-base font-semibold text-foreground mb-1">2. Ο Ιωάννης διαβάζει το μήνυμά σου</p>
                       <p className="text-base leading-relaxed text-muted-foreground">
-                        στο κινητό που έχεις δηλώσει.
+                        και σου απαντάει μέσα από το chat με ένα μήνυμα μόνο για σένα.
                       </p>
                     </div>
                   </div>
