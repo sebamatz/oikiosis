@@ -3,8 +3,6 @@
 import Link from "next/link";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -67,18 +65,6 @@ export default function Header() {
                 {item.label}
               </Link>
             ))}
-            <Button
-              className="w-full whitespace-normal overflow-hidden"
-              asChild
-            >
-              <Link
-                href="/contact"
-                onClick={() => setMobileMenuOpen(false)}
-                className="break-words whitespace-normal min-w-0 overflow-hidden"
-              >
-                Επικοινωνία
-              </Link>
-            </Button>
           </div>
         </div>
       )}
