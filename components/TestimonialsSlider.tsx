@@ -45,6 +45,8 @@ function TestimonialCard({ author, content }: TestimonialCardProps) {
 
 export default function TestimonialsSlider() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [touchStart, setTouchStart] = useState(0);
+  const [touchEnd, setTouchEnd] = useState(0);
 
   const nextSlide = () => {
     setCurrentIndex((prev) => (prev + 1) % testimonials.length);
@@ -58,12 +60,45 @@ export default function TestimonialsSlider() {
     setCurrentIndex(index);
   };
 
+  // Swipe handlers
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > 50;
+    const isRightSwipe = distance < -50;
+
+    if (isLeftSwipe) {
+      nextSlide();
+    }
+    if (isRightSwipe) {
+      prevSlide();
+    }
+
+    // Reset
+    setTouchStart(0);
+    setTouchEnd(0);
+  };
+
   const currentTestimonial = testimonials[currentIndex];
 
   return (
     <div className="relative w-full max-w-4xl mx-auto">
       {/* Main testimonial display */}
-      <div className="relative overflow-hidden">
+      <div 
+        className="relative overflow-hidden touch-pan-y"
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+      >
         <div className="transition-all duration-700 ease-in-out transform">
           <TestimonialCard
             author={currentTestimonial.author}
