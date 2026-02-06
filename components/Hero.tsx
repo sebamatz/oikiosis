@@ -78,7 +78,7 @@ export default function Hero() {
           </div>
 
           {/* Image */}
-          <div className="relative hidden lg:block min-w-0">
+          <div className="relative min-w-0 mt-8 lg:mt-0">
             <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl">
               <Image
                 src="/images/lighthouse.jpeg"
