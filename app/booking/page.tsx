@@ -85,6 +85,41 @@ export default function BookingPage() {
               Επιλέξτε ημερομηνία, ώρα, ψυχολόγο και θέμα για τη συνεδρία σας
             </p>
           </div>
+
+          {/* SOS Message for Urgent Cases */}
+          <Card className="mt-6 border-primary/50 bg-primary/5">
+            <CardHeader>
+              <CardTitle className="text-lg flex items-center gap-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-5 w-5 text-primary"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+                Βρίσκεστε σε κατάσταση κρίσης;
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-3">
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                Αν δεν μπορείτε να περιμένετε για ραντεβού ή χρειάζεστε άμεση
+                υποστήριξη, μπορείτε να στείλετε ένα S.O.S. μήνυμα.
+              </p>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                Ενεργοποιήστε το πρωτόκολλο S.O.S. (Safety - Ασφάλεια, 
+                Orientation - Προσανατολισμός, Stabilization - Σταθεροποίηση) 
+                για άμεση υποστήριξη.
+              </p>
+              <Button asChild variant="default" size="lg" className="w-full">
+                <Link href="/sos-page">ΕΝΕΡΓΟΠΟΙΗΣΗ S.O.S. ΜΗΝΥΜΑΤΟΣ</Link>
+              </Button>
+            </CardContent>
+          </Card>
         </div>
       </Section>
 

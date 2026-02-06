@@ -24,9 +24,9 @@ export default function Home() {
       <Section>
         <div className="mx-auto max-w-6xl">
           <h2 className="mb-8 text-center text-2xl font-bold md:text-3xl">
-            Τρεις τρόποι να έχεις στήριξη από εμάς
+            Δύο τρόποι να έχεις στήριξη από εμάς
           </h2>
-          <div className="grid gap-6 md:grid-cols-3">
+          <div className="grid gap-6 md:grid-cols-2">
             {/* Way 1 - S.O.S. Message */}
             <Card className="shadow-md border-primary/20">
               <CardHeader>
@@ -50,31 +50,6 @@ export default function Home() {
               </CardContent>
             </Card>
 
-            {/* Way 2 - Online Platform */}
-            <Card className="shadow-md border-primary/20">
-              <CardHeader>
-                <CardTitle className="text-xl">
-                  2. Online υλικό με τον δικό σου ρυθμό
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <p className="text-muted-foreground leading-relaxed">
-                  Αν θέλεις να έχεις βίντεο, ηχητικά και πρακτικά εργαλεία για
-                  να σε βοηθούν στην καθημερινότητα, μπορείς να μπεις στον
-                  online χώρο υποστήριξης.
-                </p>
-                <p className="text-muted-foreground leading-relaxed">
-                  Βλέπεις τι υπάρχει, αποφασίζεις εσύ αν και πότε θα γίνεις
-                  μέλος.
-                </p>
-                <Button asChild className="w-full" variant="outline">
-                  <Link href="/reach-hub">
-                    <Video className="h-4 w-4 mr-2" />
-                    Δες τον online χώρο υποστήριξης
-                  </Link>
-                </Button>
-              </CardContent>
-            </Card>
 
             {/* Way 3 - Individual Session */}
             <Card className="shadow-md border-primary/20">
