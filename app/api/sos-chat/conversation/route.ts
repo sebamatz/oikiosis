@@ -1,5 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getConversation } from "@/lib/mock-chat-storage";
+import { prisma } from "@/lib/prisma";
+
+// Force this route to always fetch fresh data (no caching)
+export const dynamic = "force-dynamic";
 
 export async function GET(request: NextRequest) {
   try {
@@ -8,33 +11,29 @@ export async function GET(request: NextRequest) {
 
     if (!sessionId) {
       return NextResponse.json(
-        { error: "Session ID is required" },
-        { status: 400 }
+        { error: "Session ID required" },
+        { status: 400 },
       );
     }
 
-    const conversation = getConversation(sessionId);
-
-    if (conversation) {
-      return NextResponse.json({
-        conversation: {
-          ...conversation,
-          messages: [...conversation.messages].sort(
-            (a, b) =>
-              new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()
-          ),
+    // THE FIX: Fetch from REAL Database and explicitly INCLUDE messages
+    const conversation = await prisma.conversation.findUnique({
+      where: { sessionId: sessionId },
+      include: {
+        messages: {
+          orderBy: { createdAt: "asc" }, // Sort by oldest first
         },
-      });
-    }
+      },
+    });
 
     return NextResponse.json({
-      conversation: null,
+      conversation: conversation || null,
     });
   } catch (error) {
-    console.error("Error fetching conversation:", error);
+    console.error("Database Error:", error);
     return NextResponse.json(
       { error: "Internal server error" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

@@ -50,7 +50,6 @@ export default function Home() {
               </CardContent>
             </Card>
 
-
             {/* Way 3 - Individual Session */}
             <Card className="shadow-md border-primary/20">
               <CardHeader>
@@ -147,10 +146,13 @@ export default function Home() {
       </Section>
 
       {/* Testimonials Section - Εμπειρίες Καταιγίδας */}
-      <Section id="testimonials-section" className="bg-gradient-to-b from-muted/30 to-background">
+      <Section
+        id="testimonials-section"
+        className="bg-linear-to-b from-muted/30 to-background"
+      >
         <div className="mx-auto max-w-4xl">
           <div className="text-center mb-12">
-            <h2 className="mb-6 text-3xl font-bold md:text-4xl bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
+            <h2 className="mb-6 text-3xl font-bold md:text-4xl bg-linear-to-r from-primary to-primary/60 bg-clip-text text-transparent">
               Εμπειρίες Καταιγίδας
             </h2>
             <div className="space-y-5">
@@ -159,12 +161,12 @@ export default function Home() {
               </p>
               <div className="space-y-4 text-base md:text-lg leading-relaxed text-muted-foreground max-w-3xl mx-auto">
                 <p>
-                  Άνθρωποι που ένιωσαν ότι χάνουν τον προσανατολισμό τους στα κύματα
-                  και αναζήτησαν έναν φάρο.
+                  Άνθρωποι που ένιωσαν ότι χάνουν τον προσανατολισμό τους στα
+                  κύματα και αναζήτησαν έναν φάρο.
                 </p>
                 <p>
-                  Μοιραζόμαστε τις εμπειρίες τους, με τη δική τους άδεια,
-                  για να γνωρίζεις ότι δεν υπερβάλλεις και δεν χάνεις τα λογικά σου.
+                  Μοιραζόμαστε τις εμπειρίες τους, με τη δική τους άδεια, για να
+                  γνωρίζεις ότι δεν υπερβάλλεις και δεν χάνεις τα λογικά σου.
                 </p>
               </div>
             </div>
@@ -285,7 +287,7 @@ export default function Home() {
           >
             <Link
               href="/services"
-              className="break-words text-center whitespace-normal min-w-0 overflow-hidden"
+              className="wrap-break-word text-center whitespace-normal min-w-0 overflow-hidden"
             >
               Δείτε πώς μπορούμε να σας βοηθήσουμε
             </Link>

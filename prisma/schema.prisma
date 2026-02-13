@@ -1,20 +1,17 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
-  provider = "prisma-client"
-  output   = "../lib/generated/prisma"
+  provider = "prisma-client-js" 
 }
 
 datasource db {
-  provider = "sqlite"
-  url      = "file:./dev.db"
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
 }
 
 model Conversation {
   id        String   @id @default(cuid())
   sessionId String   @unique
   name      String?
+  status    String   @default("active") 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   messages  Message[]
@@ -27,7 +24,8 @@ model Message {
   conversationId String
   conversation   Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
   content        String
-  sender         String       // "user" or "giannis"
+  sender         String
+  isRead         Boolean      @default(false)
   createdAt      DateTime     @default(now())
 
   @@index([conversationId])

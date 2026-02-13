@@ -1,46 +1,83 @@
-import { NextRequest, NextResponse } from "next/server";
-import {
-  getConversation,
-  createOrUpdateConversation,
-  addMessage,
-  updateConversation,
-} from "@/lib/mock-chat-storage";
+import { NextResponse } from "next/server";
+import { prisma } from "@/lib/prisma";
+import { sendEmailNotification } from "@/lib/notifications"; // Added Import
 
-export async function POST(request: NextRequest) {
+export async function POST(request: Request) {
   try {
     const body = await request.json();
     const { sessionId, name, content } = body;
 
+    console.log("1. Received Request for Session:", sessionId);
+
     if (!sessionId || !content) {
       return NextResponse.json(
-        { error: "Session ID and message content are required" },
-        { status: 400 }
+        { error: "Session ID and content are required" },
+        { status: 400 },
       );
     }
 
-    // Find or create conversation
-    let conversation = getConversation(sessionId);
+    // STEP 1: Find or Create the Conversation
+    let conversation = await prisma.conversation.findUnique({
+      where: { sessionId: sessionId },
+    });
 
     if (!conversation) {
-      conversation = createOrUpdateConversation(sessionId, name);
-    } else if (name && !conversation.name) {
-      conversation = createOrUpdateConversation(sessionId, name);
+      console.log("2. Creating NEW conversation");
+      conversation = await prisma.conversation.create({
+        data: {
+          sessionId: sessionId,
+          name: name || "Anonymous User",
+        },
+      });
+    } else {
+      console.log("2. Found EXISTING conversation ID:", conversation.id);
+      // Update name if user provided a new one, or just bump updatedAt
+      await prisma.conversation.update({
+        where: { id: conversation.id },
+        data: {
+          name: name || conversation.name,
+          updatedAt: new Date(),
+        },
+      });
     }
 
-    // Create user message
-    addMessage(conversation.id, content, "user");
+    // STEP 2: Save the User Message
+    await prisma.message.create({
+      data: {
+        conversationId: conversation.id,
+        content: content,
+        sender: "user",
+        isRead: false,
+      },
+    });
 
-    // Reload conversation to get updated messages
-    conversation = getConversation(sessionId)!;
+    // STEP 3: Fetch the full conversation with messages for the UI
+    const finalConversation = await prisma.conversation.findUnique({
+      where: { id: conversation.id },
+      include: {
+        messages: {
+          orderBy: { createdAt: "asc" },
+        },
+      },
+    });
 
-    // Create automatic bot response for first message
-    const isFirstMessage =
-      conversation.messages.filter((m) => m.sender === "user").length === 1;
+    if (!finalConversation) throw new Error("Conversation lost after creation");
 
-    if (isFirstMessage) {
-      addMessage(
-        conversation.id,
-        `Σε ευχαριστώ που μου έγραψες.
+    // STEP 4: First Message Logic (Notifications & Auto-Reply)
+    const userMsgCount = finalConversation.messages.filter(
+      (m) => m.sender === "user",
+    ).length;
+
+    if (userMsgCount === 1) {
+      console.log("3. First message detected. Triggering Notifications.");
+
+      // --- TRIGGER GMAIL NOTIFICATION ---
+      // We don't 'await' this so the user doesn't wait for the email server to respond
+      sendEmailNotification(sessionId, content, name || "Anonymous User").catch(
+        (err) => console.error("Notification trigger failed:", err),
+      );
+
+      const autoReplyText = `Σε ευχαριστώ που μου έγραψες.
 
 Ξέρω ότι δεν είναι εύκολο να βάλεις σε λόγια όλα αυτά.
 
@@ -50,28 +87,34 @@ export async function POST(request: NextRequest) {
 και με 1–2 πολύ συγκεκριμένα, μικρά βήματα για το «τι κάνω τώρα».
 
 Μέχρι τότε, δεν χρειάζεται να πάρεις όλες τις αποφάσεις.
-Αρκεί που έκανες αυτό το βήμα.`,
-        "giannis"
-      );
+Αρκεί που έκανες αυτό το βήμα.`;
+
+      // Save the Auto-Reply message
+      const botMsg = await prisma.message.create({
+        data: {
+          conversationId: conversation.id,
+          sender: "giannis",
+          content: autoReplyText,
+          isRead: true,
+        },
+      });
+
+      // Manually add the bot message to the object instead of another DB query
+      // This is faster and prevents any race conditions
+      finalConversation.messages.push(botMsg);
+
+      return NextResponse.json({ conversation: finalConversation });
     }
 
-    // Reload conversation to get all messages
-    conversation = getConversation(sessionId)!;
-
+    // Return the updated conversation for normal messages
     return NextResponse.json({
-      conversation: {
-        ...conversation,
-        messages: [...conversation.messages].sort(
-          (a, b) =>
-            new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()
-        ),
-      },
+      conversation: finalConversation,
     });
   } catch (error) {
-    console.error("Error creating message:", error);
+    console.error("CRITICAL CHAT ERROR:", error);
     return NextResponse.json(
       { error: "Internal server error" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
