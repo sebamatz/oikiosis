@@ -43,12 +43,9 @@ export async function sendEmailNotification(
             <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;" />
             
             <div style="text-align: center;">
-              <a href="http://localhost:3000/admin" style="background-color: #007bff; color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-block;">
+              <a href="https://oikiosis.gr/admin" style="background-color: #007bff; color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-block;">
                 Go to Admin Dashboard
               </a>
-              <p style="font-size: 12px; color: #999; margin-top: 15px;">
-                (Link works locally. Change to your real domain when live)
-              </p>
             </div>
           </div>
         </div>
