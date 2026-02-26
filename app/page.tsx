@@ -24,7 +24,7 @@ export default function Home() {
       <Section>
         <div className="mx-auto max-w-6xl">
           <h2 className="mb-8 text-center text-2xl font-bold md:text-3xl">
-            Δύο τρόποι να έχεις στήριξη από εμάς
+            Πώς μπορείς να έχεις στήριξη από εμάς
           </h2>
           <div className="grid gap-6 md:grid-cols-2">
             {/* Way 1 - S.O.S. Message */}
@@ -40,8 +40,9 @@ export default function Home() {
                   πεις «βοήθεια» σε έναν άνθρωπο.
                 </p>
                 <p className="text-muted-foreground leading-relaxed">
-                  Γράφεις με απλά λόγια τι σε δυσκολεύει και σου απαντώ μέσα από
-                  το S.O.S. chat.
+                  Γράφεις με απλά λόγια τι σε δυσκολεύει, χωρίς να χρειάζεται να
+                  βρεις τις «σωστές» λέξεις, και σου απαντώ μέσα από το S.O.S.
+                  chat.
                 </p>
                 <Button onClick={openChat} className="w-full" variant="default">
                   <MessageCircle className="h-4 w-4 mr-2" />
@@ -54,17 +55,19 @@ export default function Home() {
             <Card className="shadow-md border-primary/20">
               <CardHeader>
                 <CardTitle className="text-xl">
-                  3. Ατομική συνεδρία μαζί μας
+                  2. Ατομική συνεδρία μαζί μας
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 <p className="text-muted-foreground leading-relaxed">
                   Αν νιώθεις ότι χρειάζεσαι έναν σταθερό χώρο για να σε ακούσω
-                  σε βάθος, μπορείς να κλείσεις συνεδρία μαζί μου.
+                  σε βάθος και χωρίς βιασύνη, μπορείς να κλείσεις συνεδρία μαζί
+                  μου.
                 </p>
                 <p className="text-muted-foreground leading-relaxed">
                   Στην πρώτη συνάντηση γνωριζόμαστε, βλέπουμε τι σε δυσκολεύει
-                  και αν ταιριάζει να συνεχίσουμε τη συνεργασία.
+                  αυτή την περίοδο και αν ταιριάζει να συνεχίσουμε τη διαδρομή
+                  μαζί.
                 </p>
                 <Button asChild className="w-full" variant="outline">
                   <Link href="/booking">
@@ -99,7 +102,7 @@ export default function Home() {
             Πώς σε βοηθάμε
           </h2>
           <p className="mb-6 text-center text-lg leading-relaxed text-muted-foreground">
-            Στην Οικείωση, δεν ξεκινάμε με το «τι κάνεις λάθος».
+            Στην Οικείωσις, δεν ξεκινάμε με το «τι κάνεις λάθος».
           </p>
           <p className="mb-8 text-center text-lg font-semibold text-foreground">
             Ξεκινάμε από το: «Πώς είναι να είσαι εσύ μέσα σε αυτή τη σύγκρουση;»
@@ -282,7 +285,7 @@ export default function Home() {
         <div className="mx-auto max-w-4xl text-center">
           <Button
             size="lg"
-            className="mb-3 max-w-[400px] w-full whitespace-normal overflow-hidden"
+            className="mb-3 max-w-100 w-full whitespace-normal overflow-hidden"
             asChild
           >
             <Link

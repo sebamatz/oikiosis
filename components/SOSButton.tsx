@@ -38,10 +38,15 @@ export default function SOSButton({
     <div className="flex flex-col items-start">
       <p
         className={cn(
-          "text-xs sm:text-sm md:text-base lg:text-lg text-muted-foreground mb-2 break-words"
+          "text-xs sm:text-sm md:text-base lg:text-lg text-muted-foreground mb-2 wrap-break-word",
         )}
       >
-        Το δωρεάν S.O.S. μήνυμά σου για άμεσο Προσανατολισμό & Σταθεροποίηση.
+        Το δωρεάν S.O.S. μήνυμά σου για έναν πρώτο προσανατολισμό και λίγη
+        σταθεροποίηση.
+      </p>
+      <p>
+        Δεν είναι γραμμή άμεσης επέμβασης ή 24/7, αλλά μια πρώτη ανθρώπινη
+        ανταπόκριση για να μην μείνεις εντελώς μόνος με ό,τι ζεις.
       </p>
     </div>
   );
@@ -60,12 +65,12 @@ export default function SOSButton({
           "py-3 sm:py-4",
           "shadow-lg hover:shadow-xl",
           "transition-all duration-200",
-          "max-w-[400px]",
+          "max-w-100",
           "whitespace-normal",
           "overflow-hidden",
           fullWidth ? "w-full sm:w-auto" : "w-auto",
           variant === "outline" && "border-2 border-primary",
-          variant === "ghost" && "bg-transparent hover:bg-primary/10"
+          variant === "ghost" && "bg-transparent hover:bg-primary/10",
         )}
         asChild
       >
@@ -73,8 +78,8 @@ export default function SOSButton({
           href={href}
           className="flex items-center justify-center gap-2 sm:gap-3 w-full sm:w-auto min-w-0 overflow-hidden"
         >
-          <MessageCircle className="h-5 w-5 sm:h-6 sm:w-6 flex-shrink-0 transition-transform group-hover:scale-110" />
-          <span className="text-sm sm:text-base md:text-lg font-semibold leading-tight break-words text-center whitespace-normal min-w-0">
+          <MessageCircle className="h-5 w-5 sm:h-6 sm:w-6 shrink-0 transition-transform group-hover:scale-110" />
+          <span className="text-sm sm:text-base md:text-lg font-semibold leading-tight wrap-break-word text-center whitespace-normal min-w-0">
             ΕΝΕΡΓΟΠΟΙΗΣΗ S.O.S.
           </span>
         </Link>
@@ -84,8 +89,8 @@ export default function SOSButton({
           {description ? (
             <p
               className={cn(
-                "text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground leading-relaxed break-words",
-                textAlignmentClasses[align]
+                "text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground leading-relaxed wrap-break-word",
+                textAlignmentClasses[align],
               )}
             >
               {description}

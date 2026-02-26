@@ -39,13 +39,22 @@ export default function ContactForm() {
     setSubmitStatus({ type: null, message: "" });
 
     try {
-      // TODO: Implement actual form submission to backend/email service
-      // For now, just simulate a successful submission
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to send message");
+      }
 
       setSubmitStatus({
         type: "success",
-        message: "Το μήνυμά σας στάλθηκε επιτυχώς. Θα επικοινωνήσουμε μαζί σας σύντομα.",
+        message:
+          "Το μήνυμά σας στάλθηκε επιτυχώς. Θα επικοινωνήσουμε μαζί σας σύντομα.",
       });
 
       // Reset form
@@ -86,7 +95,10 @@ export default function ContactForm() {
           {/* Name Field */}
           <div className="space-y-2">
             <Label htmlFor="name" className="text-sm font-medium">
-              Όνομα <span className="text-xs text-muted-foreground">(προαιρετικό)</span>
+              Όνομα{" "}
+              <span className="text-xs text-muted-foreground">
+                (προαιρετικό)
+              </span>
             </Label>
             <Input
               id="name"
@@ -134,11 +146,13 @@ export default function ContactForm() {
                 <SelectValue placeholder="Επιλέξτε θέμα" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="question">Ερώτηση</SelectItem>
-                <SelectItem value="concern">Προβληματισμός</SelectItem>
-                <SelectItem value="update">Ενημέρωση</SelectItem>
-                <SelectItem value="appointment">Κλείσιμο Ραντεβού</SelectItem>
-                <SelectItem value="other">Άλλο</SelectItem>
+                <SelectItem value="Ερώτηση">Ερώτηση</SelectItem>
+                <SelectItem value="Προβληματισμός">Προβληματισμός</SelectItem>
+                <SelectItem value="Ενημέρωση">Ενημέρωση</SelectItem>
+                <SelectItem value="Κλείσιμο Ραντεβού">
+                  Κλείσιμο Ραντεβού
+                </SelectItem>
+                <SelectItem value="Άλλο">Άλλο</SelectItem>
               </SelectContent>
             </Select>
           </div>
@@ -255,10 +269,11 @@ export default function ContactForm() {
           {/* Status Message */}
           {submitStatus.type && (
             <div
-              className={`rounded-lg p-4 text-sm font-medium ${submitStatus.type === "success"
-                ? "bg-green-50 text-green-800 dark:bg-green-900/20 dark:text-green-400"
-                : "bg-red-50 text-red-800 dark:bg-red-900/20 dark:text-red-400"
-                }`}
+              className={`rounded-lg p-4 text-sm font-medium ${
+                submitStatus.type === "success"
+                  ? "bg-green-50 text-green-800 dark:bg-green-900/20 dark:text-green-400"
+                  : "bg-red-50 text-red-800 dark:bg-red-900/20 dark:text-red-400"
+              }`}
             >
               {submitStatus.message}
             </div>

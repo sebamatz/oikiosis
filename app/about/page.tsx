@@ -41,8 +41,27 @@ export default function AboutPage() {
               fill
               className="object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent"></div>
+            <div className="absolute inset-0 bg-linear-to-t from-background/20 to-transparent"></div>
           </div>
+        </div>
+      </Section>
+
+      {/* NEW: Intro Philosophy */}
+      <Section>
+        <div className="mx-auto max-w-3xl text-center space-y-6 text-lg md:text-xl text-muted-foreground leading-relaxed px-4">
+          <p className="font-semibold text-foreground">
+            Η Οικείωσις δεν είναι απλώς ένα «γραφείο ψυχολόγων».
+          </p>
+          <p>
+            Θέλουμε να λειτουργεί σαν καταφύγιο και πυξίδα για ανθρώπους που
+            ζουν μέσα σε έντονη σύγκρουση, διαζύγιο ή γονεϊκή αποξένωση και
+            έχουν κουραστεί να τους λένε «κάνε υπομονή» ή «μην υπερβάλλεις».
+          </p>
+          <p>
+            Πριν από τα εργαλεία και τις τεχνικές, αυτό που προσφέρουμε είναι
+            ένας ασφαλής, ανθρώπινος χώρος όπου ο πόνος σου ακούγεται χωρίς
+            κριτική και δουλεύουμε μαζί με ρεαλιστικά βήματα.
+          </p>
         </div>
       </Section>
 
@@ -439,12 +458,12 @@ export default function AboutPage() {
         <div className="mx-auto max-w-2xl text-center">
           <Button
             size="lg"
-            className="max-w-[400px] w-full whitespace-normal overflow-hidden"
+            className="max-w-100 w-full whitespace-normal overflow-hidden"
             asChild
           >
             <Link
               href="/contact"
-              className="break-words text-center whitespace-normal min-w-0 overflow-hidden"
+              className="wrap-break-word text-center whitespace-normal min-w-0 overflow-hidden"
             >
               Επικοινωνήστε μαζί μας
             </Link>

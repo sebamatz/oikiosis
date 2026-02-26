@@ -189,7 +189,7 @@ export default function SOSChat() {
           <div className="pointer-events-auto w-full max-w-md h-150 sm:h-175 flex flex-col bg-background border rounded-lg shadow-2xl">
             {/* Header */}
             <div className="flex items-center justify-between p-4 border-b bg-muted/30">
-              <h2 className="font-semibold text-lg">S.O.S. μήνυμα</h2>
+              <h2 className="font-semibold text-lg">Γράψε ένα S.O.S. μήνυμα</h2>
               <button
                 onClick={() => setIsOpen(false)}
                 className="p-1 hover:bg-muted rounded-full transition-colors"

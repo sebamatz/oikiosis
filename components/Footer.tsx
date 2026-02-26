@@ -79,7 +79,7 @@ export default function Footer() {
         <div className="mt-8 border-t pt-8 flex flex-row justify-between items-start gap-4">
           <div className="flex w-full">
             <div className="flex justify-between  items-start  gap-4 text-sm text-muted-foreground">
-              <div className="flex flex-col justify-between  items-start  gap-4 text-sm text-muted-foreground flex-grow">
+              <div className="flex flex-col justify-between  items-start  gap-4 text-sm text-muted-foreground grow">
                 <div className="mb-2">Με εκτίμηση,</div>
                 <div>
                   <p>

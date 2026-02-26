@@ -9,7 +9,7 @@ import ContactForm from "@/components/ContactForm";
 export default function ContactPage() {
   return (
     <>
-      <Section className="bg-gradient-to-br from-primary/5 via-muted/30 to-primary/10 py-12 md:py-16">
+      <Section className="bg-linear-to-br from-primary/5 via-muted/30 to-primary/10 py-12 md:py-16">
         <div className="mx-auto max-w-7xl">
           <Link
             href="/"
@@ -19,9 +19,17 @@ export default function ContactPage() {
             Επιστροφή στην Αρχική
           </Link>
           <div className="space-y-4 text-center">
-            <h1 className="text-4xl font-bold tracking-tight md:text-5xl">Επικοινωνία</h1>
+            <h1 className="text-4xl font-bold tracking-tight md:text-5xl">
+              Επικοινωνία
+            </h1>
             <p className="mx-auto max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
-              Επικοινωνήστε μαζί μας για να κλείσετε ραντεβού ή για οποιαδήποτε απορία
+              Επικοινωνήστε μαζί μας για να κλείσετε ραντεβού ή για οποιαδήποτε
+              απορία
+            </p>
+            <p className="mx-auto max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
+              Δεν χρειάζεται να έχεις έτοιμες «σωστές» λέξεις ή να τα έχεις
+              σκεφτεί όλα. Μπορείς απλά να περιγράψεις με απλά λόγια τι σε
+              δυσκολεύει περισσότερο αυτή την περίοδο.
             </p>
           </div>
         </div>
@@ -33,9 +41,9 @@ export default function ContactPage() {
             {/* Left Column - Contact Form */}
             <div className="flex flex-col gap-6">
               <ContactForm />
-              
+
               {/* S.O.S. Message */}
-              <Card className="border-primary/20 bg-gradient-to-br from-primary/5 to-primary/10 shadow-lg">
+              <Card className="border-primary/20 bg-linear-to-br from-primary/5 to-primary/10 shadow-lg">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
                     <MessageCircle className="h-5 w-5 text-primary" />
@@ -44,8 +52,13 @@ export default function ContactPage() {
                 </CardHeader>
                 <CardContent>
                   <p className="mb-4 text-sm leading-relaxed text-muted-foreground">
-                    Το δωρεάν S.O.S. μήνυμά σου για άμεσο Προσανατολισμό &
-                    Σταθεροποίηση.
+                    Το δωρεάν S.O.S. μήνυμά σου για έναν πρώτο προσανατολισμό
+                    και λίγη σταθεροποίηση.
+                  </p>
+                  <p className="mb-4 text-sm leading-relaxed text-muted-foreground">
+                    Δεν είναι γραμμή άμεσης επέμβασης ή 24/7, αλλά μια πρώτη
+                    ανθρώπινη ανταπόκριση για να μην μείνεις εντελώς μόνος με
+                    ό,τι ζεις.
                   </p>
                   <SOSButton
                     href="/sos-page"
@@ -69,7 +82,7 @@ export default function ContactPage() {
                 </CardHeader>
                 <CardContent>
                   <div className="flex items-center gap-5">
-                    <div className="relative h-20 w-20 flex-shrink-0 overflow-hidden rounded-full ring-2 ring-primary/20">
+                    <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-full ring-2 ring-primary/20">
                       <Image
                         src="https://media.licdn.com/dms/image/v2/D4D03AQGrIDl4WJqKcA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1680286523298?e=1763596800&v=beta&t=Ki0yT6zZ6XQ1J3sVxcJxsyFhvu9BNO5fPIkyyKvn-CI"
                         alt="Ιωάννης Γιαννόπουλος"
@@ -103,7 +116,9 @@ export default function ContactPage() {
                 <CardContent>
                   <div className="space-y-5">
                     <div className="space-y-1.5">
-                      <p className="font-semibold text-foreground">Διαδικτυακά</p>
+                      <p className="font-semibold text-foreground">
+                        Διαδικτυακά
+                      </p>
                       <p className="text-sm leading-relaxed text-muted-foreground">
                         Ασφαλής πλατφόρμα, απόρρητο. Διάρκεια: 80 λεπτά
                       </p>
@@ -117,7 +132,8 @@ export default function ContactPage() {
                     <div className="space-y-1.5">
                       <p className="font-semibold text-foreground">Συχνότητα</p>
                       <p className="text-sm leading-relaxed text-muted-foreground">
-                        Εβδομαδιαία ή εντατική, ανάλογα με τη φάση και τον στόχο.
+                        Εβδομαδιαία ή εντατική, ανάλογα με τη φάση και τον
+                        στόχο.
                       </p>
                     </div>
                   </div>
@@ -157,7 +173,7 @@ export default function ContactPage() {
         </div>
       </Section>
       {/* Message */}
-      <Section className="bg-gradient-to-b from-muted/30 to-muted/50 py-16 md:py-20">
+      <Section className="bg-linear-to-b from-muted/30 to-muted/50 py-16 md:py-20">
         <div className="mx-auto max-w-4xl text-center">
           <Card className="border-primary/20 shadow-xl">
             <CardContent className="px-6 py-10 md:px-10 md:py-14">
@@ -167,7 +183,7 @@ export default function ContactPage() {
               <p className="text-base leading-relaxed text-muted-foreground md:text-lg">
                 Η Οικείωσις είναι ένας ασφαλής χώρος, όπου ο ψυχικός πόνος
                 συναντά άμεση και ουσιαστική ανταπόκριση με κατανόηση,
-                επιστημονική τεκμηρίωση και ανθρώπινη παρουσία.
+                επιστημονική τεκμηρίωση και κυρίως ανθρώπινη παρουσία.
               </p>
             </CardContent>
           </Card>
@@ -178,11 +194,15 @@ export default function ContactPage() {
       <Section className="py-12 md:py-16">
         <div className="mx-auto max-w-3xl">
           <div className="space-y-10 text-center">
-            <p className="text-sm font-medium text-muted-foreground">Με εκτίμηση,</p>
+            <p className="text-sm font-medium text-muted-foreground">
+              Με εκτίμηση,
+            </p>
             <div className="grid gap-6 md:grid-cols-2 md:gap-8">
               <Card className="border-primary/10 shadow-md transition-shadow hover:shadow-lg">
                 <CardContent className="px-6 py-10">
-                  <p className="mb-3 text-xl font-semibold text-foreground">Γιαννόπουλος Ιωάννης</p>
+                  <p className="mb-3 text-xl font-semibold text-foreground">
+                    Γιαννόπουλος Ιωάννης
+                  </p>
                   <p className="text-sm leading-relaxed text-muted-foreground">
                     Ψυχολόγος - Ψυχοθεραπευτής
                   </p>
@@ -193,7 +213,9 @@ export default function ContactPage() {
               </Card>
               <Card className="border-primary/10 shadow-md transition-shadow hover:shadow-lg">
                 <CardContent className="px-6 py-10">
-                  <p className="mb-3 text-xl font-semibold text-foreground">Σοφία Μίαρη</p>
+                  <p className="mb-3 text-xl font-semibold text-foreground">
+                    Σοφία Μίαρη
+                  </p>
                   <p className="text-sm leading-relaxed text-muted-foreground">
                     Ψυχολόγος – Ψυχοθεραπεύτρια
                   </p>

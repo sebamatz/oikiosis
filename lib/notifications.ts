@@ -19,7 +19,7 @@ export async function sendEmailNotification(
     });
 
     const info = await transporter.sendMail({
-      from: `"Oikiosis SOS" <${process.env.SMTP_USER}>`,
+      from: `"Oikeiosis SOS" <${process.env.SMTP_USER}>`,
       to: adminEmail,
       subject: `🚨 SOS: New Message from ${userName}`,
       html: `
@@ -43,7 +43,7 @@ export async function sendEmailNotification(
             <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;" />
             
             <div style="text-align: center;">
-              <a href="https://oikiosis.gr/admin" style="background-color: #007bff; color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-block;">
+              <a href="https://oikeiosis.gr/admin" style="background-color: #007bff; color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-block;">
                 Go to Admin Dashboard
               </a>
             </div>

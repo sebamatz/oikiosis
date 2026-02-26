@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Calendar } from "@/components/ui/calendar";
 import {
   Card,
@@ -10,7 +10,14 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { CalendarIcon, Clock, ArrowLeft } from "lucide-react";
+import {
+  CalendarIcon,
+  Clock,
+  ArrowLeft,
+  Loader2,
+  User,
+  Phone,
+} from "lucide-react";
 import Link from "next/link";
 import Section from "@/components/Section";
 import { format } from "date-fns";
@@ -18,25 +25,43 @@ import { format } from "date-fns";
 export default function BookingPage() {
   const [date, setDate] = useState<Date | undefined>(undefined);
   const [selectedTime, setSelectedTime] = useState<string>("");
-  const [selectedPsychologist, setSelectedPsychologist] = useState<string>("");
   const [selectedTopic, setSelectedTopic] = useState<string>("");
 
-  const availableTimes = [
-    "09:00",
-    "10:00",
-    "11:00",
-    "12:00",
-    "14:00",
-    "15:00",
-    "16:00",
-    "17:00",
-    "18:00",
-  ];
+  // Added state for Name and Phone
+  const [name, setName] = useState<string>("");
+  const [phone, setPhone] = useState<string>("");
 
-  const psychologists = [
-    { id: "ioannis", name: "Γιαννόπουλος Ιωάννης", phone: "+30 694 730 2694" },
-    { id: "sofia", name: "Σοφία Μίαρη", phone: "+30 698 994 0588" },
-  ];
+  const [availableTimes, setAvailableTimes] = useState<string[]>([]);
+  const [isLoadingTimes, setIsLoadingTimes] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false); // Submission state
+
+  useEffect(() => {
+    if (!date) return;
+
+    const fetchTimes = async () => {
+      setIsLoadingTimes(true);
+      setSelectedTime("");
+
+      try {
+        const dateString = format(date, "yyyy-MM-dd");
+        const res = await fetch(`/api/calendar/available?date=${dateString}`);
+        if (res.ok) {
+          const data = await res.json();
+          setAvailableTimes(data.availableTimes || []);
+        } else {
+          console.error("Failed to fetch times");
+          setAvailableTimes([]);
+        }
+      } catch (error) {
+        console.error("Error:", error);
+        setAvailableTimes([]);
+      } finally {
+        setIsLoadingTimes(false);
+      }
+    };
+
+    fetchTimes();
+  }, [date]);
 
   const topics = [
     { id: "parental-alienation", name: "Γονεϊκή αποξένωση" },
@@ -48,22 +73,56 @@ export default function BookingPage() {
     { id: "other", name: "Άλλο" },
   ];
 
-  const handleBooking = () => {
-    if (!date || !selectedTime || !selectedPsychologist || !selectedTopic) {
-      alert("Παρακαλώ επιλέξτε ημερομηνία, ώρα, ψυχολόγο και θέμα.");
+  // The actual engine that talks to the server
+  const handleBooking = async () => {
+    if (
+      !date ||
+      !selectedTime ||
+      !selectedTopic ||
+      !name.trim() ||
+      !phone.trim()
+    ) {
+      alert("Παρακαλώ συμπληρώστε όλα τα απαραίτητα πεδία.");
       return;
     }
 
-    const selectedPsych = psychologists.find(
-      (p) => p.id === selectedPsychologist
-    );
-    const selectedTopicName = topics.find((t) => t.id === selectedTopic)?.name;
-    const formattedDate = format(date, "dd/MM/yyyy");
+    setIsSubmitting(true);
 
-    // In a real application, this would send the booking to a backend
-    alert(
-      `Κράτηση συνεδρίας:\n\nΨυχολόγος: ${selectedPsych?.name}\nΘέμα: ${selectedTopicName}\nΗμερομηνία: ${formattedDate}\nΏρα: ${selectedTime}\n\nΘα επικοινωνήσουμε μαζί σας για επιβεβαίωση.`
-    );
+    const selectedTopicName = topics.find((t) => t.id === selectedTopic)?.name;
+    const backendDate = format(date, "yyyy-MM-dd");
+
+    try {
+      const res = await fetch("/api/calendar/book", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name,
+          phone,
+          date: backendDate,
+          time: selectedTime,
+          topicName: selectedTopicName,
+        }),
+      });
+
+      if (res.ok) {
+        alert("Η κράτηση ολοκληρώθηκε με επιτυχία! Το ραντεβού καταχωρήθηκε.");
+        // Clear the form
+        setDate(undefined);
+        setSelectedTime("");
+        setSelectedTopic("");
+        setName("");
+        setPhone("");
+      } else {
+        alert(
+          "Υπήρξε ένα σφάλμα κατά την αποθήκευση. Παρακαλώ δοκιμάστε ξανά.",
+        );
+      }
+    } catch (error) {
+      console.error("Booking submission error:", error);
+      alert("Υπήρξε ένα σφάλμα. Παρακαλώ ελέγξτε τη σύνδεσή σας.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -82,11 +141,10 @@ export default function BookingPage() {
               Κράτηση Συνεδρίας
             </h1>
             <p className="text-muted-foreground">
-              Επιλέξτε ημερομηνία, ώρα, ψυχολόγο και θέμα για τη συνεδρία σας
+              Επιλέξτε ημερομηνία, ώρα, και θέμα για τη συνεδρία σας
             </p>
           </div>
 
-          {/* SOS Message for Urgent Cases */}
           <Card className="mt-6 border-primary/50 bg-primary/5">
             <CardHeader>
               <CardTitle className="text-lg flex items-center gap-2">
@@ -111,8 +169,8 @@ export default function BookingPage() {
                 υποστήριξη, μπορείτε να στείλετε ένα S.O.S. μήνυμα.
               </p>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                Ενεργοποιήστε το πρωτόκολλο S.O.S. (Safety - Ασφάλεια, 
-                Orientation - Προσανατολισμός, Stabilization - Σταθεροποίηση) 
+                Ενεργοποιήστε το πρωτόκολλο S.O.S. (Safety - Ασφάλεια,
+                Orientation - Προσανατολισμός, Stabilization - Σταθεροποίηση)
                 για άμεση υποστήριξη.
               </p>
               <Button asChild variant="default" size="lg" className="w-full">
@@ -162,21 +220,37 @@ export default function BookingPage() {
                 <CardDescription>Διαθέσιμες ώρες για συνεδρίες</CardDescription>
               </CardHeader>
               <CardContent>
-                <div className="grid grid-cols-3 gap-2">
-                  {availableTimes.map((time) => (
-                    <Button
-                      key={time}
-                      variant={selectedTime === time ? "default" : "outline"}
-                      onClick={() => setSelectedTime(time)}
-                      className="w-full"
-                    >
-                      {time}
-                    </Button>
-                  ))}
-                </div>
+                {!date ? (
+                  <div className="text-center text-sm text-muted-foreground py-10">
+                    Επιλέξτε πρώτα ημερομηνία.
+                  </div>
+                ) : isLoadingTimes ? (
+                  <div className="flex flex-col items-center justify-center py-8 text-muted-foreground">
+                    <Loader2 className="h-8 w-8 animate-spin mb-2 text-primary" />
+                    <p className="text-sm">Έλεγχος διαθεσιμότητας...</p>
+                  </div>
+                ) : availableTimes.length === 0 ? (
+                  <div className="text-center text-sm text-muted-foreground py-10">
+                    Δεν υπάρχουν διαθέσιμες ώρες για αυτή την ημερομηνία.
+                  </div>
+                ) : (
+                  <div className="grid grid-cols-3 gap-2">
+                    {availableTimes.map((time) => (
+                      <Button
+                        key={time}
+                        variant={selectedTime === time ? "default" : "outline"}
+                        onClick={() => setSelectedTime(time)}
+                        className="w-full"
+                      >
+                        {time}
+                      </Button>
+                    ))}
+                  </div>
+                )}
               </CardContent>
             </Card>
           </div>
+
           {/* Topic Selection */}
           <Card className="mt-6">
             <CardHeader>
@@ -201,13 +275,63 @@ export default function BookingPage() {
             </CardContent>
           </Card>
 
+          {/* Contact Details */}
+          <Card className="mt-6">
+            <CardHeader>
+              <CardTitle>Στοιχεία Επικοινωνίας</CardTitle>
+              <CardDescription>
+                Συμπληρώστε τα στοιχεία σας για να επιβεβαιώσουμε το ραντεβού
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="grid gap-4 md:grid-cols-2">
+                <div className="space-y-2">
+                  <label className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 flex items-center gap-2">
+                    <User className="h-4 w-4 text-primary" />
+                    Ονοματεπώνυμο
+                  </label>
+                  <input
+                    type="text"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    placeholder="π.χ. Μαρία Παπαδοπούλου"
+                    className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 flex items-center gap-2">
+                    <Phone className="h-4 w-4 text-primary" />
+                    Τηλέφωνο
+                  </label>
+                  <input
+                    type="tel"
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                    placeholder="π.χ. 6900000000"
+                    className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                  />
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
           {/* Selected Details */}
-          {(date || selectedTime || selectedTopic) && (
+          {(date || selectedTime || selectedTopic || name || phone) && (
             <Card className="mt-6 border-primary/20 bg-muted/30">
               <CardHeader>
                 <CardTitle>Σύνοψη Κράτησης</CardTitle>
               </CardHeader>
               <CardContent className="space-y-2">
+                {name && (
+                  <p>
+                    <span className="font-semibold">Όνομα:</span> {name}
+                  </p>
+                )}
+                {phone && (
+                  <p>
+                    <span className="font-semibold">Τηλέφωνο:</span> {phone}
+                  </p>
+                )}
                 {date && (
                   <p>
                     <span className="font-semibold">Ημερομηνία:</span>{" "}
@@ -217,15 +341,6 @@ export default function BookingPage() {
                 {selectedTime && (
                   <p>
                     <span className="font-semibold">Ώρα:</span> {selectedTime}
-                  </p>
-                )}
-                {selectedPsychologist && (
-                  <p>
-                    <span className="font-semibold">Ψυχολόγος:</span>{" "}
-                    {
-                      psychologists.find((p) => p.id === selectedPsychologist)
-                        ?.name
-                    }
                   </p>
                 )}
                 {selectedTopic && (
@@ -246,14 +361,23 @@ export default function BookingPage() {
               disabled={
                 !date ||
                 !selectedTime ||
-                !selectedPsychologist ||
-                !selectedTopic
+                !selectedTopic ||
+                !name.trim() ||
+                !phone.trim() ||
+                isSubmitting
               }
-              className="w-full md:w-auto max-w-[400px] whitespace-normal overflow-hidden"
+              className="w-full md:w-auto max-w-100 whitespace-normal overflow-hidden"
             >
-              <span className="break-words whitespace-normal min-w-0">
-                Κλείστε Συνεδρία
-              </span>
+              {isSubmitting ? (
+                <span className="flex items-center gap-2">
+                  <Loader2 className="h-4 w-4 animate-spin" />
+                  Αποθήκευση...
+                </span>
+              ) : (
+                <span className="wrap-break-word whitespace-normal min-w-0">
+                  Κλείστε Συνεδρία
+                </span>
+              )}
             </Button>
           </div>
 

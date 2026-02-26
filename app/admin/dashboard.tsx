@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import useSWR from "swr";
+import { ArrowLeft, Send, User, Circle } from "lucide-react"; // Added Icons
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
@@ -9,7 +10,6 @@ export default function AdminDashboard() {
   const [selectedChatId, setSelectedChatId] = useState<string | null>(null);
   const [replyText, setReplyText] = useState("");
 
-  // CHANGED: We now reference the container itself, not the bottom element
   const chatContainerRef = useRef<HTMLDivElement>(null);
 
   // 1. Load list of conversations
@@ -31,15 +31,13 @@ export default function AdminDashboard() {
   // Helper: Extract messages safely
   const messages = chatData?.messages || chatData?.conversation?.messages || [];
 
-  // THE FIX: Scroll handling
-  // We use LayoutEffect or useEffect to jump to the bottom instantly
-  // ONLY inside the container. This prevents the window from moving.
+  // Scroll handling
   useEffect(() => {
     if (chatContainerRef.current) {
       chatContainerRef.current.scrollTop =
         chatContainerRef.current.scrollHeight;
     }
-  }, [messages.length, selectedChatId]); // Trigger only when messages change or chat switches
+  }, [messages.length, selectedChatId]);
 
   // Helper: Find the active conversation object to get the Name
   const activeConv = listData?.conversations?.find(
@@ -54,7 +52,7 @@ export default function AdminDashboard() {
       await fetch("/api/admin/reply", {
         method: "POST",
         body: JSON.stringify({
-          conversationId: activeConv.id, // Use internal ID
+          conversationId: activeConv.id,
           content: replyText,
         }),
       });
@@ -66,131 +64,204 @@ export default function AdminDashboard() {
   };
 
   return (
-    // Height calculation ensures no global scrollbar
-    <div className="flex h-[calc(100vh-64px)] bg-gray-100 font-sans">
-      {/* LEFT SIDEBAR */}
-      <div className="w-1/3 border-r border-gray-300 bg-white flex flex-col">
-        <div className="p-4 border-b bg-gray-50 font-bold text-gray-700 shadow-sm z-10">
-          Inbox ({listData?.conversations?.length || 0})
+    // Premium White/Gray background
+    <div className="flex h-[calc(100vh-64px)] bg-white font-sans overflow-hidden">
+      {/* LEFT SIDEBAR (INBOX)
+        Mobile: Hidden if a chat is selected. Full width otherwise.
+        Desktop: Always visible, fixed width of 380px.
+      */}
+      <div
+        className={`${
+          selectedChatId ? "hidden md:flex" : "flex"
+        } w-full md:w-[380px] flex-col border-r border-gray-200 bg-white shrink-0`}
+      >
+        {/* Sidebar Header */}
+        <div className="p-4 pt-6 pb-2">
+          <h1 className="text-2xl font-bold text-gray-900 tracking-tight">
+            Chats
+          </h1>
+          <div className="text-sm font-medium text-gray-500 mt-1">
+            {listData?.conversations?.length || 0} active conversations
+          </div>
         </div>
-        <div className="flex-1 overflow-y-auto">
-          {listData?.conversations?.map((conv: any) => (
-            <div
-              key={conv.id}
-              onClick={() => setSelectedChatId(conv.sessionId)}
-              className={`p-4 border-b cursor-pointer transition-colors ${
-                selectedChatId === conv.sessionId
-                  ? "bg-blue-50 border-l-4 border-blue-600"
-                  : "hover:bg-gray-50 border-l-4 border-transparent"
-              }`}
-            >
-              <div className="font-bold text-gray-900">
-                {conv.name || "Anonymous User"}
-              </div>
-              <div className="text-xs text-gray-500 mt-1">
-                {new Date(conv.updatedAt).toLocaleDateString()} at{" "}
-                {new Date(conv.updatedAt).toLocaleTimeString([], {
-                  hour: "2-digit",
-                  minute: "2-digit",
-                })}
-              </div>
-              {/* Preview last message */}
-              {conv.messages && conv.messages[0] && (
-                <div className="text-sm text-gray-600 truncate mt-2 italic">
-                  "{conv.messages[0].content}"
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
-      </div>
 
-      {/* RIGHT CHAT AREA */}
-      <div className="w-2/3 flex flex-col bg-slate-50">
-        {selectedChatId ? (
-          <>
-            {/* Header */}
-            <div className="p-4 border-b bg-white shadow-sm flex justify-between items-center z-10">
-              <div>
-                <h2 className="font-bold text-xl text-gray-800">
-                  {activeConv?.name || "Anonymous User"}
-                </h2>
-                <div className="flex items-center gap-2 mt-1">
-                  <span className="relative flex h-2 w-2">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-                  </span>
-                  <span className="text-xs text-green-600 font-medium">
-                    Live Conversation
-                  </span>
-                </div>
-              </div>
-            </div>
+        {/* Conversation List */}
+        <div className="flex-1 overflow-y-auto px-2 space-y-1">
+          {listData?.conversations?.map((conv: any) => {
+            const isSelected = selectedChatId === conv.sessionId;
+            const lastMessage = conv.messages?.[0]?.content;
 
-            {/* Messages - THE FIX IS HERE (Added ref to this container) */}
-            <div
-              ref={chatContainerRef}
-              className="flex-1 overflow-y-auto p-6 space-y-4"
-            >
-              {messages.length === 0 ? (
-                <div className="text-center text-gray-400 mt-10">
-                  No messages found in this conversation.
+            return (
+              <div
+                key={conv.id}
+                onClick={() => setSelectedChatId(conv.sessionId)}
+                className={`flex items-center gap-3 p-3 cursor-pointer rounded-xl transition-all duration-200 ${
+                  isSelected ? "bg-blue-50/80" : "hover:bg-gray-50"
+                }`}
+              >
+                {/* Avatar Placeholder */}
+                <div className="relative flex items-center justify-center w-12 h-12 bg-gray-100 rounded-full shrink-0">
+                  <User className="w-6 h-6 text-gray-400" />
+                  {/* Fake online indicator dot for premium feel */}
+                  <div className="absolute bottom-0 right-0 w-3.5 h-3.5 bg-green-500 border-2 border-white rounded-full"></div>
                 </div>
-              ) : (
-                messages.map((msg: any) => (
-                  <div
-                    key={msg.id}
-                    className={`flex flex-col ${
-                      msg.sender === "giannis" ? "items-end" : "items-start"
-                    }`}
-                  >
-                    <div
-                      className={`max-w-[70%] p-4 rounded-2xl whitespace-pre-wrap shadow-sm text-sm ${
-                        msg.sender === "giannis"
-                          ? "bg-blue-600 text-white rounded-tr-sm"
-                          : "bg-white border border-gray-200 text-gray-800 rounded-tl-sm"
-                      }`}
+
+                {/* Chat Info */}
+                <div className="flex-1 min-w-0">
+                  <div className="flex justify-between items-baseline mb-0.5">
+                    <h3
+                      className={`text-sm truncate ${isSelected ? "font-bold text-gray-900" : "font-semibold text-gray-800"}`}
                     >
-                      {msg.content}
-                    </div>
-                    <span className="text-[10px] text-gray-400 mt-1 px-1">
-                      {msg.sender === "giannis"
-                        ? "Giannis"
-                        : activeConv?.name || "User"}{" "}
-                      •{" "}
-                      {new Date(msg.createdAt).toLocaleTimeString([], {
+                      {conv.name || "Anonymous User"}
+                    </h3>
+                    <span className="text-xs text-gray-400 shrink-0 ml-2">
+                      {new Date(conv.updatedAt).toLocaleTimeString([], {
                         hour: "2-digit",
                         minute: "2-digit",
                       })}
                     </span>
                   </div>
-                ))
+                  <p
+                    className={`text-sm truncate ${isSelected ? "text-blue-600 font-medium" : "text-gray-500"}`}
+                  >
+                    {lastMessage ? `"${lastMessage}"` : "New conversation..."}
+                  </p>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* RIGHT CHAT AREA
+        Mobile: Hidden if NO chat is selected. Full width otherwise.
+        Desktop: Always visible, takes up remaining space.
+      */}
+      <div
+        className={`${
+          !selectedChatId ? "hidden md:flex" : "flex"
+        } flex-1 flex-col bg-white relative`}
+      >
+        {selectedChatId ? (
+          <>
+            {/* Chat Header */}
+            <div className="flex items-center gap-3 p-4 border-b border-gray-100 bg-white/80 backdrop-blur-md z-10 shadow-sm">
+              {/* Back Button (Mobile Only) */}
+              <button
+                onClick={() => setSelectedChatId(null)}
+                className="md:hidden p-2 -ml-2 text-gray-500 hover:bg-gray-100 rounded-full transition-colors"
+              >
+                <ArrowLeft className="w-5 h-5" />
+              </button>
+
+              <div className="flex items-center justify-center w-10 h-10 bg-blue-100 text-blue-600 rounded-full shrink-0">
+                <User className="w-5 h-5" />
+              </div>
+
+              <div>
+                <h2 className="font-bold text-gray-900 leading-tight">
+                  {activeConv?.name || "Anonymous User"}
+                </h2>
+                <div className="flex items-center gap-1.5 mt-0.5">
+                  <Circle className="w-2 h-2 fill-green-500 text-green-500 animate-pulse" />
+                  <span className="text-xs text-green-600 font-medium">
+                    Live Session
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* Messages Area */}
+            <div
+              ref={chatContainerRef}
+              className="flex-1 overflow-y-auto p-4 md:p-6 space-y-4 bg-white"
+            >
+              {messages.length === 0 ? (
+                <div className="flex h-full items-center justify-center text-gray-400 text-sm">
+                  Connecting to secure chat...
+                </div>
+              ) : (
+                messages.map((msg: any, index: number) => {
+                  const isGiannis = msg.sender === "giannis";
+                  // Check if previous message is from same sender to group bubbles visually
+                  const prevMsg = messages[index - 1];
+                  const isConsecutive =
+                    prevMsg && prevMsg.sender === msg.sender;
+
+                  return (
+                    <div
+                      key={msg.id}
+                      className={`flex flex-col ${
+                        isGiannis ? "items-end" : "items-start"
+                      } ${isConsecutive ? "mt-1" : "mt-4"}`}
+                    >
+                      <div
+                        className={`max-w-[75%] md:max-w-[65%] px-4 py-2.5 text-[15px] leading-relaxed whitespace-pre-wrap shadow-sm ${
+                          isGiannis
+                            ? "bg-blue-600 text-white rounded-2xl rounded-tr-sm"
+                            : "bg-gray-100 text-gray-900 rounded-2xl rounded-tl-sm"
+                        }`}
+                      >
+                        {msg.content}
+                      </div>
+
+                      {/* Only show timestamp on the last message of a block */}
+                      {(!messages[index + 1] ||
+                        messages[index + 1].sender !== msg.sender) && (
+                        <span className="text-[11px] text-gray-400 mt-1 px-1 font-medium">
+                          {new Date(msg.createdAt).toLocaleTimeString([], {
+                            hour: "2-digit",
+                            minute: "2-digit",
+                          })}
+                        </span>
+                      )}
+                    </div>
+                  );
+                })
               )}
             </div>
 
-            {/* Reply Input */}
-            <form onSubmit={handleReply} className="p-4 bg-white border-t z-10">
-              <div className="flex gap-3">
-                <input
-                  type="text"
-                  value={replyText}
-                  onChange={(e) => setReplyText(e.target.value)}
-                  placeholder="Type a reply..."
-                  className="flex-1 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                />
+            {/* Input Form (Messenger Style) */}
+            <form
+              onSubmit={handleReply}
+              className="p-4 bg-white border-t border-gray-100"
+            >
+              <div className="flex items-end gap-2 max-w-4xl mx-auto">
+                <div className="flex-1 bg-gray-100 rounded-3xl overflow-hidden focus-within:ring-2 focus-within:ring-blue-500/50 focus-within:bg-white border border-transparent focus-within:border-blue-500 transition-all">
+                  <textarea
+                    value={replyText}
+                    onChange={(e) => setReplyText(e.target.value)}
+                    placeholder="Message..."
+                    rows={1}
+                    className="w-full max-h-32 px-4 py-3 bg-transparent text-gray-900 focus:outline-none resize-none"
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter" && !e.shiftKey) {
+                        e.preventDefault();
+                        handleReply(e as any);
+                      }
+                    }}
+                  />
+                </div>
                 <button
                   type="submit"
                   disabled={!replyText.trim()}
-                  className="px-6 py-2 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 disabled:opacity-50 transition-colors"
+                  className="p-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 disabled:opacity-50 disabled:bg-gray-200 disabled:text-gray-400 transition-all shrink-0 shadow-sm"
                 >
-                  Send
+                  <Send className="w-5 h-5 ml-0.5" />
                 </button>
               </div>
             </form>
           </>
         ) : (
-          <div className="flex-1 flex items-center justify-center text-gray-400">
-            Select a conversation from the left to start chatting
+          // Empty State Desktop
+          <div className="hidden md:flex flex-1 flex-col items-center justify-center bg-gray-50">
+            <div className="w-20 h-20 mb-6 bg-white rounded-full flex items-center justify-center shadow-sm border border-gray-100">
+              <Send className="w-8 h-8 text-blue-500 ml-1" />
+            </div>
+            <h3 className="text-xl font-bold text-gray-800">Your Inbox</h3>
+            <p className="text-gray-500 mt-2 text-sm">
+              Select a conversation from the left to start helping.
+            </p>
           </div>
         )}
       </div>
