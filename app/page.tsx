@@ -5,33 +5,36 @@ import Section from "@/components/Section";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion"; // <-- Added Variants here
 import { MessageCircle, Calendar } from "lucide-react";
 import TestimonialsSlider from "@/components/TestimonialsSlider";
 
 // Sorcerer's Animation Variants
-const revealUp = {
+const revealUp: Variants = {
   hidden: { opacity: 0, y: 50 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] },
+    transition: {
+      duration: 0.8,
+      ease: [0.16, 1, 0.3, 1] as [number, number, number, number],
+    },
   },
 };
 
-const staggerGrid = {
+const staggerGrid: Variants = {
   hidden: { opacity: 0 },
   visible: { opacity: 1, transition: { staggerChildren: 0.2 } },
 };
 
-const floatAnimation = {
+const floatAnimation: Variants = {
   animate: {
     y: [0, -15, 0],
     transition: { duration: 6, repeat: Infinity, ease: "easeInOut" },
   },
 };
 
-const pulseGradient = {
+const pulseGradient: Variants = {
   animate: {
     backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
     transition: { duration: 15, repeat: Infinity, ease: "linear" },
@@ -163,7 +166,7 @@ export default function Home() {
                 {/* Fixed button padding, removed min-h constraints, and reduced border radius to rounded-2xl */}
                 <Button
                   asChild
-                  className="relative z-20 w-full h-auto py-5 md:py-6 px-4 text-lg md:text-2xl font-black rounded-2xl bg-transparent border-4 border-[#00FFA3] text-[#00FFA3] hover:bg-[#00FFA3] hover:text-black shadow-[0_0_30px_rgba(0,255,163,0.2)] hover:shadow-[0_0_60px_rgba(0,255,163,0.5)] transition-all duration-500 mt-6 md:mt-8"
+                  className="relative z-20 w-full h-auto py-5 md:py-6 px-4 text-lg md:text-2xl font-black rounded-2xl bg-transparent border-4 border-[#00FFA3] text-[#00FFA3] hover:bg-[#00FFA3] hover:text-black shadow-[0_0_30px_rgba(0,255,163,0.2)] hover:shadow-[0_0_60px_rgba(0,255,163,0.5)] transition-all duration-500 mt-6 md:mt-8 cursor-pointer"
                 >
                   <Link
                     href="/booking"
@@ -344,8 +347,6 @@ export default function Home() {
           variants={staggerGrid}
           className="grid md:grid-cols-2 gap-10 lg:gap-20 max-w-7xl mx-auto"
         >
-          {/* Bio 1 */}
-          {/* Bio 1 */}
           {/* Bio 1 */}
           <motion.div variants={revealUp}>
             <Card className="h-full bg-transparent border-none shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1)] rounded-[3rem] overflow-hidden group flex flex-col relative transform-gpu">
