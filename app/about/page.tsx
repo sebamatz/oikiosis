@@ -82,39 +82,33 @@ export default function AboutPage() {
             </CardHeader>
             <CardContent className="space-y-4 text-lg">
               <p>
-                Το θεραπευτικό μας μοντέλο δεν προσπαθεί να σταματήσει την
-                πρόσκρουση. Σχεδιάζουμε μαζί σου, αξιοποιώντας τη δύναμή της.
+                Δεν προσπαθούμε να την ακυρώσουμε, αλλά να τη στρέψουμε προς
+                όφελός σου. Σχεδιάζουμε μαζί πώς αυτή η δύναμη μπορεί να γίνει
+                κίνηση προς τα εκεί που χρειάζεσαι.
               </p>
               <ul className="space-y-3 ml-6 list-disc text-muted-foreground">
                 <li>
                   <span className="font-semibold text-foreground">
-                    Ο πόνος σου ακούγεται.
-                  </span>
-                  <br />
-                  <span className="text-sm">(S.O.S. – Safety / Ασφάλεια)</span>
-                </li>
-                <li>
-                  <span className="font-semibold text-foreground">
-                    Η ιστορία σου αποκτά νόημα.
-                  </span>
-                  <br />
-                  <span className="text-sm">
-                    (R.E.A.C.H. – Extract / Απο-σύμπλεξη)
+                    Ο πόνος σου ακούγεται και μπαίνει σε πλαίσιο ασφάλειας.
                   </span>
                 </li>
                 <li>
                   <span className="font-semibold text-foreground">
-                    Η πορεία σου βρίσκει πυξίδα.
+                    Η ιστορία σου αποκτά νόημα, χωρίς να χρειάζεται να ξέρεις
+                    εσύ τα «εργαλεία».
                   </span>
-                  <br />
-                  <span className="text-sm">
-                    (S.O.S. – Orientation / Προσανατολισμός)
+                </li>
+                <li>
+                  <span className="font-semibold text-foreground">
+                    Η πορεία σου βρίσκει πυξίδα, με συγκεκριμένα, ρεαλιστικά
+                    βήματα.
                   </span>
                 </li>
               </ul>
               <p className="mt-4 font-semibold text-foreground">
-                Δουλειά μας είναι να χτίσουμε ασφάλεια μέσα στην καταιγίδα και
-                να πλοηγηθούμε προς την αναδόμηση.
+                Δεν χρειάζεται να θυμάσαι ακρωνύμια και ορολογίες. Δουλειά μας
+                είναι να χτίσουμε ασφάλεια μέσα στην καταιγίδα και να
+                πλοηγηθούμε μαζί προς την αναδόμηση.
               </p>
             </CardContent>
           </Card>
@@ -139,60 +133,70 @@ export default function AboutPage() {
             <Card className="shadow-md hover:shadow-lg transition-shadow">
               <CardHeader>
                 <CardTitle className="text-xl">
-                  1. ΑΣΦΑΛΕΙΑ & ΣΤΑΘΕΡΟΠΟΙΗΣΗ (S.O.S.)
+                  1. Ασφάλεια & Σταθεροποίηση
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground leading-relaxed">
-                  Ρόλος First Responder. Παρέχουμε άμεση ρυθμιστική υποστήριξη
-                  (S.O.S. – Safety / Ασφάλεια, Orientation / Προσανατολισμός,
-                  Stabilization / Σταθεροποίηση).
+                  Στην αρχή φροντίζουμε να πέσουν λίγο οι «στροφές». Βλέπουμε τι
+                  συμβαίνει τώρα στη ζωή σου, τι σε πιέζει περισσότερο και αν
+                  υπάρχει άμεσος κίνδυνος για σένα ή τα παιδιά.
                 </p>
                 <p className="text-muted-foreground leading-relaxed mt-3">
-                  Θέτουμε όρια, μειώνουμε την Ταχύτητα (v – velocity) της
-                  σύγκρουσης και προστατεύουμε τον παιδοκεντρικό δεσμό.
+                  Βάζουμε βασικά όρια, μειώνουμε όσο γίνεται την ένταση και
+                  δημιουργούμε έναν χώρο όπου μπορείς να ανασάνεις.
+                </p>
+              </CardContent>
+            </Card>
+            <Card className="shadow-md hover:shadow-lg transition-shadow">
+              <CardHeader>
+                <CardTitle className="text-xl">2. Προσανατολισμός</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground leading-relaxed">
+                  Χαρτογραφούμε ήρεμα την ιστορία σου: τα βασικά γεγονότα, τα
+                  μοτίβα σύγκρουσης, τι είναι στο χέρι σου και τι όχι.
+                </p>
+                <p className="text-muted-foreground leading-relaxed mt-3">
+                  Βάζουμε σε σειρά τις προτεραιότητες, ώστε να ξέρεις πού
+                  βρισκόμαστε και ποιο είναι το αμέσως επόμενο βήμα.
                 </p>
               </CardContent>
             </Card>
             <Card className="shadow-md hover:shadow-lg transition-shadow">
               <CardHeader>
                 <CardTitle className="text-xl">
-                  2. ΠΡΟΣΑΝΑΤΟΛΙΣΜΟΣ & «BLACK BOX»
+                  3. Ανασύνδεση & Συν-επίλυση
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground leading-relaxed">
-                  Ακούμε σε βάθος την ιστορία σας (Επικύρωση). Χαρτογραφούμε τα
-                  μοτίβα σύγκρουσης και «εξάγουμε» (Extract) τα δεδομένα-κλειδιά
-                  που οδηγούν στην πρόσκρουση.
+                  Δουλεύουμε πάνω στις σχέσεις που σε νοιάζουν: με τα παιδιά, με
+                  τον/την σύντροφο ή πρώην, με την οικογένεια γύρω σου.
+                </p>
+                <p className="text-muted-foreground leading-relaxed mt-3">
+                  Ψάχνουμε πιο λειτουργικούς τρόπους επικοινωνίας και ορίων ώστε
+                  να μειωθούν οι συγκρούσεις, ειδικά σε σχέσεις υψηλής
+                  σύγκρουσης και σε πλαίσιο συν-γονεϊκότητας.
                 </p>
               </CardContent>
             </Card>
             <Card className="shadow-md hover:shadow-lg transition-shadow">
               <CardHeader>
                 <CardTitle className="text-xl">
-                  3. ΑΝΑΣΥΝΔΕΣΗ & ΣΥΝ-ΕΠΙΛΥΣΗ (Align & Co-Resolve)
+                  4. Αναδόμηση & Ανθεκτικότητα
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground leading-relaxed">
-                  Αλλάζουμε το «διάνυσμα». Μετατρέπουμε την ενέργεια της κρίσης
-                  (Ορμή) σε πρακτικά, εφαρμόσιμα βήματα (π.χ. BIFF)* και
-                  ανασυνδεόμαστε με τις Αξίες (Values) σας.
+                  Σταδιακά περνάμε από την «επιβίωση» στην αναδόμηση της ζωής
+                  σου.
                 </p>
-              </CardContent>
-            </Card>
-            <Card className="shadow-md hover:shadow-lg transition-shadow">
-              <CardHeader>
-                <CardTitle className="text-xl">
-                  4. ΑΝΑΔΟΜΗΣΗ & ΑΝΘΕΚΤΙΚΟΤΗΤΑ (Harvest)
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground leading-relaxed">
-                  Από την κρίση στην Αναδόμηση. Καλλιεργούμε δεξιότητες
-                  ανθεκτικότητας (PTG)* και σχεδιάζουμε τη «νέα κανονικότητα»
-                  (New Normality) – μια βιώσιμη, πλοηγήσιμη πορεία.
+                <p className="text-muted-foreground leading-relaxed mt-3">
+                  Δουλεύουμε την ταυτότητά σου πριν, κατά και μετά τη σύγκρουση
+                  ή τον χωρισμό, τις σχέσεις που θέλεις να κρατήσεις και τις
+                  δεξιότητες ανθεκτικότητας που χρειάζεσαι για τη «νέα
+                  κανονικότητα».
                 </p>
               </CardContent>
             </Card>
@@ -203,8 +207,23 @@ export default function AboutPage() {
       {/* Team Members */}
       <Section className="bg-muted/30">
         <div className="mx-auto max-w-4xl">
-          <div className="mb-4 text-center">
-            <h2 className="mb-3 text-2xl font-bold md:text-3xl">Η Ομάδα μας</h2>
+          <div className="mb-12 text-center">
+            <h2 className="mb-6 text-2xl font-bold md:text-3xl">Η Ομάδα μας</h2>
+            <div className="space-y-4 text-lg md:text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto">
+              <p>
+                Είμαστε εδώ όχι για να σε κρίνουμε, αλλά για να περπατήσουμε
+                δίπλα σου στην καταιγίδα.
+              </p>
+              <p>
+                Ειδικευόμαστε στις σχέσεις υψηλής σύγκρουσης και ιδιαίτερα στη
+                Γονεϊκή Αποξένωση.
+              </p>
+              <p>
+                Όλη μας η εκπαίδευση και τα θεραπευτικά εργαλεία είναι στην
+                υπηρεσία αυτού του στόχου: να έχεις πρακτικά, σταθερά πατήματα
+                όταν νιώθεις ότι χάνεις το έδαφος.
+              </p>
+            </div>
           </div>
           <div className="space-y-6">
             {/* Ioannis */}

@@ -183,7 +183,72 @@ export default function BookingPage() {
 
       <Section>
         <div className="mx-auto max-w-4xl">
-          <div className="grid gap-6 md:grid-cols-2">
+          {/* Contact Details moved to the top */}
+          <Card>
+            <CardHeader>
+              <CardTitle>Στοιχεία Επικοινωνίας</CardTitle>
+              <CardDescription>
+                Συμπληρώστε τα στοιχεία σας για να επιβεβαιώσουμε το ραντεβού
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="grid gap-4 md:grid-cols-2">
+                <div className="space-y-2">
+                  <label className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 flex items-center gap-2">
+                    <User className="h-4 w-4 text-primary" />
+                    Ονοματεπώνυμο
+                  </label>
+                  <input
+                    type="text"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    placeholder="π.χ. Μαρία Παπαδοπούλου"
+                    className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 flex items-center gap-2">
+                    <Phone className="h-4 w-4 text-primary" />
+                    Τηλέφωνο
+                  </label>
+                  <input
+                    type="tel"
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                    placeholder="π.χ. 6900000000"
+                    className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                  />
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Topic Selection moved right below Contact Details */}
+          <Card className="mt-6">
+            <CardHeader>
+              <CardTitle>Επιλογές</CardTitle>
+              <CardDescription>
+                Επιλέξτε το θέμα/υπηρεσία που σας απασχολεί
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="grid gap-4 md:grid-cols-2">
+                {topics.map((topic) => (
+                  <Button
+                    key={topic.id}
+                    variant={selectedTopic === topic.id ? "default" : "outline"}
+                    onClick={() => setSelectedTopic(topic.id)}
+                    className="h-auto flex-col py-4"
+                  >
+                    <span className="font-semibold">{topic.name}</span>
+                  </Button>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Calendar and Time Selection moved below Topic Selection */}
+          <div className="grid gap-6 md:grid-cols-2 mt-6">
             {/* Calendar */}
             <Card>
               <CardHeader>
@@ -250,70 +315,6 @@ export default function BookingPage() {
               </CardContent>
             </Card>
           </div>
-
-          {/* Topic Selection */}
-          <Card className="mt-6">
-            <CardHeader>
-              <CardTitle>Επιλογές</CardTitle>
-              <CardDescription>
-                Επιλέξτε το θέμα/υπηρεσία που σας απασχολεί
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="grid gap-4 md:grid-cols-2">
-                {topics.map((topic) => (
-                  <Button
-                    key={topic.id}
-                    variant={selectedTopic === topic.id ? "default" : "outline"}
-                    onClick={() => setSelectedTopic(topic.id)}
-                    className="h-auto flex-col py-4"
-                  >
-                    <span className="font-semibold">{topic.name}</span>
-                  </Button>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
-
-          {/* Contact Details */}
-          <Card className="mt-6">
-            <CardHeader>
-              <CardTitle>Στοιχεία Επικοινωνίας</CardTitle>
-              <CardDescription>
-                Συμπληρώστε τα στοιχεία σας για να επιβεβαιώσουμε το ραντεβού
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="grid gap-4 md:grid-cols-2">
-                <div className="space-y-2">
-                  <label className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 flex items-center gap-2">
-                    <User className="h-4 w-4 text-primary" />
-                    Ονοματεπώνυμο
-                  </label>
-                  <input
-                    type="text"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    placeholder="π.χ. Μαρία Παπαδοπούλου"
-                    className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <label className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 flex items-center gap-2">
-                    <Phone className="h-4 w-4 text-primary" />
-                    Τηλέφωνο
-                  </label>
-                  <input
-                    type="tel"
-                    value={phone}
-                    onChange={(e) => setPhone(e.target.value)}
-                    placeholder="π.χ. 6900000000"
-                    className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                  />
-                </div>
-              </div>
-            </CardContent>
-          </Card>
 
           {/* Selected Details */}
           {(date || selectedTime || selectedTopic || name || phone) && (

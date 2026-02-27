@@ -84,7 +84,7 @@ export default function ContactPage() {
                   <div className="flex items-center gap-5">
                     <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-full ring-2 ring-primary/20">
                       <Image
-                        src="https://media.licdn.com/dms/image/v2/D4D03AQGrIDl4WJqKcA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1680286523298?e=1763596800&v=beta&t=Ki0yT6zZ6XQ1J3sVxcJxsyFhvu9BNO5fPIkyyKvn-CI"
+                        src="/images/John-Giannopoulos-profie.png"
                         alt="Ιωάννης Γιαννόπουλος"
                         fill
                         className="object-cover"
@@ -100,11 +100,15 @@ export default function ContactPage() {
                       >
                         698 994 0588
                       </a>
+                      <p className="text-sm text-muted-foreground leading-relaxed">
+                        Το τηλέφωνο χρησιμοποιείται για συνεννόηση ραντεβού και
+                        πρακτικά θέματα. Δεν είναι γραμμή άμεσης επέμβασης ή
+                        επείγουσας κρίσης.
+                      </p>
                     </div>
                   </div>
                 </CardContent>
               </Card>
-
               {/* Session Format */}
               <Card className="border-primary/20 shadow-lg">
                 <CardHeader>
@@ -120,13 +124,15 @@ export default function ContactPage() {
                         Διαδικτυακά
                       </p>
                       <p className="text-sm leading-relaxed text-muted-foreground">
-                        Ασφαλής πλατφόρμα, απόρρητο. Διάρκεια: 80 λεπτά
+                        Μέσω ασφαλούς πλατφόρμας, με σεβασμό στο απόρρητο.
+                        Διάρκεια: 60 λεπτά.
                       </p>
                     </div>
                     <div className="space-y-1.5">
                       <p className="font-semibold text-foreground">Δια ζώσης</p>
                       <p className="text-sm leading-relaxed text-muted-foreground">
-                        Διάρκεια: 80 λεπτά
+                        Στο γραφείο, σε ήρεμο και ασφαλές περιβάλλον. Διάρκεια:
+                        60 λεπτά.
                       </p>
                     </div>
                     <div className="space-y-1.5">

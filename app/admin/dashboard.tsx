@@ -74,7 +74,7 @@ export default function AdminDashboard() {
       <div
         className={`${
           selectedChatId ? "hidden md:flex" : "flex"
-        } w-full md:w-[380px] flex-col border-r border-gray-200 bg-white shrink-0`}
+        } w-full md:w-95 flex-col border-r border-gray-200 bg-white shrink-0`}
       >
         {/* Sidebar Header */}
         <div className="p-4 pt-6 pb-2">

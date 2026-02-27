@@ -22,10 +22,6 @@ export default function SOSPage() {
             <h1 className="mb-3 text-2xl font-bold md:text-3xl">
               S.O.S. μήνυμα – όταν δεν αντέχεις άλλο μόνος
             </h1>
-            <p className="text-muted-foreground">
-              Safety (Ασφάλεια), Orientation (Προσανατολισμός), Stabilization
-              (Σταθεροποίηση) – Πρωτόκολλο επείγουσας παρέμβασης.
-            </p>
           </div>
         </div>
       </Section>
@@ -58,7 +54,8 @@ export default function SOSPage() {
               <Card className="border-primary/20">
                 <CardContent className="pt-6 text-center">
                   <p className="font-semibold text-foreground mb-2">
-                    Δεν είναι θεραπευτική συνεδρία.
+                    Δεν είναι θεραπευτική συνεδρία και δεν είναι γραμμή άμεσης
+                    επέμβασης ή 24/7.
                   </p>
                 </CardContent>
               </Card>
@@ -87,6 +84,10 @@ export default function SOSPage() {
                   <li>δύσκολα ή συγκρουσιακά διαζύγια</li>
                   <li>γονεϊκή αποξένωση</li>
                 </ul>
+                <p className="text-base leading-relaxed text-muted-foreground">
+                  Ιδιαίτερα στη Γονεϊκή Αποξένωση, έχουμε αναπτύξει
+                  εξειδικευμένη κλινική εμπειρία στη στήριξη γονιών και παιδιών.
+                </p>
                 <p className="text-base leading-relaxed text-muted-foreground mt-4">
                   <span className="font-semibold text-foreground">
                     Μέσα από το S.O.S. μήνυμα:
@@ -311,10 +312,6 @@ export default function SOSPage() {
             Τι συμβαίνει μετά;
           </h2>
           <div className="space-y-6">
-            <p className="text-center text-lg leading-relaxed text-muted-foreground">
-              Μόλις ολοκληρώσεις αυτά τα βήματα, το Πρωτόκολλο S.O.S. έχει
-              ουσιαστικά ενεργοποιηθεί.
-            </p>
             <div className="space-y-4">
               <Card className="border-primary/20">
                 <CardContent className="pt-6">

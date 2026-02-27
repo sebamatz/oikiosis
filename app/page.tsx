@@ -24,7 +24,7 @@ export default function Home() {
       <Section>
         <div className="mx-auto max-w-6xl">
           <h2 className="mb-8 text-center text-2xl font-bold md:text-3xl">
-            Δύο τρόποι να έχεις στήριξη από εμάς
+            Πώς μπορείς να έχεις στήριξη από εμάς
           </h2>
           <div className="grid gap-6 md:grid-cols-2">
             {/* Way 1 - S.O.S. Message */}
@@ -40,8 +40,9 @@ export default function Home() {
                   πεις «βοήθεια» σε έναν άνθρωπο.
                 </p>
                 <p className="text-muted-foreground leading-relaxed">
-                  Γράφεις με απλά λόγια τι σε δυσκολεύει και σου απαντώ μέσα από
-                  το S.O.S. chat.
+                  Γράφεις με απλά λόγια τι σε δυσκολεύει, χωρίς να χρειάζεται να
+                  βρεις τις «σωστές» λέξεις, και σου απαντώ μέσα από το S.O.S.
+                  chat.
                 </p>
                 <Button onClick={openChat} className="w-full" variant="default">
                   <MessageCircle className="h-4 w-4 mr-2" />
@@ -54,17 +55,19 @@ export default function Home() {
             <Card className="shadow-md border-primary/20">
               <CardHeader>
                 <CardTitle className="text-xl">
-                  3. Ατομική συνεδρία μαζί μας
+                  2. Ατομική συνεδρία μαζί μας
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 <p className="text-muted-foreground leading-relaxed">
                   Αν νιώθεις ότι χρειάζεσαι έναν σταθερό χώρο για να σε ακούσω
-                  σε βάθος, μπορείς να κλείσεις συνεδρία μαζί μου.
+                  σε βάθος και χωρίς βιασύνη, μπορείς να κλείσεις συνεδρία μαζί
+                  μου.
                 </p>
                 <p className="text-muted-foreground leading-relaxed">
                   Στην πρώτη συνάντηση γνωριζόμαστε, βλέπουμε τι σε δυσκολεύει
-                  και αν ταιριάζει να συνεχίσουμε τη συνεργασία.
+                  αυτή την περίοδο και αν ταιριάζει να συνεχίσουμε τη διαδρομή
+                  μαζί.
                 </p>
                 <Button asChild className="w-full" variant="outline">
                   <Link href="/booking">
@@ -99,7 +102,7 @@ export default function Home() {
             Πώς σε βοηθάμε
           </h2>
           <p className="mb-6 text-center text-lg leading-relaxed text-muted-foreground">
-            Στην Οικείωση, δεν ξεκινάμε με το «τι κάνεις λάθος».
+            Στην Οικείωσις, δεν ξεκινάμε με το “τι κάνεις λάθος”.
           </p>
           <p className="mb-8 text-center text-lg font-semibold text-foreground">
             Ξεκινάμε από το: «Πώς είναι να είσαι εσύ μέσα σε αυτή τη σύγκρουση;»
@@ -109,7 +112,8 @@ export default function Home() {
               <CardContent className="pt-6">
                 <p className="text-muted-foreground leading-relaxed">
                   Σε βοηθάμε να μειωθεί η ένταση μέσα σου, ώστε να μπορείς να
-                  σκεφτείς πιο καθαρά.
+                  σκεφτείς πιο καθαρά – είτε είσαι ακόμη μέσα στη σχέση, είτε
+                  βρίσκεσαι ήδη σε χωρισμό.
                 </p>
               </CardContent>
             </Card>
@@ -117,7 +121,8 @@ export default function Home() {
               <CardContent className="pt-6">
                 <p className="text-muted-foreground leading-relaxed">
                   Σε στηρίζουμε να προστατεύσεις όσο γίνεται τη σχέση με τα
-                  παιδιά σου, μέσα σε διαζύγιο ή γονεϊκή αποξένωση.
+                  παιδιά σου, πριν, κατά τη διάρκεια και μετά τον χωρισμό ή μέσα
+                  σε γονεϊκή αποξένωση.
                 </p>
               </CardContent>
             </Card>
@@ -125,15 +130,16 @@ export default function Home() {
               <CardContent className="pt-6">
                 <p className="text-muted-foreground leading-relaxed">
                   Σε καθοδηγούμε βήμα–βήμα σε δύσκολες επικοινωνίες, συζητήσεις
-                  με τον/την πρώην και κρίσιμες αποφάσεις.
+                  με τον/την πρώην και αποφάσεις συν-γονεϊκότητας.
                 </p>
               </CardContent>
             </Card>
             <Card className="shadow-md">
               <CardContent className="pt-6">
                 <p className="text-muted-foreground leading-relaxed">
-                  Σε υποστηρίζουμε στην δημιουργία υγιών σχέσεων με τους δικούς
-                  σου ανθρώπους.
+                  Σε υποστηρίζουμε στη βελτίωση των σχέσεων με τους δικούς σου
+                  ανθρώπους, ώστε να μη ζεις για πάντα σε «λειτουργία
+                  σύγκρουσης».
                 </p>
               </CardContent>
             </Card>
@@ -148,11 +154,11 @@ export default function Home() {
       {/* Testimonials Section - Εμπειρίες Καταιγίδας */}
       <Section
         id="testimonials-section"
-        className="bg-gradient-to-b from-muted/30 to-background"
+        className="bg-linear-to-b from-muted/30 to-background"
       >
         <div className="mx-auto max-w-4xl">
           <div className="text-center mb-12">
-            <h2 className="mb-6 text-3xl font-bold md:text-4xl bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
+            <h2 className="mb-6 text-3xl font-bold md:text-4xl bg-linear-to-r from-primary to-primary/60 bg-clip-text text-transparent">
               Εμπειρίες Καταιγίδας
             </h2>
             <div className="space-y-5">
@@ -187,8 +193,10 @@ export default function Home() {
             Είμαστε δύο ψυχολόγοι με κοινό στόχο:
           </p>
           <p className="mb-8 text-center text-lg leading-relaxed text-foreground font-semibold">
-            Να σε βοηθήσουμε να βγεις από την εξουθενωτική σύγκρουση, με σεβασμό
-            σε εσένα και στα παιδιά και να δημιουργήσεις υγιείς σχέσεις.
+            Να στηρίξουμε ανθρώπους που ζουν σε σχέσεις υψηλής σύγκρουσης, με
+            ιδιαίτερη εξειδίκευση στη Γονεϊκή Αποξένωση, στη θεραπεία ζεύγους,
+            στην οικογενειακή θεραπεία και στη συν-γονεϊκότητα πριν και μετά τον
+            χωρισμό.
           </p>
           <div className="grid gap-6 md:grid-cols-2">
             <Card className="shadow-md">
@@ -282,12 +290,12 @@ export default function Home() {
         <div className="mx-auto max-w-4xl text-center">
           <Button
             size="lg"
-            className="mb-3 max-w-[400px] w-full whitespace-normal overflow-hidden"
+            className="mb-3 max-w-100 w-full whitespace-normal overflow-hidden"
             asChild
           >
             <Link
               href="/services"
-              className="break-words text-center whitespace-normal min-w-0 overflow-hidden"
+              className="wrap-break-word text-center whitespace-normal min-w-0 overflow-hidden"
             >
               Δείτε πώς μπορούμε να σας βοηθήσουμε
             </Link>

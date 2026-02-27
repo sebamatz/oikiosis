@@ -25,7 +25,7 @@ function TestimonialCard({
 
   return (
     <Link href={`/testimonials/${id}`}>
-      <div className="flex flex-col justify-between h-full min-h-[400px] p-8 md:p-10 bg-gradient-to-br from-primary/5 via-background to-accent/5 border-2 border-primary/20 rounded-2xl shadow-xl hover:shadow-2xl hover:border-primary/40 hover:scale-[1.02] transition-all duration-300 cursor-pointer group">
+      <div className="flex flex-col justify-between h-full min-h-100 p-8 md:p-10 bg-linear-to-br from-primary/5 via-background to-accent/5 border-2 border-primary/20 rounded-2xl shadow-xl hover:shadow-2xl hover:border-primary/40 hover:scale-[1.02] transition-all duration-300 cursor-pointer group">
         <div className="flex-1 flex flex-col">
           {/* Decorative quote icon */}
           <div className="text-primary/20 text-6xl font-serif leading-none mb-4 group-hover:text-primary/30 transition-colors">
