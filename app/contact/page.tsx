@@ -84,7 +84,7 @@ export default function ContactPage() {
                   <div className="flex items-center gap-5">
                     <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-full ring-2 ring-primary/20">
                       <Image
-                        src="/images/John-Giannopoulos-profie.png"
+                        src="/images/John-Giannopoulos-profie.jpg"
                         alt="Ιωάννης Γιαννόπουλος"
                         fill
                         className="object-cover"

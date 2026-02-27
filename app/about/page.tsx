@@ -1,3 +1,5 @@
+"use client";
+
 import Section from "@/components/Section";
 import {
   Card,
@@ -228,8 +230,10 @@ export default function AboutPage() {
           <div className="space-y-6">
             {/* Ioannis */}
             <Card className="overflow-hidden border-primary/20 shadow-lg">
-              <div className="grid md:grid-cols-3 gap-4 md:gap-6 p-4 md:p-6">
-                <div className="relative h-64 md:h-auto rounded-lg overflow-hidden">
+              {/* FIXED: Added md:items-start to prevent vertical stretching */}
+              <div className="grid md:grid-cols-3 gap-4 md:gap-6 p-4 md:p-6 md:items-start">
+                {/* FIXED: Constrained height on desktop and made it sticky */}
+                <div className="relative h-64 md:h-100 lg:h-112.5 w-full rounded-lg overflow-hidden md:sticky md:top-32">
                   <Image
                     src="/images/John-Giannopoulos-profie.png"
                     alt="Γιαννόπουλος Ιωάννης - Ψυχολόγος Ψυχοθεραπευτής"
@@ -336,13 +340,15 @@ export default function AboutPage() {
 
             {/* Sofia */}
             <Card className="overflow-hidden border-primary/20 shadow-lg">
-              <div className="grid md:grid-cols-3 gap-4 md:gap-6 p-4 md:p-6">
-                <div className="relative h-64 md:h-auto rounded-lg overflow-hidden">
+              {/* FIXED: Added md:items-start to prevent vertical stretching */}
+              <div className="grid md:grid-cols-3 gap-4 md:gap-6 p-4 md:p-6 md:items-start">
+                {/* FIXED: Constrained height on desktop and made it sticky */}
+                <div className="relative h-64 md:h-100 lg:h-112.5 w-full rounded-lg overflow-hidden md:sticky md:top-32">
                   <Image
-                    src="https://media.licdn.com/dms/image/v2/D4D03AQHFdj4B_agnKA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1718375053186?e=1763596800&v=beta&t=Doc2DKmGZs_HMjnRGkdpD-eMQuJG1cLa8y3gCmJsGMg"
+                    src="/images/sofia.jpg"
                     alt="Σοφία Μίαρη - Ψυχολόγος Ψυχοθεραπεύτρια"
                     fill
-                    className="object-contain md:object-cover"
+                    className="object-contain md:object-cover md:object-right"
                   />
                 </div>
                 <div className="md:col-span-2">
