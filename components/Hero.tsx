@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion"; // Added Variants import
 import { MessageCircle, ArrowDownCircle } from "lucide-react";
 
 export default function Hero() {
@@ -23,8 +23,8 @@ export default function Hero() {
     }
   };
 
-  // Sorcerer's Animation Variants
-  const textReveal = {
+  // Sorcerer's Animation Variants - Added explicit Types
+  const textReveal: Variants = {
     hidden: { opacity: 0, y: 100, rotateX: 20 },
     visible: {
       opacity: 1,
@@ -34,12 +34,12 @@ export default function Hero() {
     },
   };
 
-  const staggerContainer = {
+  const staggerContainer: Variants = {
     hidden: { opacity: 0 },
     visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
   };
 
-  const badgeReveal = {
+  const badgeReveal: Variants = {
     hidden: { opacity: 0, scale: 0.8, y: 20 },
     visible: {
       opacity: 1,
@@ -160,16 +160,6 @@ export default function Hero() {
             variants={textReveal}
             className="flex flex-col sm:flex-row items-center sm:items-start gap-6 w-full sm:w-auto"
           >
-            {/* Kept exactly as requested, hidden but preserved */}
-            {/* <Button 
-              onClick={openChat} 
-              className="w-full lg:w-auto min-w-[280px]"
-              size="lg"
-            >
-              <MessageCircle className="h-5 w-5 mr-2" />
-              Γράψε ένα S.O.S. μήνυμα
-            </Button> */}
-
             <button
               onClick={scrollToTestimonials}
               className="group relative inline-flex items-center justify-center gap-4 text-lg md:text-2xl font-black text-[#050505] py-4 px-8 md:px-10 rounded-full bg-[#00FFA3] hover:bg-white hover:shadow-[0_0_40px_rgba(0,255,163,0.6)] transition-all duration-500 overflow-hidden w-full sm:w-auto"

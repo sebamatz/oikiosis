@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, Variants } from "framer-motion";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -29,7 +29,8 @@ export default function Header() {
   ];
 
   // Framer Motion Variants for the Pristine Offcanvas Menu
-  const menuVariants = {
+  // FIX: Added the : Variants type annotation
+  const menuVariants: Variants = {
     closed: { opacity: 0, clipPath: "circle(0% at calc(100% - 3rem) 3rem)" },
     open: {
       opacity: 1,
@@ -38,7 +39,8 @@ export default function Header() {
     },
   };
 
-  const linkVariants = {
+  // FIX: Added the : Variants type annotation
+  const linkVariants: Variants = {
     closed: { opacity: 0, y: 40 },
     open: (i: number) => ({
       opacity: 1,

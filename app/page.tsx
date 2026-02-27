@@ -76,7 +76,7 @@ export default function Home() {
           variants={revealUp}
         >
           <h2
-            className="mb-12 md:mb-24 text-center text-4xl md:text-[5rem] lg:text-[7rem] font-black leading-tight md:leading-none tracking-tighter bg-clip-text text-transparent bg-gradient-to-r from-[#00FFA3] via-[#FF007F] to-[#B026FF]"
+            className="mb-12 md:mb-24 text-center text-4xl md:text-[5rem] lg:text-[7rem] font-black leading-tight md:leading-none tracking-tighter bg-clip-text text-transparent bg-linear-to-r from-[#00FFA3] via-[#FF007F] to-[#B026FF]"
             style={{ backgroundSize: "200% auto" }}
           >
             Πώς μπορείς να έχεις
@@ -100,7 +100,7 @@ export default function Home() {
           >
             <Card className="h-full bg-white/5 backdrop-blur-3xl border border-white/10 rounded-[3rem] shadow-[0_0_50px_rgba(255,0,127,0.1)] overflow-hidden group relative flex flex-col">
               {/* Added pointer-events-none so it doesn't block button clicks */}
-              <div className="absolute inset-0 bg-gradient-to-br from-[#FF007F]/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-700 pointer-events-none" />
+              <div className="absolute inset-0 bg-linear-to-br from-[#FF007F]/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-700 pointer-events-none" />
 
               <CardHeader className="p-8 md:p-14 pb-0 relative z-10">
                 <CardTitle className="text-2xl md:text-5xl font-black text-white">
@@ -123,7 +123,7 @@ export default function Home() {
                 </div>
                 <Button
                   onClick={openChat}
-                  className="w-full h-auto min-h-[5.5rem] md:min-h-[6.5rem] cursor-pointer text-xl md:text-3xl font-black rounded-[2rem] bg-gradient-to-r from-[#FF007F] to-[#B026FF] hover:opacity-90 text-white border-none shadow-[0_0_40px_rgba(255,0,127,0.4)] hover:shadow-[0_0_80px_rgba(176,38,255,0.6)] transition-all duration-500 mt-8 whitespace-normal leading-tight p-4 md:p-6 flex items-center justify-center gap-3 md:gap-4"
+                  className="w-full h-auto min-h-22 md:min-h-[6.5rem] cursor-pointer text-xl md:text-3xl font-black rounded-[2rem] bg-gradient-to-r from-[#FF007F] to-[#B026FF] hover:opacity-90 text-white border-none shadow-[0_0_40px_rgba(255,0,127,0.4)] hover:shadow-[0_0_80px_rgba(176,38,255,0.6)] transition-all duration-500 mt-8 whitespace-normal leading-tight p-4 md:p-6 flex items-center justify-center gap-3 md:gap-4"
                 >
                   <span>Γράψε ένα S.O.S. μήνυμα</span>
                 </Button>
