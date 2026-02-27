@@ -64,8 +64,9 @@ export default function AdminDashboard() {
   };
 
   return (
-    // Premium White/Gray background
-    <div className="flex h-[calc(100vh-64px)] bg-white font-sans overflow-hidden">
+    // ADJUSTED: Added pt-20 (mobile header height) and md:pt-28 (desktop header height)
+    // to prevent the header from hiding the content.
+    <div className="flex h-screen pt-20 md:pt-28 bg-white font-sans overflow-hidden">
       {/* LEFT SIDEBAR (INBOX)
         Mobile: Hidden if a chat is selected. Full width otherwise.
         Desktop: Always visible, fixed width of 380px.
@@ -183,7 +184,6 @@ export default function AdminDashboard() {
               ) : (
                 messages.map((msg: any, index: number) => {
                   const isGiannis = msg.sender === "giannis";
-                  // Check if previous message is from same sender to group bubbles visually
                   const prevMsg = messages[index - 1];
                   const isConsecutive =
                     prevMsg && prevMsg.sender === msg.sender;
@@ -205,7 +205,6 @@ export default function AdminDashboard() {
                         {msg.content}
                       </div>
 
-                      {/* Only show timestamp on the last message of a block */}
                       {(!messages[index + 1] ||
                         messages[index + 1].sender !== msg.sender) && (
                         <span className="text-[11px] text-gray-400 mt-1 px-1 font-medium">

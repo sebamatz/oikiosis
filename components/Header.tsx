@@ -28,8 +28,6 @@ export default function Header() {
     // { href: "/booking", label: "Κράτηση Συνεδρίας" },
   ];
 
-  // Framer Motion Variants for the Pristine Offcanvas Menu
-  // FIX: Added the : Variants type annotation
   const menuVariants: Variants = {
     closed: { opacity: 0, clipPath: "circle(0% at calc(100% - 3rem) 3rem)" },
     open: {
@@ -39,7 +37,6 @@ export default function Header() {
     },
   };
 
-  // FIX: Added the : Variants type annotation
   const linkVariants: Variants = {
     closed: { opacity: 0, y: 40 },
     open: (i: number) => ({
@@ -55,9 +52,12 @@ export default function Header() {
 
   return (
     <>
-      {/* The Pristine Floating White Header */}
-      <header className="fixed top-0 inset-x-0 z-[60] w-full p-4 md:p-6 lg:pt-8 pointer-events-none flex justify-center font-sans transition-all duration-500">
-        <nav className="pointer-events-auto w-full max-w-[1500px] h-20 md:h-28 bg-white shadow-[0_30px_60px_-15px_rgba(0,0,0,0.5)] rounded-[2.5rem] md:rounded-[3rem] flex items-center justify-between px-6 md:px-12 lg:px-14">
+      {/* Strictly Fixed Header 
+        Changed: relative -> fixed
+        Added: top-0, inset-x-0, z-[60]
+      */}
+      <header className="fixed top-0 inset-x-0 z-[60] w-full bg-white border-b border-gray-100 font-sans shadow-sm">
+        <nav className="container mx-auto max-w-[1500px] h-20 md:h-28 flex items-center justify-between px-6 md:px-12 lg:px-14">
           {/* Brand Logo */}
           <Link
             href="/"
@@ -78,7 +78,7 @@ export default function Header() {
               >
                 {item.label}
                 {/* Sleek Minimalist Underline */}
-                <span className="absolute -bottom-1 left-0 w-full h-[3px] bg-[#050505] rounded-full transform origin-left scale-x-0 transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)]" />
+                <span className="absolute -bottom-1 left-0 w-full h-[3px] bg-[#050505] rounded-full transform origin-left scale-x-0 transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:scale-x-100" />
               </Link>
             ))}
           </div>
