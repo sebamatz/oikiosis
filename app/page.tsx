@@ -158,9 +158,12 @@ export default function Home() {
       >
         <div className="mx-auto max-w-4xl">
           <div className="text-center mb-12">
-            <h2 className="mb-6 text-3xl font-bold md:text-4xl bg-linear-to-r from-primary to-primary/60 bg-clip-text text-transparent">
+            <Link
+              href="/testimonials"
+              className="mb-6 text-3xl font-bold md:text-4xl bg-linear-to-r from-primary to-primary/60 bg-clip-text text-transparent"
+            >
               Εμπειρίες Καταιγίδας
-            </h2>
+            </Link>
             <div className="space-y-5">
               <p className="text-xl md:text-2xl leading-relaxed text-foreground/80 italic font-light">
                 Διαφορετικές ιστορίες, στην ίδια θαλασσοταραχή.

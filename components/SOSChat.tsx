@@ -233,6 +233,11 @@ export default function SOSChat() {
                       (m) => m.sender === "giannis",
                     );
 
+                // Strip out any [AUDIO] tags that might have been saved to the DB during our tests
+                const cleanContent = msg.content
+                  .replace(/\[AUDIO:.*?\]/g, "")
+                  .trim();
+
                 return (
                   <div key={msg.id}>
                     <div
@@ -249,7 +254,7 @@ export default function SOSChat() {
                             : "bg-muted text-foreground",
                         )}
                       >
-                        <p className="whitespace-pre-wrap">{msg.content}</p>
+                        <p className="whitespace-pre-wrap">{cleanContent}</p>
                       </div>
                     </div>
                     {/* Audio Link */}
@@ -258,17 +263,19 @@ export default function SOSChat() {
                         <div className="max-w-[80%]">
                           <div className="p-3 bg-muted/50 rounded-lg border border-muted-foreground/20">
                             <p className="mb-2 text-xs text-muted-foreground">
-                              Αν νιώθεις ότι αυτή τη στιγμή όλα είναι πολύ,
-                              άκουσε αυτό το audio ηρεμίας.
+                              ​Αν νιώθεις ότι αυτή τη στιγμή η πίεση είναι
+                              μεγάλη, άκουσε το παρακάτω audio ηρεμίας.
                             </p>
-                            <Button
-                              variant="outline"
-                              size="sm"
-                              className="w-full"
-                              onClick={() => window.open("#", "_blank")}
+                            {/* Native HTML5 Audio Player */}
+                            <audio
+                              controls
+                              preload="metadata"
+                              className="w-full h-10 outline-none rounded-md"
                             >
-                              Μικρό audio ηρεμίας
-                            </Button>
+                              <source src="/relax.m4a" type="audio/mp4" />
+                              Το πρόγραμμα περιήγησής σας δεν υποστηρίζει την
+                              αναπαραγωγή ήχου.
+                            </audio>
                           </div>
                         </div>
                       </div>
