@@ -161,22 +161,27 @@ export default function TestimonialsPage() {
         </div>
 
         {/* Call to Action Section */}
-        <div className="mt-16 md:mt-24 flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Button
-            size="lg"
-            onClick={() => window.dispatchEvent(new Event("openSOSChat"))}
-            className="w-full sm:w-auto"
-          >
-            Γράψε ένα S.O.S. μήνυμα
-          </Button>
-          <Button
-            variant="outline"
-            size="lg"
-            asChild
-            className="w-full sm:w-auto border-primary/20 hover:bg-primary/5 hover:text-black"
-          >
-            <Link href="/booking">Κλείσε μια πρώτη συνεδρία γνωριμίας</Link>
-          </Button>
+        <div className="mt-16 md:mt-24 text-center">
+          <h2 className="mb-8 text-2xl font-bold md:text-3xl text-foreground">
+            Αν νιώθεις ότι βρίσκεσαι στην ίδια καταιγίδα, είμαστε εδώ.
+          </h2>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Button
+              size="lg"
+              onClick={() => window.dispatchEvent(new Event("openSOSChat"))}
+              className="w-full sm:w-auto"
+            >
+              Γράψε ένα S.O.S. μήνυμα
+            </Button>
+            <Button
+              variant="outline"
+              size="lg"
+              asChild
+              className="w-full sm:w-auto border-primary/20 hover:bg-primary/5 hover:text-black"
+            >
+              <Link href="/booking">Κλείσε μια πρώτη συνεδρία γνωριμίας</Link>
+            </Button>
+          </div>
         </div>
       </div>
     </main>
