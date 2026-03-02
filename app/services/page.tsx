@@ -25,7 +25,7 @@ export default function ServicesPage() {
         "Στόχος: να μη σε παρασύρει εντελώς η καταιγίδα, πριν, κατά τη διάρκεια ή αμέσως μετά από ένα «έκρηκτικό» γεγονός.",
       ],
       hasButton: true,
-      buttonText: "ΕΝΕΡΓΟΠΟΙΗΣΗ S.O.S. ΜΗΝΥΜΑΤΟΣ",
+      buttonText: "Γράψε ένα S.O.S. μήνυμα",
       buttonHref: "/sos-page",
     },
     {
@@ -169,7 +169,7 @@ export default function ServicesPage() {
           <div className="mt-12 text-center bg-muted/20 p-6 rounded-xl border border-primary/10 max-w-3xl mx-auto shadow-sm">
             <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
               Αν θέλεις να δεις αναλυτικά τι σημαίνουν οι όροι (S.O.S.,
-              R.E.A.C.H., κ.λπ.), μπορείς να δεις το γλωσσάριο της Οικείωσις{" "}
+              R.E.A.C.H., κ.λπ.), μπορείς να δεις το γλωσσάριο του Μοντέλου μας{" "}
               <Link
                 href="/glossary"
                 className="font-bold text-primary hover:text-primary/80 hover:underline underline-offset-4 transition-colors"
@@ -198,7 +198,7 @@ export default function ServicesPage() {
                 </p>
                 <p>
                   <span className="font-semibold">Συχνότητα:</span> Εβδομαδιαία
-                  ή εντατική, ανάλογα με τη φάση και τον στόχο.
+                  ή κατόπιν συνεννόησης, ανάλογα με τη φάση και τον στόχο
                 </p>
               </div>
             </CardContent>

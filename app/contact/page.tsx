@@ -138,8 +138,8 @@ export default function ContactPage() {
                     <div className="space-y-1.5">
                       <p className="font-semibold text-foreground">Συχνότητα</p>
                       <p className="text-sm leading-relaxed text-muted-foreground">
-                        Εβδομαδιαία ή εντατική, ανάλογα με τη φάση και τον
-                        στόχο.
+                        Εβδομαδιαία ή κατόπιν συνεννόησης, ανάλογα με τη φάση
+                        και τον στόχο
                       </p>
                     </div>
                   </div>

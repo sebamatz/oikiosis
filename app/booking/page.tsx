@@ -174,7 +174,7 @@ export default function BookingPage() {
                 για άμεση υποστήριξη.
               </p>
               <Button asChild variant="default" size="lg" className="w-full">
-                <Link href="/sos-page">ΕΝΕΡΓΟΠΟΙΗΣΗ S.O.S. ΜΗΝΥΜΑΤΟΣ</Link>
+                <Link href="/sos-page">Γράψε ένα S.O.S. μήνυμα</Link>
               </Button>
             </CardContent>
           </Card>

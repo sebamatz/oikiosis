@@ -80,7 +80,7 @@ export default function SOSButton({
         >
           <MessageCircle className="h-5 w-5 sm:h-6 sm:w-6 shrink-0 transition-transform group-hover:scale-110" />
           <span className="text-sm sm:text-base md:text-lg font-semibold leading-tight wrap-break-word text-center whitespace-normal min-w-0">
-            ΕΝΕΡΓΟΠΟΙΗΣΗ S.O.S.
+            Γράψε ένα S.O.S. μήνυμα
           </span>
         </Link>
       </Button>
