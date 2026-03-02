@@ -32,6 +32,12 @@ export default function Footer() {
                 Υπηρεσίες
               </Link>
               <Link
+                href="/testimonials"
+                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+              >
+                Εμπειρίες
+              </Link>
+              <Link
                 href="/about"
                 className="text-sm text-muted-foreground hover:text-foreground transition-colors"
               >
