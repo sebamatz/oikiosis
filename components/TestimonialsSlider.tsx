@@ -115,7 +115,11 @@ export default function TestimonialsSlider() {
           <TestimonialCard
             id={currentTestimonial.id}
             author={currentTestimonial.author}
-            category={currentTestimonial.category}
+            category={
+              Array.isArray(currentTestimonial.category)
+                ? currentTestimonial.category[0]
+                : currentTestimonial.category
+            }
             content={currentTestimonial.content}
           />
         </div>
