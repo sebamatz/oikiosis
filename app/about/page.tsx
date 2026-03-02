@@ -357,7 +357,8 @@ export default function AboutPage() {
                       Σοφία Μίαρη
                     </CardTitle>
                     <CardDescription className="text-base md:text-lg">
-                      Ψυχολόγος – Ψυχοθεραπεύτρια (MSc, PhD)
+                      Ψυχολόγος – Οικογενειακή – Συστημική Ψυχοθεραπεύτρια (MSc,
+                      PhD)
                     </CardDescription>
                   </CardHeader>
                   <CardContent className="space-y-4 p-0 md:p-6 pt-0">

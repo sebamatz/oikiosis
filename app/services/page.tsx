@@ -239,7 +239,7 @@ export default function ServicesPage() {
             <div>
               <p className="font-semibold text-foreground">Σοφία Μίαρη</p>
               <p className="text-muted-foreground">
-                Ψυχολόγος – Ψυχοθεραπεύτρια (MSc, PhD)
+                Ψυχολόγος – Οικογενειακή – Συστημική Ψυχοθεραπεύτρια (MSc, PhD)
               </p>
             </div>
           </div>

@@ -223,7 +223,7 @@ export default function ContactPage() {
                     Σοφία Μίαρη
                   </p>
                   <p className="text-sm leading-relaxed text-muted-foreground">
-                    Ψυχολόγος – Ψυχοθεραπεύτρια
+                    Ψυχολόγος – Οικογενειακή – Συστημική Ψυχοθεραπεύτρια
                   </p>
                   <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
                     MSc, PhD

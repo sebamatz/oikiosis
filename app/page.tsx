@@ -220,7 +220,8 @@ export default function Home() {
             <Card className="shadow-md">
               <CardHeader>
                 <CardTitle className="text-xl">
-                  Σοφία Μίαρη, Ψυχολόγος PhD, MSc
+                  Ψυχολόγος – Οικογενειακή – Συστημική Ψυχοθεραπεύτρια (MSc,
+                  PhD)
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-3 text-muted-foreground">
