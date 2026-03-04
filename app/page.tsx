@@ -305,7 +305,7 @@ export default function Home() {
             </Link>
           </Button>
           <p className="text-sm sm:text-base text-muted-foreground">
-            Υπηρεσίες για άτομα, ζευγάρια, γονείς και επαγγελματίες.
+            Υπηρεσίες για άτομα, ζευγάρια, γονείς και οικογένειες.
           </p>
         </div>
       </Section>

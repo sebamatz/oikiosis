@@ -63,19 +63,19 @@ export async function POST(request: Request) {
 
     if (!finalConversation) throw new Error("Conversation lost after creation");
 
-    // STEP 4: First Message Logic (Notifications & Auto-Reply)
+    // --- TRIGGER GMAIL NOTIFICATION FOR EVERY MESSAGE ---
+    // We don't 'await' this so the user doesn't wait for the email server to respond
+    sendEmailNotification(sessionId, content, name || "Anonymous User").catch(
+      (err) => console.error("Notification trigger failed:", err),
+    );
+
+    // STEP 4: First Message Logic (Auto-Reply)
     const userMsgCount = finalConversation.messages.filter(
       (m) => m.sender === "user",
     ).length;
 
     if (userMsgCount === 1) {
-      console.log("3. First message detected. Triggering Notifications.");
-
-      // --- TRIGGER GMAIL NOTIFICATION ---
-      // We don't 'await' this so the user doesn't wait for the email server to respond
-      sendEmailNotification(sessionId, content, name || "Anonymous User").catch(
-        (err) => console.error("Notification trigger failed:", err),
-      );
+      console.log("3. First message detected. Triggering Auto-Reply.");
 
       // ADDED: The [AUDIO:/relax.mp3] tag at the very end.
       // Place your audio file at public/relax.mp3

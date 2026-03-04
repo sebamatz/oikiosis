@@ -225,8 +225,8 @@ export default function AdminDashboard() {
               onSubmit={handleReply}
               className="p-4 bg-white border-t border-gray-100"
             >
-              {/* FIXED: items-start aligns the button to the top on mobile, md:items-end aligns it to the bottom on desktop */}
-              <div className="flex items-start md:items-end gap-2 max-w-4xl mx-auto">
+              {/* FIXED: items-start universally aligns the button to the top on all screens */}
+              <div className="flex items-start gap-2 max-w-4xl mx-auto">
                 <div className="flex-1 bg-gray-100 rounded-2xl overflow-hidden focus-within:ring-2 focus-within:ring-blue-500/50 focus-within:bg-white border border-transparent focus-within:border-blue-500 transition-all">
                   <textarea
                     value={replyText}
@@ -245,7 +245,7 @@ export default function AdminDashboard() {
                 <button
                   type="submit"
                   disabled={!replyText.trim()}
-                  className="p-3 mb-1 mt-1 md:mt-0 bg-blue-600 text-white rounded-full hover:bg-blue-700 disabled:opacity-50 disabled:bg-gray-200 disabled:text-gray-400 transition-all shrink-0 shadow-sm"
+                  className="p-3 mb-1 mt-1 bg-blue-600 text-white rounded-full hover:bg-blue-700 disabled:opacity-50 disabled:bg-gray-200 disabled:text-gray-400 transition-all shrink-0 shadow-sm"
                 >
                   <Send className="w-5 h-5 ml-0.5" />
                 </button>

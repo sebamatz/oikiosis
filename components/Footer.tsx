@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Phone } from "lucide-react";
+import { Phone, MapPin } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -62,7 +62,7 @@ export default function Footer() {
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-4 w-4"
+                  className="h-4 w-4 shrink-0"
                   viewBox="0 0 20 20"
                   fill="currentColor"
                 >
@@ -75,8 +75,34 @@ export default function Footer() {
                 href="tel:+306989940588"
                 className="flex items-center gap-2 hover:text-foreground transition-colors"
               >
-                <Phone className="h-4 w-4" />
+                <Phone className="h-4 w-4 shrink-0" />
                 6989940588
+              </a>
+              <div className="flex items-start gap-2">
+                <MapPin className="h-4 w-4 shrink-0 mt-0.5" />
+                <span>
+                  Αγησιλάου 68 & Θερμοπυλών, Αθήνα (δεχόμαστε μόνο με ραντεβού)
+                </span>
+              </div>
+              <a
+                href="https://www.tiktok.com/@sjlifewings"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 hover:text-foreground transition-colors"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-4 w-4 shrink-0"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
+                </svg>
+                TikTok: @sjlifewings
               </a>
             </div>
           </div>
@@ -84,7 +110,7 @@ export default function Footer() {
 
         <div className="mt-8 border-t pt-8 flex flex-row justify-between items-start gap-4">
           <div className="flex w-full">
-            <div className="flex justify-between  items-start  gap-4 text-sm text-muted-foreground">
+            <div className="flex justify-between  items-start  gap-4 text-sm text-muted-foreground w-full">
               <div className="flex flex-col justify-between  items-start  gap-4 text-sm text-muted-foreground grow">
                 <div className="mb-2">Με εκτίμηση,</div>
                 <div>
@@ -110,7 +136,7 @@ export default function Footer() {
                 </div>
               </div>
 
-              <p className="flex text-xs self-end">
+              <p className="flex text-xs self-end text-right">
                 © {new Date().getFullYear()} Οικείωσις. Όλα τα δικαιώματα
                 διατηρούνται.
               </p>

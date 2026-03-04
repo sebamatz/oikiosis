@@ -1,7 +1,7 @@
 import Section from "@/components/Section";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Link from "next/link";
-import { ArrowLeft, Phone, Video, MessageCircle } from "lucide-react";
+import { ArrowLeft, Phone, Video, MessageCircle, MapPin } from "lucide-react";
 import SOSButton from "@/components/SOSButton";
 import Image from "next/image";
 import ContactForm from "@/components/ContactForm";
@@ -109,6 +109,25 @@ export default function ContactPage() {
                   </div>
                 </CardContent>
               </Card>
+
+              {/* Location Information */}
+              <Card className="border-primary/20 shadow-lg">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <MapPin className="h-5 w-5 text-primary" />
+                    Τοποθεσία Γραφείου
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm leading-relaxed text-muted-foreground">
+                    <span className="font-semibold text-foreground">
+                      Αγησιλάου 68 & Θερμοπυλών, Αθήνα
+                    </span>{" "}
+                    (δεχόμαστε μόνο με ραντεβού)
+                  </p>
+                </CardContent>
+              </Card>
+
               {/* Session Format */}
               <Card className="border-primary/20 shadow-lg">
                 <CardHeader>
