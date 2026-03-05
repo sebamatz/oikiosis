@@ -87,7 +87,7 @@ export default function ContactPage() {
                         src="/images/John-Giannopoulos-profie.jpg"
                         alt="Ιωάννης Γιαννόπουλος"
                         fill
-                        className="object-cover"
+                        className="object-cover object-top"
                       />
                     </div>
                     <div className="flex flex-col gap-2">
