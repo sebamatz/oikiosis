@@ -146,7 +146,7 @@ export default function HomeClient() {
           <div className="text-center mb-12">
             <Link
               href="/testimonials"
-              className="inline-block cursor-pointer mb-6 text-3xl hover:underline font-bold md:text-4xl bg-linear-to-r from-primary to-primary/60 bg-clip-text text-transparent"
+              className="inline-block cursor-pointer mb-6 text-3xl underline font-bold md:text-4xl bg-linear-to-r from-primary to-primary/60 bg-clip-text text-transparent"
             >
               Εμπειρίες Καταιγίδας
             </Link>
