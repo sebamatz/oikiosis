@@ -194,7 +194,7 @@ export default function HomeClient() {
             <Card className="shadow-md">
               <CardHeader>
                 <CardTitle className="text-xl">
-                  Ιωάννης Γιαννόπουλος, Ψυχολόγος
+                  Ιωάννης Γιαννόπουλος, Ψυχολόγος - Ψυχοθεραπευτής
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-3 text-muted-foreground">
@@ -212,8 +212,8 @@ export default function HomeClient() {
             <Card className="shadow-md">
               <CardHeader>
                 <CardTitle className="text-xl">
-                  Ψυχολόγος – Οικογενειακή – Συστημική Ψυχοθεραπεύτρια (MSc,
-                  PhD)
+                  Σοφία Μίαρη, Ψυχολόγος – Οικογενειακή – Συστημική
+                  Ψυχοθεραπεύτρια (MSc, PhD)
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-3 text-muted-foreground">
