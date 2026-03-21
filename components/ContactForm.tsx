@@ -51,6 +51,12 @@ export default function ContactForm() {
         throw new Error("Failed to send message");
       }
 
+      // --- GA4 TRACKING EVENT: Fires ONLY on successful submission ---
+      if (typeof window !== "undefined" && (window as any).gtag) {
+        (window as any).gtag("event", "submit_form");
+      }
+      // ---------------------------------------------------------------
+
       setSubmitStatus({
         type: "success",
         message:
