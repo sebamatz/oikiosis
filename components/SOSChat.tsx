@@ -42,7 +42,7 @@ export default function SOSChat() {
     return sessionId;
   };
 
-  // Listen for custom event to open chat
+  // Listen for custom event to open chat (triggered by other buttons)
   useEffect(() => {
     const handleOpenChat = () => {
       setIsOpen(true);
@@ -51,6 +51,18 @@ export default function SOSChat() {
     window.addEventListener("openSOSChat", handleOpenChat);
     return () => window.removeEventListener("openSOSChat", handleOpenChat);
   }, []);
+
+  // --- THE GA4 TRACKING HUB ---
+  // This watches the chat window. If it opens from ANYWHERE, it fires exactly once.
+  useEffect(() => {
+    if (isOpen) {
+      console.log("SOS Chat opened! Firing click_sos with debug_mode...");
+      if (typeof window !== "undefined" && (window as any).gtag) {
+        (window as any).gtag("event", "click_sos", { debug_mode: true });
+      }
+    }
+  }, [isOpen]);
+  // ----------------------------
 
   // POLLING: Check for new messages every 5 seconds while chat is OPEN
   useEffect(() => {
@@ -151,7 +163,6 @@ export default function SOSChat() {
   const hasMessages = conversation && conversation.messages.length > 0;
 
   // Logic to show "Typing..." dots
-  // If the last message is from the USER, it means they are waiting for YOU.
   const lastMessage = conversation?.messages[conversation.messages.length - 1];
   const isWaitingForReply = lastMessage?.sender === "user";
 
@@ -233,7 +244,6 @@ export default function SOSChat() {
                       (m) => m.sender === "giannis",
                     );
 
-                // Strip out any [AUDIO] tags that might have been saved to the DB during our tests
                 const cleanContent = msg.content
                   .replace(/\[AUDIO:.*?\]/g, "")
                   .trim();
@@ -266,7 +276,6 @@ export default function SOSChat() {
                               ​Αν νιώθεις ότι αυτή τη στιγμή η πίεση είναι
                               μεγάλη, άκουσε το παρακάτω audio ηρεμίας.
                             </p>
-                            {/* Native HTML5 Audio Player */}
                             <audio
                               controls
                               preload="metadata"
@@ -284,7 +293,7 @@ export default function SOSChat() {
                 );
               })}
 
-              {/* TYPING INDICATOR (Shown if user is waiting for reply) */}
+              {/* TYPING INDICATOR */}
               {isWaitingForReply && (
                 <div className="flex justify-start animate-pulse">
                   <div className="bg-muted px-4 py-3 rounded-lg rounded-tl-none flex gap-1">

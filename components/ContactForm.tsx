@@ -51,11 +51,23 @@ export default function ContactForm() {
         throw new Error("Failed to send message");
       }
 
-      // --- GA4 TRACKING EVENT: Fires ONLY on successful submission ---
-      if (typeof window !== "undefined" && (window as any).gtag) {
-        (window as any).gtag("event", "submit_form");
+      // --- GA4 TRACKING EVENT ---
+      // --- GA4 TRACKING EVENT ---
+      console.log("Form success! Checking for gtag...");
+      if (typeof window !== "undefined") {
+        if ((window as any).gtag) {
+          console.log(
+            "gtag found! Sending submit_form event with debug_mode...",
+          );
+          (window as any).gtag("event", "submit_form");
+        } else {
+          console.warn(
+            "gtag is UNDEFINED. The Google Analytics script is not loaded on this page.",
+          );
+        }
       }
-      // ---------------------------------------------------------------
+      // --------------------------
+      // --------------------------
 
       setSubmitStatus({
         type: "success",
