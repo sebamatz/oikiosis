@@ -58,7 +58,7 @@ export default function SOSChat() {
     if (isOpen) {
       console.log("SOS Chat opened! Firing click_sos with debug_mode...");
       if (typeof window !== "undefined" && (window as any).gtag) {
-        (window as any).gtag("event", "click_sos", { debug_mode: true });
+        (window as any).gtag("event", "click_sos");
       }
     }
   }, [isOpen]);
