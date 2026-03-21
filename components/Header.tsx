@@ -23,21 +23,9 @@ export default function Header() {
       <header className="fixed top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/60 overflow-hidden">
         <nav className="container mx-auto flex h-16 items-center justify-between px-4 max-w-7xl">
           <Link href="/" className="flex items-center space-x-2 min-w-0">
-            <Image
-              src="/logo-main.png"
-              alt="Οικείωσις Logo"
-              width={160}
-              height={40}
-              className="h-14 md:h-16 w-auto object-contain"
-              priority
-            />
-
-            {/* If your logo image already includes the name, you can remove or comment out the text below. 
-      If the image is just an icon, keep the text! */}
-            {/* <span className="text-xl sm:text-2xl font-bold text-primary wrap-break-word">
-    Οικείωσις
-  </span> 
-  */}
+            <span className="text-xl sm:text-2xl font-bold text-primary wrap-break-word">
+              Οικείωσις
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
