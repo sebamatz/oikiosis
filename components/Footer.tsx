@@ -44,6 +44,12 @@ export default function Footer() {
                 Σχετικά
               </Link>
               <Link
+                href="/first-session"
+                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+              >
+                Πρώτη Συνάντηση
+              </Link>
+              <Link
                 href="/faq"
                 className="text-sm text-muted-foreground hover:text-foreground transition-colors"
               >
