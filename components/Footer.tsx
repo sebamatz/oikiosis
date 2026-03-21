@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { Phone, MapPin } from "lucide-react";
 
@@ -101,6 +103,12 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 hover:text-foreground transition-colors"
+                onClick={() => {
+                  console.log("TikTok link clicked! Firing submit_tiktok...");
+                  if (typeof window !== "undefined" && (window as any).gtag) {
+                    (window as any).gtag("event", "submit_tiktok");
+                  }
+                }}
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
