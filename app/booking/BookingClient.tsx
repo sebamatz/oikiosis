@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Calendar } from "@/components/ui/calendar";
 import {
   Card,
@@ -35,6 +35,22 @@ export default function BookingClient() {
   const [availableTimes, setAvailableTimes] = useState<string[]>([]);
   const [isLoadingTimes, setIsLoadingTimes] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false); // Submission state
+
+  // GA4 Tracking Guard
+  const hasFired = useRef(false);
+
+  useEffect(() => {
+    // Check for a global flag on the window object
+    if (typeof window !== "undefined" && !(window as any).view_booking_fired) {
+      console.log("Booking page loaded! Firing view_booking (Global Guard)...");
+
+      if ((window as any).gtag) {
+        (window as any).gtag("event", "view_booking");
+        // Set the global flag so NO OTHER instance or remount can fire it
+        (window as any).view_booking_fired = true;
+      }
+    }
+  }, []);
 
   useEffect(() => {
     if (!date) return;

@@ -9,5 +9,9 @@ export const metadata: Metadata = {
 };
 
 export default function BookingPage() {
-  return <BookingClient />;
+  return (
+    <>
+      <BookingClient />
+    </>
+  );
 }
