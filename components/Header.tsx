@@ -12,6 +12,7 @@ export default function Header() {
     { href: "/services", label: "Υπηρεσίες" },
     { href: "/testimonials", label: "Εμπειρίες" },
     { href: "/about", label: "Σχετικά με εμάς" },
+    { href: "/faq", label: "Συχνές Ερωτήσεις" },
     { href: "/contact", label: "Επικοινωνία" },
     // { href: "/booking", label: "Κράτηση Συνεδρίας" },
   ];

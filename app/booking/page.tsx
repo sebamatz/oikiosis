@@ -17,6 +17,7 @@ import {
   Loader2,
   User,
   Phone,
+  Info,
 } from "lucide-react";
 import Link from "next/link";
 import Section from "@/components/Section";
@@ -140,12 +141,22 @@ export default function BookingPage() {
             <h1 className="mb-3 text-2xl font-bold md:text-3xl">
               Κράτηση Συνεδρίας
             </h1>
-            <p className="text-muted-foreground">
+            <p className="text-muted-foreground mb-6">
               Επιλέξτε ημερομηνία, ώρα, και θέμα για τη συνεδρία σας
             </p>
+            {/* Added First Session Button Here */}
+            <Button
+              variant="outline"
+              asChild
+              className="rounded-full border-primary/20 text-primary hover:text-primary hover:bg-primary/5 transition-colors"
+            >
+              <Link href="/first-session">
+                Πρώτη φορά μαζί μας; Δείτε τι να περιμένετε στην πρώτη συνάντηση
+              </Link>
+            </Button>
           </div>
 
-          <Card className="mt-6 border-primary/50 bg-primary/5">
+          <Card className="mt-8 border-primary/50 bg-primary/5">
             <CardHeader>
               <CardTitle className="text-lg flex items-center gap-2">
                 <svg
@@ -183,6 +194,46 @@ export default function BookingPage() {
 
       <Section>
         <div className="mx-auto max-w-4xl">
+          {/* New Intro Block: What to expect */}
+          <Card className="mb-6 border-primary/20 shadow-md">
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <Info className="h-5 w-5 text-primary" />
+                Τι να περιμένεις
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-muted-foreground leading-relaxed mb-4">
+                Η πρώτη μας συνάντηση είναι διερευνητική και προσανατολιστική:
+                ακούμε τι σε φέρνει εδώ, σου εξηγούμε πώς δουλεύουμε και
+                βλέπουμε μαζί αν αυτό το πλαίσιο σου ταιριάζει. Οι συνεδρίες
+                γίνονται μόνο κατόπιν ραντεβού, δια ζώσης ή διαδικτυακά, και
+                διαρκούν 60 λεπτά.
+              </p>
+              <p className="text-muted-foreground font-medium">
+                Κόστος συνεδρίας: Ατομική 50€ &middot; Ζεύγους 100€ &middot;
+                Οικογένειας 150€.
+              </p>
+              <p className="text-muted-foreground leading-relaxed mb-4">
+                Αν το οικονομικό σε προβληματίζει, πες μας ανοιχτά, δεν θέλουμε
+                κανένα εμπόδιο ανάμεσα σε σένα και τη στήριξη που χρειάζεσαι.
+              </p>
+            </CardContent>
+          </Card>
+
+          {/* ADDED: Link to /first-session right above the form */}
+          <div className="mb-6 flex justify-center">
+            <Button
+              variant="outline"
+              asChild
+              className="rounded-full border-primary/20 text-primary hover:text-primary hover:bg-primary/5 transition-colors"
+            >
+              <Link href="/first-session">
+                Μάθε τι να περιμένεις στην πρώτη συνάντηση
+              </Link>
+            </Button>
+          </div>
+
           {/* Contact Details moved to the top */}
           <Card>
             <CardHeader>
@@ -376,7 +427,7 @@ export default function BookingPage() {
                 </span>
               ) : (
                 <span className="wrap-break-word whitespace-normal min-w-0">
-                  Κλείστε Συνεδρία
+                  Κάνε το πρώτο βήμα
                 </span>
               )}
             </Button>

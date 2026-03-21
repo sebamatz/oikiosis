@@ -16,6 +16,7 @@ import Image from "next/image";
 export default function ServicesPage() {
   const services = [
     {
+      id: "sos",
       title: "Πλοήγηση Κρίσης S.O.S. (Διαζύγιο HCD & Σχέσεις)",
       subtitle: "",
       image: "/images/compass.jpg",
@@ -29,6 +30,7 @@ export default function ServicesPage() {
       buttonHref: "/sos-page",
     },
     {
+      id: "parental-alienation",
       title: "Παρέμβαση Επανασύνδεσης (Γονεϊκή Αποξένωση – PA)",
       subtitle: "",
       image: "/images/wall.jpg",
@@ -40,6 +42,7 @@ export default function ServicesPage() {
       ],
     },
     {
+      id: "reach",
       title: "Ατομική Θεραπεία R.E.A.C.H. (Αναδόμηση & PTG)",
       subtitle: "",
       image: "/images/Ατομική Ψυχοθεραπεία.jpg",
@@ -51,6 +54,7 @@ export default function ServicesPage() {
       ],
     },
     {
+      id: "co-parenting-design",
       title: "Σχεδιασμός Συν-Γονεϊκότητας (Co-Parenting Design)",
       subtitle: "",
       image: "/images/Συνεδρίες ΣυνΓονέων.jpg",
@@ -61,6 +65,7 @@ export default function ServicesPage() {
       ],
     },
     {
+      id: "parent-counseling",
       title: "Συμβουλευτική Γονέων (Συστημική Υποστήριξη)",
       subtitle: "",
       image: "/images/Συμβουλευτική Γονέων.jpeg",
@@ -117,52 +122,55 @@ export default function ServicesPage() {
       <Section>
         <div className="mx-auto max-w-5xl space-y-6">
           {services.map((service, index) => (
-            <Card
-              key={index}
-              className="overflow-hidden border-primary/20 shadow-lg hover:shadow-xl transition-shadow p-4 "
-            >
-              <div className="grid md:grid-cols-2 gap-4">
-                <div className="relative h-64 md:h-auto">
-                  <Image
-                    src={service.image}
-                    alt={service.title}
-                    fill
-                    className="object-cover rounded-lg"
-                  />
+            <div key={index} id={service.id} className="scroll-mt-16.25">
+              <Card className="overflow-hidden border-primary/20 shadow-lg hover:shadow-xl transition-shadow p-4 ">
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div className="relative h-64 md:h-auto">
+                    <Image
+                      src={service.image}
+                      alt={service.title}
+                      fill
+                      className="object-cover rounded-lg"
+                    />
+                  </div>
+                  <div>
+                    <CardHeader className="p-0 md:p-4">
+                      <CardTitle className="text-xl md:text-2xl">
+                        {service.title}
+                      </CardTitle>
+                      {service.subtitle && (
+                        <CardDescription className="text-lg">
+                          {service.subtitle}
+                        </CardDescription>
+                      )}
+                    </CardHeader>
+                    <CardContent className="space-y-3 p-0 md:p-4">
+                      {service.description.map((item, idx) => (
+                        <p
+                          key={idx}
+                          className="text-muted-foreground leading-relaxed"
+                        >
+                          {item}
+                        </p>
+                      ))}
+                      {service.hasButton && (
+                        <div className="pt-4">
+                          <Button
+                            size="lg"
+                            className="w-full md:w-auto"
+                            asChild
+                          >
+                            <Link href={service.buttonHref || "#"}>
+                              {service.buttonText}
+                            </Link>
+                          </Button>
+                        </div>
+                      )}
+                    </CardContent>
+                  </div>
                 </div>
-                <div>
-                  <CardHeader className="p-0 md:p-4">
-                    <CardTitle className="text-xl md:text-2xl">
-                      {service.title}
-                    </CardTitle>
-                    {service.subtitle && (
-                      <CardDescription className="text-lg">
-                        {service.subtitle}
-                      </CardDescription>
-                    )}
-                  </CardHeader>
-                  <CardContent className="space-y-3 p-0 md:p-4">
-                    {service.description.map((item, idx) => (
-                      <p
-                        key={idx}
-                        className="text-muted-foreground leading-relaxed"
-                      >
-                        {item}
-                      </p>
-                    ))}
-                    {service.hasButton && (
-                      <div className="pt-4">
-                        <Button size="lg" className="w-full md:w-auto" asChild>
-                          <Link href={service.buttonHref || "#"}>
-                            {service.buttonText}
-                          </Link>
-                        </Button>
-                      </div>
-                    )}
-                  </CardContent>
-                </div>
-              </div>
-            </Card>
+              </Card>
+            </div>
           ))}
 
           {/* Προσθήκη Γλωσσαρίου */}
@@ -210,12 +218,23 @@ export default function ServicesPage() {
               asChild
             >
               <Link
-                href="/contact"
+                href="/booking"
                 className="wrap-break-word text-center whitespace-normal min-w-0 overflow-hidden"
               >
-                Επικοινωνήστε μαζί μας
+                Ζήτησε μια πρώτη συνάντηση
               </Link>
             </Button>
+            <div className="mt-6">
+              <p className="text-muted-foreground">
+                Έχεις απορίες;{" "}
+                <Link
+                  href="/faq"
+                  className="text-primary hover:underline font-medium transition-colors"
+                >
+                  Δες τις Συχνές Ερωτήσεις
+                </Link>
+              </p>
+            </div>
           </div>
         </div>
       </Section>

@@ -55,7 +55,7 @@ export default function Home() {
             <Card className="shadow-md border-primary/20">
               <CardHeader>
                 <CardTitle className="text-xl">
-                  2. Ατομική συνεδρία μαζί μας
+                  2. Πρώτη ατομική συνάντηση
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
@@ -72,7 +72,7 @@ export default function Home() {
                 <Button asChild className="w-full" variant="outline">
                   <Link href="/booking">
                     <Calendar className="h-4 w-4 mr-2" />
-                    Κλείσε μια συνεδρία
+                    Ζήτησε μια πρώτη συνάντηση
                   </Link>
                 </Button>
               </CardContent>
@@ -160,7 +160,7 @@ export default function Home() {
           <div className="text-center mb-12">
             <Link
               href="/testimonials"
-              className="inline-block cursor-pointer mb-6 text-3xl font-bold md:text-4xl bg-linear-to-r from-primary to-primary/60 bg-clip-text text-transparent"
+              className="inline-block cursor-pointer mb-6 text-3xl hover:underline font-bold md:text-4xl bg-linear-to-r from-primary to-primary/60 bg-clip-text text-transparent"
             >
               Εμπειρίες Καταιγίδας
             </Link>
@@ -175,7 +175,10 @@ export default function Home() {
                 </p>
                 <p>
                   Μοιραζόμαστε τις εμπειρίες τους, με τη δική τους άδεια, για να
-                  γνωρίζεις ότι δεν υπερβάλλεις και δεν χάνεις τα λογικά σου.
+                  γνωρίζεις ότι δεν υπερβάλλεις και δεν χάνεις τα λογικά σου. Οι
+                  εμπειρίες δημοσιεύονται με προστασία ιδιωτικότητας και δεν
+                  αποτελούν υπόσχεση αποτελέσματος. Κάθε άνθρωπος έχει τη δική
+                  του διαδρομή.
                 </p>
               </div>
             </div>
@@ -205,7 +208,7 @@ export default function Home() {
             <Card className="shadow-md">
               <CardHeader>
                 <CardTitle className="text-xl">
-                  Ιωάννης Γιαννόπουλος, Ψυχολόγος
+                  Ιωάννης Γιαννόπουλος, Ψυχολόγος - Ψυχοθεραπευτής
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-3 text-muted-foreground">
@@ -223,8 +226,8 @@ export default function Home() {
             <Card className="shadow-md">
               <CardHeader>
                 <CardTitle className="text-xl">
-                  Ψυχολόγος – Οικογενειακή – Συστημική Ψυχοθεραπεύτρια (MSc,
-                  PhD)
+                  Σοφία Μίαρη, Ψυχολόγος – Οικογενειακή – Συστημική
+                  Ψυχοθεραπεύτρια (MSc, PhD)
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-3 text-muted-foreground">
@@ -291,7 +294,7 @@ export default function Home() {
 
       {/* Second Call to Action */}
       <Section>
-        <div className="mx-auto max-w-4xl text-center">
+        <div className="mx-auto max-w-4xl text-center flex flex-col items-center">
           <Button
             size="lg"
             className="mb-3 max-w-100 w-full whitespace-normal overflow-hidden"
@@ -304,6 +307,21 @@ export default function Home() {
               Δείτε πώς μπορούμε να σας βοηθήσουμε
             </Link>
           </Button>
+
+          <Button
+            size="lg"
+            variant="outline"
+            className="mb-4 max-w-100 w-full whitespace-normal overflow-hidden border-primary/20 hover:bg-primary/5"
+            asChild
+          >
+            <Link
+              href="/first-session"
+              className="wrap-break-word text-center text-primary hover:text-primary whitespace-normal min-w-0 overflow-hidden"
+            >
+              Μάθε τι να περιμένεις στην πρώτη συνάντηση
+            </Link>
+          </Button>
+
           <p className="text-sm sm:text-base text-muted-foreground">
             Υπηρεσίες για άτομα, ζευγάρια, γονείς και οικογένειες.
           </p>

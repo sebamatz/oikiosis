@@ -5,6 +5,7 @@ import { ArrowLeft, Phone, Video, MessageCircle, MapPin } from "lucide-react";
 import SOSButton from "@/components/SOSButton";
 import Image from "next/image";
 import ContactForm from "@/components/ContactForm";
+import { Button } from "@/components/ui/button";
 
 export default function ContactPage() {
   return (
@@ -31,6 +32,15 @@ export default function ContactPage() {
               σκεφτεί όλα. Μπορείς απλά να περιγράψεις με απλά λόγια τι σε
               δυσκολεύει περισσότερο αυτή την περίοδο.
             </p>
+            {/* Added Link Here */}
+            <div className="pt-4">
+              <Link
+                href="/first-session"
+                className="inline-flex items-center text-sm md:text-base font-medium text-primary hover:text-primary/80 bg-primary/5 px-4 py-2 rounded-full transition-colors border border-primary/10 hover:border-primary/30"
+              >
+                Μάθε τι να περιμένεις στην πρώτη συνάντηση &rarr;
+              </Link>
+            </div>
           </div>
         </div>
       </Section>
@@ -191,6 +201,16 @@ export default function ContactPage() {
                       για δύσκολες στιγμές και κρίσεις.
                     </p>
                   </div>
+                  {/* Added Button Here */}
+                  <Button
+                    asChild
+                    variant="outline"
+                    className="w-full mt-6 border-primary/20 text-primary hover:bg-primary/5 hover:text-primary transition-colors whitespace-normal h-auto py-2 text-center"
+                  >
+                    <Link href="/first-session">
+                      Δείτε αναλυτικά τι να περιμένετε στην πρώτη συνάντηση
+                    </Link>
+                  </Button>
                 </CardContent>
               </Card>
             </div>
@@ -249,6 +269,18 @@ export default function ContactPage() {
                   </p>
                 </CardContent>
               </Card>
+            </div>
+            {/* Added FAQ Teaser Here */}
+            <div className="pt-8">
+              <p className="text-muted-foreground">
+                Έχεις απορίες;{" "}
+                <Link
+                  href="/faq"
+                  className="text-primary hover:underline font-medium transition-colors"
+                >
+                  Δες τις Συχνές Ερωτήσεις
+                </Link>
+              </p>
             </div>
           </div>
         </div>

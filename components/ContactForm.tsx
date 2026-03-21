@@ -89,6 +89,7 @@ export default function ContactForm() {
         <p className="mb-6 text-sm leading-relaxed text-muted-foreground">
           Αν επιθυμείτε να μοιραστείτε μια σκέψη, να κάνετε μια ερώτηση ή να
           εκφράσετε μια ανάγκη, μπορείτε να συμπληρώσετε τη φόρμα επικοινωνίας.
+          Η φόρμα δεν είναι επείγουσα υπηρεσία. Χρόνος απόκρισης: 24–48 ώρες.
         </p>
 
         <form onSubmit={handleSubmit} className="space-y-5">

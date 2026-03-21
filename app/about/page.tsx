@@ -64,11 +64,23 @@ export default function AboutPage() {
             ένας ασφαλής, ανθρώπινος χώρος όπου ο πόνος σου ακούγεται χωρίς
             κριτική και δουλεύουμε μαζί με ρεαλιστικά βήματα.
           </p>
+          {/* ADDED: Link to first session */}
+          <div className="pt-4 flex justify-center">
+            <Button
+              variant="outline"
+              asChild
+              className="rounded-full border-primary/20 text-primary hover:text-primary hover:bg-primary/5 transition-colors"
+            >
+              <Link href="/first-session">
+                Μάθε τι να περιμένεις στην πρώτη συνάντηση
+              </Link>
+            </Button>
+          </div>
         </div>
       </Section>
 
       {/* The Model */}
-      <Section className="bg-muted/30">
+      <Section className="bg-muted/30 scroll-mt-16.25" id="model">
         <div className="mx-auto max-w-4xl">
           <div className="mb-4 text-center">
             <h2 className="mb-3 text-2xl font-bold md:text-3xl">Το Μοντέλο</h2>
@@ -202,6 +214,16 @@ export default function AboutPage() {
                 </p>
               </CardContent>
             </Card>
+          </div>
+          {/* ADDED: Link to services */}
+          <div className="mt-10 flex justify-center">
+            <Button
+              variant="outline"
+              asChild
+              className="rounded-full border-primary/20 text-primary hover:text-primary hover:bg-primary/5 transition-colors"
+            >
+              <Link href="/services">Δείτε αναλυτικά τις Υπηρεσίες μας</Link>
+            </Button>
           </div>
         </div>
       </Section>
@@ -489,7 +511,7 @@ export default function AboutPage() {
               href="/contact"
               className="wrap-break-word text-center whitespace-normal min-w-0 overflow-hidden"
             >
-              Επικοινωνήστε μαζί μας
+              Ζήτησε μια πρώτη συνάντηση
             </Link>
           </Button>
         </div>

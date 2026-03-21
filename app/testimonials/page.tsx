@@ -60,7 +60,10 @@ export default function TestimonialsPage() {
               </p>
               <p>
                 Μοιραζόμαστε τις εμπειρίες τους, με τη δική τους άδεια, για να
-                γνωρίζεις ότι δεν υπερβάλλεις και δεν χάνεις τα λογικά σου.
+                γνωρίζεις ότι δεν υπερβάλλεις και δεν χάνεις τα λογικά σου. Οι
+                εμπειρίες δημοσιεύονται με προστασία ιδιωτικότητας και δεν
+                αποτελούν υπόσχεση αποτελέσματος. Κάθε άνθρωπος έχει τη δική του
+                διαδρομή.
               </p>
             </div>
           </div>
@@ -179,7 +182,7 @@ export default function TestimonialsPage() {
               asChild
               className="w-full sm:w-auto border-primary/20 hover:bg-primary/5 hover:text-black"
             >
-              <Link href="/booking">Κλείσε μια πρώτη συνεδρία γνωριμίας</Link>
+              <Link href="/booking">Μίλησέ μας για αυτό που ζεις</Link>
             </Button>
           </div>
         </div>
