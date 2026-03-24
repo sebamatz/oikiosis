@@ -6,6 +6,9 @@ export const metadata: Metadata = {
     "Υπηρεσίες Ψυχοθεραπείας | Γονεϊκή Αποξένωση & Σχέσεις Υψηλής Σύγκρουσης | Οικείωσις  | Γιάννης Γιαννόπουλος",
   description:
     "R.E.A.C.H., Co-Parenting Design, Θεραπεία Χωρισμού και Συμβουλευτική Γονέων. Δες ποια υπηρεσία ταιριάζει σε αυτό που ζεις αυτή την περίοδο.",
+  alternates: {
+    canonical: "/services",
+  },
 };
 
 export default function ServicesPage() {

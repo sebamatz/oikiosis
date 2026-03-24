@@ -6,6 +6,9 @@ export const metadata: Metadata = {
     "Τι να Περιμένεις στην Πρώτη Συνάντηση | Οικείωσις | Γιάννης Γιαννόπουλος",
   description:
     "Η πρώτη συνάντηση είναι διερευνητική, όχι δεσμευτική. Μάθε τι συμβαίνει, πόσο διαρκεί και πώς μπορείς να ξεκινήσεις χωρίς να έχεις έτοιμες απαντήσεις.",
+  alternates: {
+    canonical: "/first-session",
+  },
 };
 
 export default function FirstSessionPage() {

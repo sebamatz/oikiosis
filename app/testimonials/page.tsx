@@ -6,6 +6,9 @@ export const metadata: Metadata = {
     "Εμπειρίες Καταιγίδας | Τι Λένε Άνθρωποι που μας εμπιστεύθηκαν | Οικείωσις | Γιάννης Γιαννόπουλος",
   description:
     "Πραγματικές εμπειρίες ανθρώπων που έζησαν διαζύγιο, γονεϊκή αποξένωση και σύγκρουση. Δημοσιεύονται με προστασία ιδιωτικότητας.",
+  alternates: {
+    canonical: "/testimonials",
+  },
 };
 
 export default function TestimonialsPage() {
