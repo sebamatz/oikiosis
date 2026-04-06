@@ -178,15 +178,6 @@ export default function BookingClient() {
               Επιλέξτε ημερομηνία, ώρα, και θέμα για τη συνεδρία σας
             </p>
             {/* Added First Session Button Here */}
-            <Button
-              variant="outline"
-              asChild
-              className="rounded-full border-primary/20 text-primary hover:text-primary hover:bg-primary/5 transition-colors"
-            >
-              <Link href="/first-session">
-                Πρώτη φορά μαζί μας; Δείτε τι να περιμένετε στην πρώτη συνάντηση
-              </Link>
-            </Button>
           </div>
 
           <Card className="mt-8 border-primary/50 bg-primary/5">

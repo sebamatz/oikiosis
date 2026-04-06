@@ -67,10 +67,17 @@ export async function POST(request: Request) {
     });
 
     // Email to the Psychologist (Giannis)
+    // Email to the Psychologist (Giannis)
     const ownerMailOptions = {
-      from: `"Οικείωσις System" <${process.env.SMTP_USER}>`, // CHANGED THIS
-      to: process.env.SMTP_USER, // CHANGED THIS
+      from: `"Οικείωσις System" <${process.env.SMTP_USER}>`,
+      // The +alias trick to trick Gmail's routing
+      to: process.env.SMTP_USER?.replace("@", "+booking@"),
       subject: `🚨 Νέο Ραντεβού: ${name} - ${date} στις ${time}`,
+      headers: {
+        // This random ID forces Gmail to treat this as a unique incoming email,
+        // stopping it from ghosting it into the "Sent" folder.
+        "X-Entity-Ref-ID": new Date().getTime().toString(),
+      },
       html: `
         <h2>Έχετε μια νέα κράτηση συνεδρίας</h2>
         <ul>
