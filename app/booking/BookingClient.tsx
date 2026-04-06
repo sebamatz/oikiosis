@@ -18,6 +18,9 @@ import {
   User,
   Phone,
   Info,
+  Mail,
+  MapPin,
+  Video,
 } from "lucide-react";
 import Link from "next/link";
 import Section from "@/components/Section";
@@ -28,9 +31,15 @@ export default function BookingClient() {
   const [selectedTime, setSelectedTime] = useState<string>("");
   const [selectedTopic, setSelectedTopic] = useState<string>("");
 
-  // Added state for Name and Phone
+  // Contact Info State
   const [name, setName] = useState<string>("");
   const [phone, setPhone] = useState<string>("");
+  const [email, setEmail] = useState<string>(""); // NEW
+
+  // Session Type State
+  const [sessionType, setSessionType] = useState<"in-person" | "online" | "">(
+    "",
+  ); // NEW
 
   const [availableTimes, setAvailableTimes] = useState<string[]>([]);
   const [isLoadingTimes, setIsLoadingTimes] = useState(false);
@@ -96,8 +105,10 @@ export default function BookingClient() {
       !date ||
       !selectedTime ||
       !selectedTopic ||
+      !sessionType || // NEW
       !name.trim() ||
-      !phone.trim()
+      !phone.trim() ||
+      !email.trim() // NEW
     ) {
       alert("Παρακαλώ συμπληρώστε όλα τα απαραίτητα πεδία.");
       return;
@@ -107,6 +118,8 @@ export default function BookingClient() {
 
     const selectedTopicName = topics.find((t) => t.id === selectedTopic)?.name;
     const backendDate = format(date, "yyyy-MM-dd");
+    const sessionTypeLabel =
+      sessionType === "in-person" ? "Δια ζώσης" : "Online"; // NEW
 
     try {
       const res = await fetch("/api/calendar/book", {
@@ -115,6 +128,8 @@ export default function BookingClient() {
         body: JSON.stringify({
           name,
           phone,
+          email, // NEW
+          sessionType: sessionTypeLabel, // NEW
           date: backendDate,
           time: selectedTime,
           topicName: selectedTopicName,
@@ -127,8 +142,10 @@ export default function BookingClient() {
         setDate(undefined);
         setSelectedTime("");
         setSelectedTopic("");
+        setSessionType(""); // NEW
         setName("");
         setPhone("");
+        setEmail(""); // NEW
       } else {
         alert(
           "Υπήρξε ένα σφάλμα κατά την αποθήκευση. Παρακαλώ δοκιμάστε ξανά.",
@@ -237,7 +254,7 @@ export default function BookingClient() {
             </CardContent>
           </Card>
 
-          {/* ADDED: Link to /first-session right above the form */}
+          {/* Link to /first-session right above the form */}
           <div className="mb-6 flex justify-center">
             <Button
               variant="outline"
@@ -286,11 +303,60 @@ export default function BookingClient() {
                     className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
                   />
                 </div>
+                <div className="space-y-2 md:col-span-2">
+                  <label className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 flex items-center gap-2">
+                    <Mail className="h-4 w-4 text-primary" />
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="π.χ. maria@example.com"
+                    className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                  />
+                </div>
               </div>
             </CardContent>
           </Card>
 
-          {/* Topic Selection moved right below Contact Details */}
+          {/* Session Type (NEW) */}
+          <Card className="mt-6">
+            <CardHeader>
+              <CardTitle>Τρόπος Συνεδρίας</CardTitle>
+              <CardDescription>
+                Επιλέξτε πώς επιθυμείτε να πραγματοποιηθεί η συνεδρία
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="grid gap-4 md:grid-cols-2">
+                <Button
+                  variant={sessionType === "in-person" ? "default" : "outline"}
+                  onClick={() => setSessionType("in-person")}
+                  className="h-auto flex-col py-6 gap-2"
+                >
+                  <MapPin className="h-6 w-6" />
+                  <span className="font-semibold text-base">Δια ζώσης</span>
+                  <span className="text-xs font-normal opacity-80">
+                    Στο γραφείο μας στην Αθήνα
+                  </span>
+                </Button>
+                <Button
+                  variant={sessionType === "online" ? "default" : "outline"}
+                  onClick={() => setSessionType("online")}
+                  className="h-auto flex-col py-6 gap-2"
+                >
+                  <Video className="h-6 w-6" />
+                  <span className="font-semibold text-base">Online</span>
+                  <span className="text-xs font-normal opacity-80">
+                    Μέσω βιντεοκλήσης (Zoom/Skype)
+                  </span>
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Topic Selection moved right below Session Type */}
           <Card className="mt-6">
             <CardHeader>
               <CardTitle>Επιλογές</CardTitle>
@@ -314,7 +380,7 @@ export default function BookingClient() {
             </CardContent>
           </Card>
 
-          {/* Calendar and Time Selection moved below Topic Selection */}
+          {/* Calendar and Time Selection */}
           <div className="grid gap-6 md:grid-cols-2 mt-6">
             {/* Calendar */}
             <Card>
@@ -335,7 +401,8 @@ export default function BookingClient() {
                   disabled={(date) => {
                     const today = new Date();
                     today.setHours(0, 0, 0, 0);
-                    return date < today;
+                    // Disable past dates AND Sundays (0 = Sunday)
+                    return date < today || date.getDay() === 0;
                   }}
                   className="rounded-md border"
                 />
@@ -384,7 +451,13 @@ export default function BookingClient() {
           </div>
 
           {/* Selected Details */}
-          {(date || selectedTime || selectedTopic || name || phone) && (
+          {(date ||
+            selectedTime ||
+            selectedTopic ||
+            sessionType ||
+            name ||
+            phone ||
+            email) && (
             <Card className="mt-6 border-primary/20 bg-muted/30">
               <CardHeader>
                 <CardTitle>Σύνοψη Κράτησης</CardTitle>
@@ -398,6 +471,17 @@ export default function BookingClient() {
                 {phone && (
                   <p>
                     <span className="font-semibold">Τηλέφωνο:</span> {phone}
+                  </p>
+                )}
+                {email && (
+                  <p>
+                    <span className="font-semibold">Email:</span> {email}
+                  </p>
+                )}
+                {sessionType && (
+                  <p>
+                    <span className="font-semibold">Τρόπος Συνεδρίας:</span>{" "}
+                    {sessionType === "in-person" ? "Δια ζώσης" : "Online"}
                   </p>
                 )}
                 {date && (
@@ -430,8 +514,10 @@ export default function BookingClient() {
                 !date ||
                 !selectedTime ||
                 !selectedTopic ||
+                !sessionType ||
                 !name.trim() ||
                 !phone.trim() ||
+                !email.trim() ||
                 isSubmitting
               }
               className="w-full md:w-auto max-w-100 whitespace-normal overflow-hidden"
