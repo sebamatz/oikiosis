@@ -58,19 +58,18 @@ export async function POST(request: Request) {
     // 5. NODEMAILER: DUAL EMAIL CONFIRMATIONS
     // ==========================================
 
-    // Make sure you have EMAIL_USER and EMAIL_PASS in your .env file
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
+        user: process.env.SMTP_USER,
+        pass: process.env.SMTP_PASS,
       },
     });
 
     // Email to the Psychologist (Giannis)
     const ownerMailOptions = {
-      from: `"Οικείωσις System" <${process.env.EMAIL_USER}>`,
-      to: process.env.EMAIL_USER, // Sends it to himself
+      from: `"Οικείωσις System" <${process.env.SMTP_USER}>`, // CHANGED THIS
+      to: process.env.SMTP_USER, // CHANGED THIS
       subject: `🚨 Νέο Ραντεβού: ${name} - ${date} στις ${time}`,
       html: `
         <h2>Έχετε μια νέα κράτηση συνεδρίας</h2>
@@ -89,7 +88,7 @@ export async function POST(request: Request) {
 
     // Email to the Client
     const clientMailOptions = {
-      from: `"Οικείωσις - Γιάννης Γιαννόπουλος" <${process.env.EMAIL_USER}>`,
+      from: `"Οικείωσις - Γιάννης Γιαννόπουλος" <${process.env.SMTP_USER}>`, // CHANGED THIS
       to: email,
       subject: "Επιβεβαίωση Αιτήματος Συνεδρίας - Οικείωσις",
       html: `

@@ -255,7 +255,7 @@ export default function BookingClient() {
           </Card>
 
           {/* Link to /first-session right above the form */}
-          <div className="mb-6 flex justify-center">
+          {/* <div className="mb-6 flex justify-center">
             <Button
               variant="outline"
               asChild
@@ -265,22 +265,27 @@ export default function BookingClient() {
                 Μάθε τι να περιμένεις στην πρώτη συνάντηση
               </Link>
             </Button>
-          </div>
+          </div> */}
 
           {/* Contact Details moved to the top */}
           <Card>
-            <CardHeader>
-              <CardTitle>Στοιχεία Επικοινωνίας</CardTitle>
-              <CardDescription>
-                Συμπληρώστε τα στοιχεία σας για να επιβεβαιώσουμε το ραντεβού
-              </CardDescription>
+            <CardHeader className="flex flex-row items-start justify-between space-y-0 pb-4">
+              <div className="space-y-1">
+                <CardTitle>Στοιχεία Επικοινωνίας</CardTitle>
+                <CardDescription>
+                  Συμπληρώστε τα στοιχεία σας για να επιβεβαιώσουμε το ραντεβού
+                </CardDescription>
+              </div>
+              <span className="text-xs font-medium text-destructive bg-destructive/10 px-2 py-1 rounded-md whitespace-nowrap">
+                * Υποχρεωτικά Πεδία
+              </span>
             </CardHeader>
             <CardContent>
               <div className="grid gap-4 md:grid-cols-2">
                 <div className="space-y-2">
                   <label className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 flex items-center gap-2">
                     <User className="h-4 w-4 text-primary" />
-                    Ονοματεπώνυμο
+                    Ονοματεπώνυμο <span className="text-destructive">*</span>
                   </label>
                   <input
                     type="text"
@@ -293,7 +298,7 @@ export default function BookingClient() {
                 <div className="space-y-2">
                   <label className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 flex items-center gap-2">
                     <Phone className="h-4 w-4 text-primary" />
-                    Τηλέφωνο
+                    Τηλέφωνο <span className="text-destructive">*</span>
                   </label>
                   <input
                     type="tel"
@@ -306,7 +311,7 @@ export default function BookingClient() {
                 <div className="space-y-2 md:col-span-2">
                   <label className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 flex items-center gap-2">
                     <Mail className="h-4 w-4 text-primary" />
-                    Email
+                    Email <span className="text-destructive">*</span>
                   </label>
                   <input
                     type="email"
@@ -337,9 +342,6 @@ export default function BookingClient() {
                 >
                   <MapPin className="h-6 w-6" />
                   <span className="font-semibold text-base">Δια ζώσης</span>
-                  <span className="text-xs font-normal opacity-80">
-                    Στο γραφείο μας στην Αθήνα
-                  </span>
                 </Button>
                 <Button
                   variant={sessionType === "online" ? "default" : "outline"}
@@ -348,9 +350,6 @@ export default function BookingClient() {
                 >
                   <Video className="h-6 w-6" />
                   <span className="font-semibold text-base">Online</span>
-                  <span className="text-xs font-normal opacity-80">
-                    Μέσω βιντεοκλήσης (Zoom/Skype)
-                  </span>
                 </Button>
               </div>
             </CardContent>
