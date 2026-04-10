@@ -247,10 +247,11 @@ export default function ServicesClient() {
           <div className="space-y-4">
             <div>
               <p className="font-semibold text-foreground">
-                Γιαννόπουλος Ιωάννης
+                Ιωάννης Γιαννόπουλος
               </p>
               <p className="text-muted-foreground">
-                Ψυχολόγος - Ψυχοθεραπευτής
+                Ψυχολόγος | Εξειδίκευση: Διαχείριση Σχέσεων - Διαζυγίων Υψηλής
+                Σύγκρουσης & Γονικής Αποξένωσης
               </p>
               <p className="text-sm text-muted-foreground">
                 Founder, Reverse Momentum Model (RMM) Therapy

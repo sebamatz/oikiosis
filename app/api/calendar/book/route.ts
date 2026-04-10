@@ -110,7 +110,7 @@ export async function POST(request: Request) {
           <p>Θα επικοινωνήσουμε μαζί σας σύντομα για την τελική επιβεβαίωση του ραντεβού.</p>
           <hr style="border: none; border-top: 1px solid #eee; margin: 30px 0;" />
           <p style="font-size: 12px; color: #777;">
-            Οικείωσις | Γιάννης Γιαννόπουλος<br/>
+            Οικείωσις | Ιωάννης Γιαννόπουλος<br/>
             Αυτή είναι μια αυτοματοποιημένη ενημέρωση.
           </p>
         </div>

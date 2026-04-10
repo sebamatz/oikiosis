@@ -266,7 +266,7 @@ export default function AboutClient() {
                 <div className="md:col-span-2">
                   <CardHeader className="p-0 md:p-6 pb-4 md:pb-6">
                     <CardTitle className="text-xl md:text-2xl">
-                      Γιαννόπουλος Ιωάννης
+                      Ιωάννης Γιαννόπουλος
                     </CardTitle>
                     <CardDescription className="text-base md:text-lg">
                       Ψυχολόγος – Ψυχοθεραπευτής
@@ -274,8 +274,8 @@ export default function AboutClient() {
                   </CardHeader>
                   <CardContent className="space-y-4 p-0 md:p-6 pt-0">
                     <p className="font-semibold">
-                      Ειδίκευση στη Γονεϊκή Αποξένωση & στις Σχέσεις Υψηλής
-                      Σύγκρουσης
+                      Ειδίκευση στη Διαχείριση Σχέσεων - Διαζυγίων Υψηλής
+                      Σύγκρουσης & Γονικής Αποξένωσης
                     </p>
                     <p className="text-muted-foreground">
                       Σπούδασα Ψυχολογία (BSc Hons) στο University of East

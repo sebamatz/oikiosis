@@ -194,7 +194,8 @@ export default function HomeClient() {
             <Card className="shadow-md">
               <CardHeader>
                 <CardTitle className="text-xl">
-                  Ιωάννης Γιαννόπουλος, Ψυχολόγος - Ψυχοθεραπευτής
+                  Ιωάννης Γιαννόπουλος Ψυχολόγος | Εξειδίκευση: Διαχείριση
+                  Σχέσεων - Διαζυγίων Υψηλής Σύγκρουσης & Γονικής Αποξένωσης
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-3 text-muted-foreground">

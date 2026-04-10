@@ -136,10 +136,11 @@ export default function Footer() {
                 <div>
                   <p>
                     <span className="font-semibold text-foreground">
-                      Γιαννόπουλος Ιωάννης
+                      Ιωάννης Γιαννόπουλος
                     </span>
                     <br />
-                    Ψυχολόγος - Ψυχοθεραπευτής
+                    Ψυχολόγος | Εξειδίκευση: Διαχείριση Σχέσεων - Διαζυγίων
+                    Υψηλής Σύγκρουσης & Γονικής Αποξένωσης
                     <br />
                     <span className="text-sm">
                       Founder, Reverse Momentum Model (RMM) Therapy
