@@ -253,9 +253,6 @@ export default function ServicesClient() {
                 Ψυχολόγος | Εξειδίκευση: Διαχείριση Σχέσεων - Διαζυγίων Υψηλής
                 Σύγκρουσης & Γονικής Αποξένωσης
               </p>
-              <p className="text-sm text-muted-foreground">
-                Founder, Reverse Momentum Model (RMM) Therapy
-              </p>
             </div>
             <div>
               <p className="font-semibold text-foreground">Σοφία Μίαρη</p>

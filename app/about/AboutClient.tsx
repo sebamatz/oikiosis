@@ -269,12 +269,12 @@ export default function AboutClient() {
                       Ιωάννης Γιαννόπουλος
                     </CardTitle>
                     <CardDescription className="text-base md:text-lg">
-                      Ψυχολόγος – Ψυχοθεραπευτής
+                      Ψυχολόγος
                     </CardDescription>
                   </CardHeader>
                   <CardContent className="space-y-4 p-0 md:p-6 pt-0">
                     <p className="font-semibold">
-                      Ειδίκευση στη Διαχείριση Σχέσεων - Διαζυγίων Υψηλής
+                      Εξειδίκευση στη Διαχείριση Σχέσεων - Διαζυγίων Υψηλής
                       Σύγκρουσης & Γονικής Αποξένωσης
                     </p>
                     <p className="text-muted-foreground">
@@ -339,7 +339,7 @@ export default function AboutClient() {
                     </div>
                     <div className="mt-4">
                       <p className="font-semibold">
-                        Founder, Reverse Momentum Model (RMM) Therapy
+                        Founder, Reverse Momentum Model (RMM)
                       </p>
                       <p className="text-sm text-muted-foreground">
                         - Διαχείριση Κρίσεων & Σχέσεων Υψηλής Σύγκρουσης

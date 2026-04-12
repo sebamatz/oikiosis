@@ -254,9 +254,6 @@ export default function ContactClient() {
                     Ψυχολόγος | Εξειδίκευση: Διαχείριση Σχέσεων - Διαζυγίων
                     Υψηλής Σύγκρουσης & Γονικής Αποξένωσης
                   </p>
-                  <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
-                    Founder, Reverse Momentum Model (RMM) Therapy
-                  </p>
                 </CardContent>
               </Card>
               <Card className="border-primary/10 shadow-md transition-shadow hover:shadow-lg">

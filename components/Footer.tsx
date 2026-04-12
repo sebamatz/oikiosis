@@ -143,7 +143,7 @@ export default function Footer() {
                     Υψηλής Σύγκρουσης & Γονικής Αποξένωσης
                     <br />
                     <span className="text-sm">
-                      Founder, Reverse Momentum Model (RMM) Therapy
+                      Founder, Reverse Momentum Model (RMM)
                     </span>
                   </p>
                   <p className="pt-0 md:pt-4">
