@@ -16,6 +16,12 @@ export const metadata: Metadata = {
     "Γονεϊκή Αποξένωση | Υποστήριξη σε Σχέσεις Υψηλής Σύγκρουσης | Οικείωσις",
   description:
     "Όταν η σύγκρουση γίνεται καταιγίδα, η Οικείωσις είναι καταφύγιο και πυξίδα. Εξειδικευμένη ψυχοθεραπεία για γονεϊκή αποξένωση και σχέσεις υψηλής σύγκρουσης.",
+  verification: {
+    google: [
+      "Iaad2QIHDAFhD2qp2fsFDLQNKbcqnRUT_dQLT6nE6n4",
+      "9k1Gouh4kTGZQbaXSiuKulOY30y8awTZjKWcMc7IKrQ",
+    ],
+  },
 };
 
 export default function RootLayout({
@@ -26,10 +32,6 @@ export default function RootLayout({
   return (
     <html lang="el" className="scroll-smooth">
       <head>
-        <meta
-          name="google-site-verification"
-          content="9k1Gouh4kTGZQbaXSiuKulOY30y8awTZjKWcMc7IKrQ"
-        />
         <Script
           id="Cookiebot"
           src="https://consent.cookiebot.com/uc.js"
