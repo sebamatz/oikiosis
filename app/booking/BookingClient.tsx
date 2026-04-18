@@ -34,18 +34,18 @@ export default function BookingClient() {
   // Contact Info State
   const [name, setName] = useState<string>("");
   const [phone, setPhone] = useState<string>("");
-  const [email, setEmail] = useState<string>(""); // NEW
+  const [email, setEmail] = useState<string>("");
 
   // Session Type State
   const [sessionType, setSessionType] = useState<"in-person" | "online" | "">(
     "",
-  ); // NEW
+  );
 
   const [availableTimes, setAvailableTimes] = useState<string[]>([]);
   const [isLoadingTimes, setIsLoadingTimes] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false); // Submission state
 
-  // GA4 Tracking Guard
+  // GA4 Tracking Guard (Left completely untouched so we don't break your analytics)
   const hasFired = useRef(false);
 
   useEffect(() => {
@@ -105,10 +105,10 @@ export default function BookingClient() {
       !date ||
       !selectedTime ||
       !selectedTopic ||
-      !sessionType || // NEW
+      !sessionType ||
       !name.trim() ||
       !phone.trim() ||
-      !email.trim() // NEW
+      !email.trim()
     ) {
       alert("Παρακαλώ συμπληρώστε όλα τα απαραίτητα πεδία.");
       return;
@@ -119,7 +119,7 @@ export default function BookingClient() {
     const selectedTopicName = topics.find((t) => t.id === selectedTopic)?.name;
     const backendDate = format(date, "yyyy-MM-dd");
     const sessionTypeLabel =
-      sessionType === "in-person" ? "Δια ζώσης" : "Online"; // NEW
+      sessionType === "in-person" ? "Δια ζώσης" : "Online";
 
     try {
       const res = await fetch("/api/calendar/book", {
@@ -128,8 +128,8 @@ export default function BookingClient() {
         body: JSON.stringify({
           name,
           phone,
-          email, // NEW
-          sessionType: sessionTypeLabel, // NEW
+          email,
+          sessionType: sessionTypeLabel,
           date: backendDate,
           time: selectedTime,
           topicName: selectedTopicName,
@@ -138,14 +138,23 @@ export default function BookingClient() {
 
       if (res.ok) {
         alert("Η κράτηση ολοκληρώθηκε με επιτυχία! Το ραντεβού καταχωρήθηκε.");
+
+        // --- GOOGLE ADS CONVERSION TRACKING (NEW) ---
+        // This fires ONLY on a successful save.
+        if (typeof window !== "undefined" && (window as any).gtag) {
+          console.log("Booking successful! Firing submit_form event...");
+          (window as any).gtag("event", "submit_form");
+        }
+        // --------------------------------------------
+
         // Clear the form
         setDate(undefined);
         setSelectedTime("");
         setSelectedTopic("");
-        setSessionType(""); // NEW
+        setSessionType("");
         setName("");
         setPhone("");
-        setEmail(""); // NEW
+        setEmail("");
       } else {
         alert(
           "Υπήρξε ένα σφάλμα κατά την αποθήκευση. Παρακαλώ δοκιμάστε ξανά.",
@@ -177,7 +186,6 @@ export default function BookingClient() {
             <p className="text-muted-foreground mb-6">
               Επιλέξτε ημερομηνία, ώρα, και θέμα για τη συνεδρία σας
             </p>
-            {/* Added First Session Button Here */}
           </div>
 
           <Card className="mt-8 border-primary/50 bg-primary/5">
@@ -252,19 +260,6 @@ export default function BookingClient() {
               </p>
             </CardContent>
           </Card>
-
-          {/* Link to /first-session right above the form */}
-          {/* <div className="mb-6 flex justify-center">
-            <Button
-              variant="outline"
-              asChild
-              className="rounded-full border-primary/20 text-primary hover:text-primary hover:bg-primary/5 transition-colors"
-            >
-              <Link href="/first-session">
-                Μάθε τι να περιμένεις στην πρώτη συνάντηση
-              </Link>
-            </Button>
-          </div> */}
 
           {/* Contact Details moved to the top */}
           <Card>

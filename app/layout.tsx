@@ -12,6 +12,11 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  // CRITICAL SEO: Forces the non-www domain
+  metadataBase: new URL("https://oikeiosis.gr"),
+  alternates: {
+    canonical: "/",
+  },
   title:
     "Γονεϊκή Αποξένωση | Υποστήριξη σε Σχέσεις Υψηλής Σύγκρουσης | Οικείωσις",
   description:
@@ -40,7 +45,7 @@ export default function RootLayout({
           data-blockingmode="auto"
           type="text/javascript"
         />
-        {/* Google Analytics GA4 */}
+        {/* Google Analytics GA4 & Google Ads Core Engine */}
         <Script
           strategy="afterInteractive"
           src={`https://www.googletagmanager.com/gtag/js?id=G-4N9G5VR4R9`}
@@ -53,7 +58,12 @@ export default function RootLayout({
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
+              
+              /* Google Analytics 4 Config */
               gtag('config', 'G-4N9G5VR4R9');
+              
+              /* Google Ads Config (NEW) */
+              gtag('config', 'AW-18090783252');
             `,
           }}
         />
