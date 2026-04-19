@@ -32,7 +32,6 @@ export default function HomePage() {
       "Reverse Momentum Model",
       "Litigation Support Psychology",
     ],
-    areaServed: ["Μαρούσι", "Χολαργός", "Αθήνα", "Online"],
   };
 
   const localBusinessSchema = {
