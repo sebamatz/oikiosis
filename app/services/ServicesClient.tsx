@@ -17,29 +17,40 @@ export default function ServicesClient() {
   const services = [
     {
       id: "separation-counseling",
-      title:
-        "Πλοήγηση Κρίσης S.O.S. / Θεραπεία Διαζυγίου & Σχέσεων Υψηλής Σύγκρουση (HCD)",
+      title: "Σχέσεις & Διαζύγιο Υψηλής Σύγκρουσης",
       subtitle: "",
-      image: "/images/compass-2.jpg",
+      image: "/images/separation-counseling.png",
       description: [
         "Όταν νιώθεις ότι το «σπίτι καίγεται» και όλα συμβαίνουν ταυτόχρονα – μηνύματα, δικαστήρια, συγκρούσεις – δεν έχει νόημα να κάνουμε μακροχρόνιο πλάνο.",
         "Σε αυτή τη φάση σε βοηθάω να σταθείς όρθιος, να μειώσουμε λίγο την ένταση μέσα σου και να πάρουμε μαζί τις πρώτες πρακτικές αποφάσεις για τις επόμενες ώρες και μέρες: τι να απαντήσεις, τι να αποφύγεις, πού να δώσεις προτεραιότητα.",
         "Στόχος: να μη σε παρασύρει εντελώς η καταιγίδα, πριν, κατά τη διάρκεια ή αμέσως μετά από ένα «έκρηκτικό» γεγονός.",
       ],
       hasButton: true,
-      buttonText: "Γράψε ένα S.O.S. μήνυμα",
-      buttonHref: "/sos-page",
+      buttonText: "Ζήτησε μια πρώτη Συνάντηση",
+      buttonHref: "/booking",
     },
     {
       id: "parental-alienation",
-      title: "Παρέμβαση Επανασύνδεσης (Γονεϊκή Αποξένωση – PA)",
+      title: "Γονική Αποξένωση – Πλοήγηση Επανασύνδεσης",
       subtitle: "",
-      image: "/images/wall.jpg",
+      image: "/images/goniki-apoxenosi.png",
       description: [
         "Η Γονεϊκή Αποξένωση είναι το πιο εξειδικευμένο πεδίο της δουλειάς μας.",
         "Είναι ο «τοίχος» που μπλοκάρει τη σχέση ανάμεσα σε γονιό και παιδί.",
         "Η προσέγγισή μας είναι 100% παιδοκεντρική: δεν παίρνουμε «μέρος», στεκόμαστε δίπλα στο παιδί και στον γονιό που νιώθει ότι χάνεται.",
         "Λειτουργούμε ως πλοηγοί που βοηθούν να χτιστεί μια ασφαλής «γέφυρα» επανασύνδεσης, μέσα σε σταθερό και ρεαλιστικό πλαίσιο.",
+      ],
+      buttons: [
+        {
+          text: "Ζήτησε μια πρώτη συνάντηση",
+          href: "/booking",
+          variant: "default",
+        },
+        {
+          text: "S.O.S",
+          href: "/sos-page",
+          variant: "destructive",
+        },
       ],
     },
     {
@@ -83,11 +94,11 @@ export default function ServicesClient() {
       subtitle: "",
       image: "/images/litigation.png", // Make sure this image exists in your public folder
       description: [
-        "Όταν η οικογενειακή σύγκρουση φτάνει στο δικαστήριο, δεν αρκεί μόνο μια καλή νομική υποστήριξη. Χρειάζεσαι να παραμείνεις λειτουργικός — ως γονέας, ως άνθρωπος — μέσα σε μια διαδικασία που σε πιέζει από παντού.",
+        "Όταν η οικογενειακή σύγκρουση φτάνει στο δικαστήριο, δεν αρκεί μόνο μια καλή νομική υποστήριξη. Χρειάζεσαι να παραμείνεις λειτουργικός ως γονέας, ως άνθρωπος, μέσα σε μια διαδικασία που σε πιέζει από παντού.",
         "Αυτό δεν είναι ψυχοθεραπεία με ανασκαφή του παρελθόντος. Είναι ψυχολογική πλοήγηση στη δικαστική καταιγίδα: πρακτική, εστιασμένη, με σαφή στόχο.",
         "Σε βοηθώ να μειώσεις την παρορμητικότητα που βλάπτει την υπόθεσή σου, να διατηρήσεις σταθερή γονεϊκή παρουσία και να αντέξεις την πίεση χωρίς να χάσεις τον εαυτό σου.",
-        "Στο πλαίσιο αυτό εφαρμόζεται το Reverse Momentum Model℠ — ένα πλαίσιο που χρησιμοποιεί τη δύναμη της κρίσης αντί να την αγνοεί, και τη μετατρέπει σε σταθερότητα και στρατηγική καθαρότητα.",
-        "Όταν απαιτείται, μπορεί να συνταχθεί κλινική έκθεση ψυχολογικής προόδου για νομική χρήση — πάντα με γραπτή συναίνεση και σαφώς διακριτή από forensic αξιολόγηση.",
+        "Στο πλαίσιο αυτό εφαρμόζεται το Reverse Momentum Model℠,ένα πλαίσιο που χρησιμοποιεί τη δύναμη της κρίσης αντί να την αγνοεί, και τη μετατρέπει σε σταθερότητα και στρατηγική καθαρότητα.",
+        "Όταν απαιτείται, μπορεί να συνταχθεί κλινική έκθεση ψυχολογικής προόδου για νομική χρήση, πάντα με γραπτή συναίνεση και σαφώς διακριτή από forensic αξιολόγηση.",
       ],
       disclaimer:
         "Η υπηρεσία αυτή δεν αποτελεί forensic αξιολόγηση, πραγματογνωμοσύνη ή νομική συμβουλή. Εστιάζει αποκλειστικά στην ψυχολογική υποστήριξη του εμπλεκόμενου.",
@@ -156,17 +167,44 @@ export default function ServicesClient() {
                         </p>
                       )}
 
-                      {service.hasButton && (
-                        <div className="pt-4">
-                          <Button
-                            size="lg"
-                            className="w-full md:w-auto"
-                            asChild
-                          >
-                            <Link href={service.buttonHref || "#"}>
-                              {service.buttonText}
-                            </Link>
-                          </Button>
+                      {/* Buttons rendering block updated to support Arrays or single buttons */}
+                      {(service.buttons || service.hasButton) && (
+                        <div className="pt-4 flex flex-col sm:flex-row gap-3">
+                          {service.buttons ? (
+                            service.buttons.map((btn: any, i) =>
+                              btn.href ? (
+                                <Button
+                                  key={i}
+                                  size="lg"
+                                  className="w-full sm:w-auto"
+                                  variant={btn.variant as any}
+                                  asChild
+                                >
+                                  <Link href={btn.href}>{btn.text}</Link>
+                                </Button>
+                              ) : (
+                                <Button
+                                  key={i}
+                                  size="lg"
+                                  className="w-full sm:w-auto"
+                                  variant={btn.variant as any}
+                                  onClick={btn.onClick}
+                                >
+                                  {btn.text}
+                                </Button>
+                              ),
+                            )
+                          ) : (
+                            <Button
+                              size="lg"
+                              className="w-full md:w-auto"
+                              asChild
+                            >
+                              <Link href={service.buttonHref || "#"}>
+                                {service.buttonText}
+                              </Link>
+                            </Button>
+                          )}
                         </div>
                       )}
                     </CardContent>
