@@ -132,9 +132,14 @@ export default function ContactClient() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-sm leading-relaxed text-muted-foreground">
-                    <span className="font-semibold text-foreground">
-                      Αγησιλάου 68 & Θερμοπυλών, Αθήνα
-                    </span>{" "}
+                    <a
+                      href="https://maps.app.goo.gl/jMWhb6idjwfeKoGo8"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-semibold text-foreground hover:text-primary hover:underline transition-colors"
+                    >
+                      Βορείου Ηπείρου 26, Μαρούσι ΤΚ 15126
+                    </a>{" "}
                     (δεχόμαστε μόνο με ραντεβού)
                   </p>
                 </CardContent>

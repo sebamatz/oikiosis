@@ -95,7 +95,15 @@ export default function Footer() {
               <div className="flex items-start gap-2">
                 <MapPin className="h-4 w-4 shrink-0 mt-0.5" />
                 <span>
-                  Αγησιλάου 68 & Θερμοπυλών, Αθήνα (δεχόμαστε μόνο με ραντεβού)
+                  <a
+                    href="https://maps.app.goo.gl/jMWhb6idjwfeKoGo8"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-foreground transition-colors hover:underline underline-offset-4"
+                  >
+                    Βορείου Ηπείρου 26, Μαρούσι ΤΚ 15126
+                  </a>{" "}
+                  (δεχόμαστε μόνο με ραντεβού)
                 </span>
               </div>
               <a

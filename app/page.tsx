@@ -41,6 +41,13 @@ export default function HomePage() {
     url: "https://oikeiosis.gr",
     telephone: "+306989940588",
     email: "ikiosis@ikiosis.com",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "Βορείου Ηπείρου 26",
+      addressLocality: "Μαρούσι",
+      postalCode: "15126",
+      addressCountry: "GR",
+    },
     areaServed: ["Μαρούσι", "Χολαργός", "Αθήνα", "Online"],
     priceRange: "€€",
   };
