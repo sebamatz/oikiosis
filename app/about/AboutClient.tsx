@@ -255,7 +255,7 @@ export default function AboutClient() {
               <div className="grid md:grid-cols-3 gap-4 md:gap-6 p-4 md:p-6 md:items-start">
                 <div className="relative h-64 md:h-100 lg:h-112.5 w-full rounded-lg overflow-hidden md:sticky md:top-32">
                   <Image
-                    src="/images/john-giannopoulos-bio.png"
+                    src="/images/profile-final.png"
                     alt="Γιαννόπουλος Ιωάννης - Ψυχολόγος Ψυχοθεραπευτής"
                     fill
                     className="object-contain md:object-cover"
