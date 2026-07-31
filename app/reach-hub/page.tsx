@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Section from "@/components/Section";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -5,6 +6,16 @@ import Link from "next/link";
 import { ArrowLeft, CheckCircle, AlertCircle } from "lucide-react";
 import Image from "next/image";
 import SOSButton from "@/components/SOSButton";
+
+export const metadata: Metadata = {
+  title:
+    "Ο Κόμβος R.E.A.C.H. | Πλοήγηση σε Γονεϊκή Αποξένωση & Υψηλή Σύγκρουση | Οικείωσις",
+  description:
+    "Ο κόμβος R.E.A.C.H.: πώς δουλεύουμε βήμα-βήμα όταν ζεις γονεϊκή αποξένωση, διαζύγιο υψηλής σύγκρουσης ή ρήξη στη σχέση με το παιδί σου.",
+  alternates: {
+    canonical: "/reach-hub",
+  },
+};
 
 export default function ReachHubPage() {
   return (

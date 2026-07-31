@@ -1,8 +1,19 @@
+import type { Metadata } from "next";
 import Section from "@/components/Section";
 import { Card } from "@/components/ui/card";
 import { CardContent } from "@/components/ui/card";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
+
+export const metadata: Metadata = {
+  title:
+    "Γλωσσάριο Όρων | S.O.S., R.E.A.C.H. & Reverse Momentum Model | Οικείωσις",
+  description:
+    "Τι σημαίνουν οι όροι του μοντέλου μας: S.O.S., R.E.A.C.H., Reverse Momentum Model και άλλα ακρωνύμια που θα συναντήσεις στις υπηρεσίες μας.",
+  alternates: {
+    canonical: "/glossary",
+  },
+};
 
 export default function GlossaryPage() {
   return (

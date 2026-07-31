@@ -14,9 +14,9 @@ const inter = Inter({
 export const metadata: Metadata = {
   // CRITICAL SEO: Forces the non-www domain
   metadataBase: new URL("https://oikeiosis.gr"),
-  alternates: {
-    canonical: "/",
-  },
+  // NOTE: do NOT put `alternates.canonical` here. Next.js merges metadata
+  // shallowly, so every page without its own `alternates` would inherit it and
+  // declare itself a duplicate of the homepage. Each page sets its own.
   title:
     "Γονεϊκή Αποξένωση | Υποστήριξη σε Σχέσεις Υψηλής Σύγκρουσης | Οικείωσις",
   description:

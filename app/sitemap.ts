@@ -1,4 +1,5 @@
 import { MetadataRoute } from "next";
+import testimonials from "@/data/testimonials.json";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://oikeiosis.gr";
@@ -72,12 +73,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.6,
     },
     {
-      url: `${baseUrl}/privacy`,
+      url: `${baseUrl}/reach-hub`,
       lastModified: new Date(),
-      changeFrequency: "yearly",
-      priority: 0.3, // Lowest priority, strictly for legal compliance
+      changeFrequency: "monthly",
+      priority: 0.6,
     },
+    // NOTE: /privacy is deliberately absent — app/privacy/page.tsx calls
+    // notFound() in production, so submitting it would feed Google a 404.
   ];
 
-  return staticRoutes;
+  // One entry per testimonial detail page.
+  const testimonialRoutes: MetadataRoute.Sitemap = testimonials.map(
+    (testimonial) => ({
+      url: `${baseUrl}/testimonials/${testimonial.id}`,
+      lastModified: new Date(),
+      changeFrequency: "yearly",
+      priority: 0.5,
+    }),
+  );
+
+  return [...staticRoutes, ...testimonialRoutes];
 }

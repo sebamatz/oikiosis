@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeft, ChevronLeft, ChevronRight } from "lucide-react";
@@ -8,6 +9,34 @@ export async function generateStaticParams() {
   return testimonials.map((testimonial) => ({
     id: testimonial.id,
   }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}): Promise<Metadata> {
+  const { id } = await params;
+  const testimonial = testimonials.find((item) => item.id === id);
+
+  if (!testimonial) {
+    return { title: "Η εμπειρία δεν βρέθηκε | Οικείωσις" };
+  }
+
+  // First ~155 characters of the testimonial, cut on a word boundary.
+  const plain = testimonial.content.replace(/\s+/g, " ").trim();
+  const description =
+    plain.length > 155
+      ? `${plain.slice(0, plain.lastIndexOf(" ", 155))}…`
+      : plain;
+
+  return {
+    title: `Εμπειρία ${testimonial.author} | Μαρτυρίες | Οικείωσις`,
+    description,
+    alternates: {
+      canonical: `/testimonials/${testimonial.id}`,
+    },
+  };
 }
 
 export default async function TestimonialPage({
