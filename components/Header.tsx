@@ -11,6 +11,7 @@ export default function Header() {
   const navItems = [
     { href: "/", label: "Αρχική" },
     { href: "/services", label: "Υπηρεσίες" },
+    { href: "/audio-maps", label: "Ηχητικοί Χάρτες" },
     { href: "/testimonials", label: "Εμπειρίες" },
     { href: "/about", label: "Σχετικά με εμάς" },
     { href: "/faq", label: "Συχνές Ερωτήσεις" },

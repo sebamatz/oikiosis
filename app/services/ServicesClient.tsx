@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import Image from "next/image";
+import WaysToSupport from "@/components/WaysToSupport";
 
 export default function ServicesClient() {
   const services = [
@@ -26,7 +27,7 @@ export default function ServicesClient() {
         "Στόχος: να μη σε παρασύρει εντελώς η καταιγίδα, πριν, κατά τη διάρκεια ή αμέσως μετά από ένα «έκρηκτικό» γεγονός.",
       ],
       hasButton: true,
-      buttonText: "Ζήτησε μια πρώτη Συνάντηση",
+      buttonText: "Ζήτησε μια πρώτη συνάντηση",
       buttonHref: "/booking",
     },
     {
@@ -64,6 +65,9 @@ export default function ServicesClient() {
         "Εδώ έχεις έναν χώρο για να δουλέψουμε όσα σε δυσκολεύουν: την ένταση στις σχέσεις, τα μπλοκαρισμένα «ναι» και «όχι», την ενοχή, τον θυμό, τον φόβο.",
         "Χρησιμοποιούμε τον χάρτη 5 φάσεων (R.E.A.C.H.) για να σε βοηθήσουμε να ρυθμιστείς, να ξεμπλέξεις από το χάος, να ξανασυνδεθείς με τις αξίες σου και να χτίσεις μια πιο σταθερή καθημερινότητα.",
       ],
+      hasButton: true,
+      buttonText: "Ζήτησε μια πρώτη συνάντηση",
+      buttonHref: "/booking",
     },
     {
       id: "co-parenting-design",
@@ -75,6 +79,23 @@ export default function ServicesClient() {
         "Εδώ δεν προσπαθούμε να σας κάνουμε «φίλους». Στόχος είναι μια λειτουργική, παιδοκεντρική συνεργασία μέσα σε σχέσεις υψηλής σύγκρουσης.",
         "Μαζί σχεδιάζουμε το νέο σας «λειτουργικό σύστημα» ως συν-γονείς: πώς επικοινωνείτε, πώς παίρνετε αποφάσεις, πώς προστατεύετε τα παιδιά από το να βρεθούν στη μέση.",
       ],
+      hasButton: true,
+      buttonText: "Ζήτησε μια πρώτη συνάντηση",
+      buttonHref: "/booking",
+    },
+    {
+      id: "family-reconstitution",
+      title: "Ανασύσταση Οικογένειας",
+      subtitle: "",
+      image: "/images/anasystasi.png",
+      imageAlt: "Ανασυσταμένη οικογένεια σε ήρεμη κοινή στιγμή.",
+      description: [
+        "Η δημιουργία μιας νέας οικογένειας μετά από χωρισμό φέρνει μαζί της νέους δεσμούς, ρόλους και ισορροπίες. Παιδιά, νέοι σύντροφοι και πρώην σύζυγοι καλούνται να συνυπάρξουν μέσα σε ένα οικογενειακό σύστημα που ακόμη διαμορφώνεται.",
+        "Η υποστήριξη εστιάζει στη σαφήνεια των ρόλων, στα λειτουργικά όρια, στη σχέση του νέου συντρόφου με τα παιδιά, στις συγκρούσεις πίστης και στην ασφαλέστερη μετάβαση προς μια νέα κοινή καθημερινότητα.",
+      ],
+      hasButton: true,
+      buttonText: "Ζήτησε μια πρώτη συνάντηση",
+      buttonHref: "/booking",
     },
     {
       id: "parent-counseling",
@@ -86,6 +107,9 @@ export default function ServicesClient() {
         "Σκοπός εδώ είναι να δυναμώσουμε τις ρίζες, πριν η ένταση γίνει καταιγίδα, είτε η οικογένεια είναι ακόμη μαζί, είτε βρίσκεται ήδη σε φάση χωρισμού.",
         "Βλέπουμε την οικογένεια ως σύστημα: εστιάζουμε στην ασφάλεια των γονιών, στην προστασία του παιδιού και στις αναπτυξιακές προκλήσεις, ώστε να υπάρχει περισσότερη ηρεμία και σύνδεση.",
       ],
+      hasButton: true,
+      buttonText: "Ζήτησε μια πρώτη συνάντηση",
+      buttonHref: "/booking",
     },
     {
       id: "litigation-support",
@@ -134,7 +158,7 @@ export default function ServicesClient() {
                   <div className="relative h-64 md:h-auto">
                     <Image
                       src={service.image}
-                      alt={service.title}
+                      alt={service.imageAlt || service.title}
                       fill
                       className="object-cover rounded-lg"
                     />
@@ -230,6 +254,8 @@ export default function ServicesClient() {
           </div>
         </div>
       </Section>
+
+      <WaysToSupport title="Πώς μπορείς να ξεκινήσεις" />
 
       <Section className="bg-muted/30">
         <div className="mx-auto max-w-3xl text-center">

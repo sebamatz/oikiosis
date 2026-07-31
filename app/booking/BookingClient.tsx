@@ -25,6 +25,7 @@ import {
 import Link from "next/link";
 import Section from "@/components/Section";
 import { format } from "date-fns";
+import { el } from "date-fns/locale";
 
 export default function BookingClient() {
   const [date, setDate] = useState<Date | undefined>(undefined);
@@ -43,6 +44,9 @@ export default function BookingClient() {
 
   const [availableTimes, setAvailableTimes] = useState<string[]>([]);
   const [isLoadingTimes, setIsLoadingTimes] = useState(false);
+  const [timesError, setTimesError] = useState(false);
+  // Bumping this re-runs the availability fetch for the same date.
+  const [availabilityNonce, setAvailabilityNonce] = useState(0);
   const [isSubmitting, setIsSubmitting] = useState(false); // Submission state
 
   // GA4 Tracking Guard (Left completely untouched so we don't break your analytics)
@@ -62,32 +66,52 @@ export default function BookingClient() {
   }, []);
 
   useEffect(() => {
-    if (!date) return;
+    if (!date) {
+      setAvailableTimes([]);
+      setTimesError(false);
+      return;
+    }
+
+    // Guard against out-of-order responses: if the visitor clicks another day
+    // while a request is in flight, the older response must not overwrite the
+    // newer one's slots.
+    let cancelled = false;
+    const controller = new AbortController();
+    const dateString = format(date, "yyyy-MM-dd");
+
+    setIsLoadingTimes(true);
+    setTimesError(false);
+    setSelectedTime("");
 
     const fetchTimes = async () => {
-      setIsLoadingTimes(true);
-      setSelectedTime("");
-
       try {
-        const dateString = format(date, "yyyy-MM-dd");
-        const res = await fetch(`/api/calendar/available?date=${dateString}`);
-        if (res.ok) {
-          const data = await res.json();
-          setAvailableTimes(data.availableTimes || []);
-        } else {
-          console.error("Failed to fetch times");
-          setAvailableTimes([]);
-        }
+        const res = await fetch(`/api/calendar/available?date=${dateString}`, {
+          signal: controller.signal,
+        });
+        if (!res.ok) throw new Error(`Availability request failed: ${res.status}`);
+
+        const data = await res.json();
+        if (cancelled) return;
+        setAvailableTimes(
+          Array.isArray(data.availableTimes) ? data.availableTimes : [],
+        );
       } catch (error) {
+        if (cancelled) return;
         console.error("Error:", error);
         setAvailableTimes([]);
+        setTimesError(true);
       } finally {
-        setIsLoadingTimes(false);
+        if (!cancelled) setIsLoadingTimes(false);
       }
     };
 
     fetchTimes();
-  }, [date]);
+
+    return () => {
+      cancelled = true;
+      controller.abort();
+    };
+  }, [date, availabilityNonce]);
 
   const topics = [
     { id: "parental-alienation", name: "Γονεϊκή αποξένωση" },
@@ -95,6 +119,7 @@ export default function BookingClient() {
     { id: "crisis-emotional", name: "Κρίση / συναισθηματική κατάρρευση" },
     { id: "individual-therapy", name: "Ατομική θεραπεία" },
     { id: "co-parenting", name: "Σχεδιασμός Συν-Γονεϊκότητας" },
+    { id: "family-reconstitution", name: "Ανασύσταση Οικογένειας" },
     { id: "parent-counseling", name: "Συμβουλευτική Γονέων" },
     { id: "other", name: "Άλλο" },
   ];
@@ -155,6 +180,16 @@ export default function BookingClient() {
         setName("");
         setPhone("");
         setEmail("");
+      } else if (res.status === 409 || res.status === 400) {
+        // The slot was taken (or expired) between loading the list and
+        // submitting. Tell the visitor plainly and refresh the times.
+        const data = await res.json().catch(() => null);
+        alert(
+          data?.error ||
+            "Η ώρα που επιλέξατε δεν είναι πλέον διαθέσιμη. Παρακαλώ επιλέξτε άλλη ώρα.",
+        );
+        setSelectedTime("");
+        setAvailabilityNonce((value) => value + 1);
       } else {
         alert(
           "Υπήρξε ένα σφάλμα κατά την αποθήκευση. Παρακαλώ δοκιμάστε ξανά.",
@@ -391,13 +426,16 @@ export default function BookingClient() {
                   mode="single"
                   selected={date}
                   onSelect={setDate}
-                  disabled={(date) => {
+                  locale={el}
+                  startMonth={new Date()}
+                  showOutsideDays={false}
+                  disabled={(day) => {
                     const today = new Date();
                     today.setHours(0, 0, 0, 0);
                     // Disable past dates AND Sundays (0 = Sunday)
-                    return date < today || date.getDay() === 0;
+                    return day < today || day.getDay() === 0;
                   }}
-                  className="rounded-md border"
+                  className="w-full rounded-md border [--cell-size:--spacing(9)] sm:[--cell-size:--spacing(10)]"
                 />
               </CardContent>
             </Card>
@@ -420,6 +458,22 @@ export default function BookingClient() {
                   <div className="flex flex-col items-center justify-center py-8 text-muted-foreground">
                     <Loader2 className="h-8 w-8 animate-spin mb-2 text-primary" />
                     <p className="text-sm">Έλεγχος διαθεσιμότητας...</p>
+                  </div>
+                ) : timesError ? (
+                  <div className="flex flex-col items-center gap-3 py-8 text-center">
+                    <p className="text-sm text-muted-foreground">
+                      Δεν ήταν δυνατός ο έλεγχος διαθεσιμότητας. Ελέγξτε τη
+                      σύνδεσή σας και δοκιμάστε ξανά.
+                    </p>
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      onClick={() =>
+                        setAvailabilityNonce((value) => value + 1)
+                      }
+                    >
+                      Δοκιμάστε ξανά
+                    </Button>
                   </div>
                 ) : availableTimes.length === 0 ? (
                   <div className="text-center text-sm text-muted-foreground py-10">

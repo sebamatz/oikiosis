@@ -1,6 +1,17 @@
 import { NextResponse } from "next/server";
 import { google } from "googleapis";
 import nodemailer from "nodemailer";
+import {
+  ATHENS_TZ,
+  isClosedDay,
+  isStandardSlot,
+  isValidDateString,
+  isValidTimeString,
+  sessionEndTime,
+  slotRangeUtc,
+} from "@/lib/booking";
+
+export const dynamic = "force-dynamic";
 
 export async function POST(request: Request) {
   try {
@@ -15,35 +26,101 @@ export async function POST(request: Request) {
       );
     }
 
-    // 2. Google Calendar Auth
+    // 2. The slot must be one we actually offer, on a day we are open,
+    //    and still in the future.
+    if (!isValidDateString(date) || !isValidTimeString(time)) {
+      return NextResponse.json(
+        { error: "Invalid date or time" },
+        { status: 400 },
+      );
+    }
+
+    if (!isStandardSlot(time) || isClosedDay(date)) {
+      return NextResponse.json(
+        { error: "Το επιλεγμένο ραντεβού δεν είναι διαθέσιμο." },
+        { status: 400 },
+      );
+    }
+
+    const { start: slotStart, end: slotEnd } = slotRangeUtc(date, time);
+
+    if (slotStart.getTime() <= Date.now()) {
+      return NextResponse.json(
+        { error: "Η ώρα που επιλέξατε έχει παρέλθει." },
+        { status: 400 },
+      );
+    }
+
+    const calendarId = process.env.GOOGLE_CALENDAR_ID;
+
+    if (
+      !calendarId ||
+      !process.env.GOOGLE_CLIENT_EMAIL ||
+      !process.env.GOOGLE_PRIVATE_KEY
+    ) {
+      console.error("Booking Error: missing Google credentials");
+      return NextResponse.json(
+        { error: "Calendar is not configured" },
+        { status: 500 },
+      );
+    }
+
+    // 3. Google Calendar Auth
     const auth = new google.auth.JWT({
       email: process.env.GOOGLE_CLIENT_EMAIL,
-      key: process.env.GOOGLE_PRIVATE_KEY?.replace(/\\n/g, "\n"),
+      key: process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, "\n"),
       scopes: ["https://www.googleapis.com/auth/calendar"],
     });
 
     const calendar = google.calendar({ version: "v3", auth });
-    const calendarId = process.env.GOOGLE_CALENDAR_ID;
 
-    // 3. Bulletproof Start and End Times (Bypasses Vercel UTC issues)
-    // We just take "15:00" and make it "16:00" mathematically
+    // 4. Re-check the slot right before writing. The availability list the
+    //    visitor saw may be minutes old, so this closes the double-booking gap.
+    const freeBusy = await calendar.freebusy.query({
+      requestBody: {
+        timeMin: slotStart.toISOString(),
+        timeMax: slotEnd.toISOString(),
+        timeZone: ATHENS_TZ,
+        items: [{ id: calendarId }],
+      },
+    });
+
+    const isTaken = (freeBusy.data.calendars?.[calendarId]?.busy || []).some(
+      (busy) => {
+        if (!busy.start || !busy.end) return false;
+        return (
+          slotStart.getTime() < new Date(busy.end).getTime() &&
+          slotEnd.getTime() > new Date(busy.start).getTime()
+        );
+      },
+    );
+
+    if (isTaken) {
+      return NextResponse.json(
+        {
+          error:
+            "Η ώρα που επιλέξατε μόλις κλείστηκε. Παρακαλώ επιλέξτε άλλη ώρα.",
+        },
+        { status: 409 },
+      );
+    }
+
+    // 5. Athens wall-clock times. Google resolves these against the timeZone
+    //    field, so DST is handled for us.
     const startDateTime = `${date}T${time}:00`;
-    const [hour, minute] = time.split(":");
-    const endHour = parseInt(hour, 10) + 1;
-    const endTime = `${endHour.toString().padStart(2, "0")}:${minute}`;
-    const endDateTime = `${date}T${endTime}:00`;
+    const endDateTime = `${date}T${sessionEndTime(time)}:00`;
 
-    // 4. Construct the Calendar Event
+    // 6. Construct the Calendar Event
     const event = {
       summary: `Ραντεβού: ${name} (${sessionType})`,
       description: `Τηλέφωνο: ${phone}\nEmail: ${email}\nΤρόπος Συνεδρίας: ${sessionType}\nΘέμα: ${topicName || "-"}`,
       start: {
         dateTime: startDateTime,
-        timeZone: "Europe/Athens", // Google handles the DST shift perfectly this way
+        timeZone: ATHENS_TZ, // Google handles the DST shift perfectly this way
       },
       end: {
         dateTime: endDateTime,
-        timeZone: "Europe/Athens",
+        timeZone: ATHENS_TZ,
       },
       colorId: sessionType === "Online" ? "9" : "1", // Blue for in-person, Blueberry/Purple for Online
     };
@@ -55,7 +132,7 @@ export async function POST(request: Request) {
     });
 
     // ==========================================
-    // 5. NODEMAILER: DUAL EMAIL CONFIRMATIONS
+    // 7. NODEMAILER: DUAL EMAIL CONFIRMATIONS
     // ==========================================
 
     const transporter = nodemailer.createTransport({
@@ -66,7 +143,6 @@ export async function POST(request: Request) {
       },
     });
 
-    // Email to the Psychologist (Giannis)
     // Email to the Psychologist (Giannis)
     const ownerMailOptions = {
       from: `"Οικείωσις System" <${process.env.SMTP_USER}>`,
@@ -95,7 +171,7 @@ export async function POST(request: Request) {
 
     // Email to the Client
     const clientMailOptions = {
-      from: `"Οικείωσις - Γιάννης Γιαννόπουλος" <${process.env.SMTP_USER}>`, // CHANGED THIS
+      from: `"Οικείωσις - Γιάννης Γιαννόπουλος" <${process.env.SMTP_USER}>`,
       to: email,
       subject: "Επιβεβαίωση Αιτήματος Συνεδρίας - Οικείωσις",
       html: `
@@ -117,9 +193,15 @@ export async function POST(request: Request) {
       `,
     };
 
-    // Fire off both emails
-    await transporter.sendMail(ownerMailOptions);
-    await transporter.sendMail(clientMailOptions);
+    // Fire off both emails. The appointment is already in the calendar at this
+    // point, so a mail failure must not report the booking as failed — that
+    // would push the visitor into booking a second time.
+    try {
+      await transporter.sendMail(ownerMailOptions);
+      await transporter.sendMail(clientMailOptions);
+    } catch (mailError) {
+      console.error("Booking saved but emails failed:", mailError);
+    }
 
     return NextResponse.json({
       success: true,

@@ -1,5 +1,18 @@
 import { NextResponse } from "next/server";
 import { google } from "googleapis";
+import {
+  ATHENS_TZ,
+  STANDARD_SLOTS,
+  athensTimeToUtc,
+  isClosedDay,
+  isPastDate,
+  isValidDateString,
+  nextDateString,
+  slotRangeUtc,
+} from "@/lib/booking";
+
+// Availability must never be served from a cache.
+export const dynamic = "force-dynamic";
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
@@ -9,52 +22,71 @@ export async function GET(request: Request) {
     return NextResponse.json({ error: "Date is required" }, { status: 400 });
   }
 
-  // The base slots you want to offer
-  const standardSlots = [
-    "09:00",
-    "10:00",
-    "11:00",
-    "12:00",
-    "14:00",
-    "15:00",
-    "16:00",
-    "17:00",
-    "18:00",
-  ];
+  if (!isValidDateString(dateParam)) {
+    return NextResponse.json(
+      { error: "Invalid date format" },
+      { status: 400 },
+    );
+  }
+
+  // Closed days and days already gone have no slots — no need to call Google.
+  if (isClosedDay(dateParam) || isPastDate(dateParam)) {
+    return NextResponse.json({ availableTimes: [] });
+  }
+
+  const calendarId = process.env.GOOGLE_CALENDAR_ID;
+
+  if (
+    !calendarId ||
+    !process.env.GOOGLE_CLIENT_EMAIL ||
+    !process.env.GOOGLE_PRIVATE_KEY
+  ) {
+    console.error("Calendar API Error: missing Google credentials");
+    return NextResponse.json(
+      { error: "Calendar is not configured" },
+      { status: 500 },
+    );
+  }
 
   try {
     // 1. Authenticate the Robot
-    // NEW WAY (Wrapped in curly braces with labels)
     const auth = new google.auth.JWT({
       email: process.env.GOOGLE_CLIENT_EMAIL,
-      key: process.env.GOOGLE_PRIVATE_KEY?.replace(/\\n/g, "\n"),
+      key: process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, "\n"),
       scopes: ["https://www.googleapis.com/auth/calendar.readonly"],
     });
 
     const calendar = google.calendar({ version: "v3", auth });
 
-    // 2. Set the time boundaries for the specific day in Greece
-    const timeMin = new Date(`${dateParam}T00:00:00+02:00`).toISOString();
-    const timeMax = new Date(`${dateParam}T23:59:59+02:00`).toISOString();
-    const calendarId = process.env.GOOGLE_CALENDAR_ID;
+    // 2. Boundaries of that Athens day, expressed as real UTC instants.
+    //    Derived from midnight-to-midnight rather than +24h, so DST-transition
+    //    days (23h and 25h long) are still covered exactly.
+    const timeMin = athensTimeToUtc(dateParam, "00:00").toISOString();
+    const timeMax = athensTimeToUtc(
+      nextDateString(dateParam),
+      "00:00",
+    ).toISOString();
 
     // 3. Query the Free/Busy API
     const response = await calendar.freebusy.query({
       requestBody: {
         timeMin,
         timeMax,
-        timeZone: "Europe/Athens",
+        timeZone: ATHENS_TZ,
         items: [{ id: calendarId }],
       },
     });
 
-    const busySlots = response.data.calendars?.[calendarId || ""]?.busy || [];
+    const busySlots = response.data.calendars?.[calendarId]?.busy || [];
+    const now = Date.now();
 
-    // 4. Filter the standard slots. If a slot overlaps with a busy period, remove it.
-    const availableSlots = standardSlots.filter((slot) => {
-      // Create exact timestamp for the slot start and end (assuming 1 hour sessions)
-      const slotStart = new Date(`${dateParam}T${slot}:00+02:00`).getTime();
-      const slotEnd = slotStart + 60 * 60 * 1000;
+    // 4. Keep a slot only if it is still in the future and not already booked.
+    const availableSlots = STANDARD_SLOTS.filter((slot) => {
+      const { start, end } = slotRangeUtc(dateParam, slot);
+      const slotStart = start.getTime();
+      const slotEnd = end.getTime();
+
+      if (slotStart <= now) return false;
 
       const isBusy = busySlots.some((busy) => {
         if (!busy.start || !busy.end) return false;

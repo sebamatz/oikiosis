@@ -34,6 +34,12 @@ export default function Footer() {
                 Υπηρεσίες
               </Link>
               <Link
+                href="/audio-maps"
+                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+              >
+                Ηχητικοί Χάρτες
+              </Link>
+              <Link
                 href="/testimonials"
                 className="text-sm text-muted-foreground hover:text-foreground transition-colors"
               >
