@@ -29,7 +29,7 @@ export async function GET(request: Request) {
     );
   }
 
-  // Closed days and days already gone have no slots — no need to call Google.
+  // Closed days and days already gone have no slots, so skip the Google call.
   if (isClosedDay(dateParam) || isPastDate(dateParam)) {
     return NextResponse.json({ availableTimes: [] });
   }

@@ -194,7 +194,7 @@ export async function POST(request: Request) {
     };
 
     // Fire off both emails. The appointment is already in the calendar at this
-    // point, so a mail failure must not report the booking as failed — that
+    // point, so a mail failure must not report the booking as failed, since that
     // would push the visitor into booking a second time.
     try {
       await transporter.sendMail(ownerMailOptions);

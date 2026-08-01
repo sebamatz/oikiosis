@@ -40,12 +40,12 @@ const AUTHOR_ROLE = "Σύνταξη, επιστημονική επιμέλεια
 
 const authors = [
   {
-    name: "Γιάννης Γιαννόπουλος — Ψυχολόγος",
+    name: "Γιάννης Γιαννόπουλος, Ψυχολόγος",
     role: AUTHOR_ROLE,
     bio: "Είναι ο δημιουργός του Reverse Momentum Model℠ και εργάζεται κυρίως με γονείς που φοβούνται ότι χάνουν τη σχέση με το παιδί τους, καθώς και με ανθρώπους που ζουν μέσα σε σχέσεις και διαζύγια υψηλής σύγκρουσης. Έχει περισσότερες από 1.500 ώρες κλινικής εμπειρίας σε αυτές τις δύσκολες συνθήκες.",
   },
   {
-    name: "Σοφία Μίαρη — Ψυχολόγος",
+    name: "Σοφία Μίαρη, Ψυχολόγος",
     role: AUTHOR_ROLE,
     bio: "Είναι Οικογενειακή–Συστημική Ψυχοθεραπεύτρια και εργάζεται με ζευγάρια, γονείς και παιδιά. Γνωρίζει τις δυσκολίες που εμφανίζονται όταν δημιουργείται μια νέα οικογένεια μετά από έναν χωρισμό και όλοι προσπαθούν να βρουν ξανά τη θέση τους.",
   },
@@ -441,11 +441,11 @@ export default function AudioMapsPage() {
         </div>
       </Section>
 
-      {/* 7. What they offer — and what they do not replace */}
+      {/* 7. What they offer, and what they do not replace */}
       <Section className="bg-muted/30 py-12 md:py-16">
         <div className="mx-auto max-w-6xl">
           <h2 className="mb-10 text-center text-2xl font-bold md:text-3xl">
-            Τι μπορούν να κάνουν οι Χάρτες — και τι δεν μπορούν
+            Τι μπορούν να κάνουν οι Χάρτες και τι δεν μπορούν
           </h2>
           <div className="grid gap-8 md:grid-cols-2">
             <div className="space-y-4">

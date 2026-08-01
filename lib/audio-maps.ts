@@ -6,7 +6,7 @@ import type { GaItem } from "@/lib/analytics";
  * `.oikeiosis.gr` (gtag's default `cookie_domain: 'auto'`), so it is shared with
  * audio.oikeiosis.gr automatically.
  *
- * Consequences — do not "fix" these by adding cross-domain config:
+ * Consequences, and do not "fix" these by adding cross-domain config:
  *  - the visitor keeps the same client_id and the same session across the hop,
  *  - campaign attribution survives, so a sale traces back to the ad or search
  *    that started the journey,
@@ -24,7 +24,7 @@ export const AUDIO_MAPS_LIST_NAME = "Ηχητικοί Χάρτες";
 export interface AudioMapProduct {
   /**
    * GA4 `item_id`. This is the join key between our funnel events and the
-   * `purchase` LearnWorlds reports — keep it stable, and use the same value on
+   * `purchase` LearnWorlds reports. Keep it stable, and use the same value on
    * the LearnWorlds side once the courses exist.
    */
   id: string;
@@ -62,7 +62,7 @@ export const allAudioMapProducts: AudioMapProduct[] =
 
 /**
  * Path to the course listing on the school, for the page-level CTA.
- * `null` until the school is public — same rule as `AudioMapProduct.path`.
+ * `null` until the school is public, same rule as `AudioMapProduct.path`.
  */
 export const CATALOG_PATH: string | null = null;
 

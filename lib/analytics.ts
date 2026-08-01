@@ -2,7 +2,7 @@
  * Thin wrapper around the Google tag.
  *
  * `window.gtag` only exists once gtag.js has loaded, and Cookiebot runs in
- * auto-blocking mode — so on a page where the visitor has not accepted
+ * auto-blocking mode, so on a page where the visitor has not accepted
  * statistics cookies the function is never defined at all. Every call therefore
  * has to tolerate a missing `gtag` instead of throwing.
  */

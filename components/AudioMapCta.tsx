@@ -27,12 +27,12 @@ interface AudioMapCtaProps {
  * The call to action for an Ηχητικός Χάρτης.
  *
  * Until the LearnWorlds course URLs are filled in (`lib/audio-maps.ts`) this
- * renders the disabled «Προσεχώς» badge — visually identical to what shipped.
+ * renders the disabled «Προσεχώς» badge, visually identical to what shipped.
  * Once a `path` is set it becomes a real link that reports the funnel step to
  * GA4 before the browser leaves for audio.oikeiosis.gr.
  *
  * The destination is a subdomain, so the GA4 cookie carries over on its own and
- * the click needs no linker parameter — see the note in `lib/audio-maps.ts`.
+ * the click needs no linker parameter. See the note in `lib/audio-maps.ts`.
  */
 export default function AudioMapCta({
   product,
@@ -68,7 +68,7 @@ export default function AudioMapCta({
     : allAudioMapProducts.map(toGaItem);
 
   const handleClick = () => {
-    // `select_item` only — the checkout itself happens on LearnWorlds, so
+    // `select_item` only. The checkout itself happens on LearnWorlds, so
     // `begin_checkout` and `purchase` must come from there. Firing them here
     // would inflate the funnel with people who never reached the checkout.
     trackEvent("select_item", {

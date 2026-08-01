@@ -78,7 +78,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.6,
     },
-    // NOTE: /privacy is deliberately absent — app/privacy/page.tsx calls
+    // NOTE: /privacy is deliberately absent. app/privacy/page.tsx calls
     // notFound() in production, so submitting it would feed Google a 404.
   ];
 

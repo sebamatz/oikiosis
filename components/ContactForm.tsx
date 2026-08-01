@@ -72,7 +72,7 @@ export default function ContactForm() {
 
       // `submit_form` above is shared with the booking flow. `submit_contact`
       // is the specific one, so a message can be told apart from a booked
-      // appointment. Both fire on purpose — see the note in BookingClient.
+      // appointment. Both fire on purpose. See the note in BookingClient.
       trackEvent("submit_contact");
 
       setSubmitStatus({
