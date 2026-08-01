@@ -15,6 +15,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Mail, Send } from "lucide-react";
+import { trackEvent } from "@/lib/analytics";
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -68,6 +69,11 @@ export default function ContactForm() {
       }
       // --------------------------
       // --------------------------
+
+      // `submit_form` above is shared with the booking flow. `submit_contact`
+      // is the specific one, so a message can be told apart from a booked
+      // appointment. Both fire on purpose — see the note in BookingClient.
+      trackEvent("submit_contact");
 
       setSubmitStatus({
         type: "success",

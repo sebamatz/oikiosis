@@ -24,6 +24,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import Section from "@/components/Section";
+import { trackEvent } from "@/lib/analytics";
 import { format } from "date-fns";
 import { el } from "date-fns/locale";
 
@@ -171,6 +172,19 @@ export default function BookingClient() {
           (window as any).gtag("event", "submit_form");
         }
         // --------------------------------------------
+
+        // `submit_form` above is also fired by the contact form, so Google Ads
+        // cannot tell an appointment from a message. `submit_booking` is the
+        // specific one: a confirmed slot that exists in the Google Calendar.
+        //
+        // Both fire on purpose. Keeping the legacy event means the existing Ads
+        // conversion carries on untouched; once a new conversion is built on
+        // `submit_booking` and verified against real data, the `submit_form`
+        // call above can be deleted from this file.
+        trackEvent("submit_booking", {
+          topic: selectedTopic,
+          session_type: sessionType,
+        });
 
         // Clear the form
         setDate(undefined);

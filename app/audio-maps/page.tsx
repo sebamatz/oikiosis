@@ -2,17 +2,19 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Section from "@/components/Section";
 import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
+import AudioMapCta from "@/components/AudioMapCta";
+import AudioMapsViewTracker from "@/components/AudioMapsViewTracker";
+import { audioMapProducts } from "@/lib/audio-maps";
 
 const HERO_ALT =
   "Αφηρημένη ηχητική κυματομορφή που μεταβαίνει από τη σύγχυση σε τρία σταθερά σημεία.";
 
+const SEO_DESCRIPTION =
+  "Σύντομες ηχητικές ψυχοεκπαιδευτικές σειρές που σε βοηθούν να καταλάβεις καλύτερα αυτό που ζεις, να μειώσεις τις βιαστικές αντιδράσεις και να επιλέξεις ένα ασφαλέστερο επόμενο βήμα.";
+
 export const metadata: Metadata = {
-  title:
-    "Ηχητικοί Χάρτες | Ψυχολογική Πλοήγηση σε Γονεϊκή Αποξένωση & Ανασύσταση Οικογένειας | Οικείωσις",
-  description:
-    "Ψηφιακές ηχητικές σειρές που φωτίζουν ερωτήματα και βοηθούν να χαράξεις πιο καθαρά και σταθερά βήματα. 3 Ηχητικοί Χάρτες × περίπου 20 λεπτά, 29€ με ΦΠΑ.",
+  title: "Ηχητικοί Χάρτες για Ρήξη Επαφής Γονέα–Παιδιού | Οικείωσις",
+  description: SEO_DESCRIPTION,
   alternates: {
     canonical: "/audio-maps",
   },
@@ -22,8 +24,7 @@ export const metadata: Metadata = {
     url: "/audio-maps",
     siteName: "Οικείωσις",
     title: "Ηχητικοί Χάρτες | Οικείωσις",
-    description:
-      "Ψηφιακές ηχητικές σειρές που φωτίζουν ερωτήματα και βοηθούν να χαράξεις πιο καθαρά και σταθερά βήματα.",
+    description: SEO_DESCRIPTION,
     images: [
       {
         url: "/images/audio-maps-hero.png",
@@ -35,87 +36,109 @@ export const metadata: Metadata = {
   },
 };
 
+const AUTHOR_ROLE = "Σύνταξη, επιστημονική επιμέλεια και αφήγηση";
+
 const authors = [
   {
     name: "Γιάννης Γιαννόπουλος — Ψυχολόγος",
-    role: "Σύνταξη · Επιστημονική επιμέλεια · Οργάνωση",
-    bio: "Δημιουργός του Reverse Momentum Model, με εξειδίκευση στη Γονεϊκή Αποξένωση και στις σχέσεις υψηλής σύγκρουσης. Περισσότερες από 1.500 ώρες κλινικής εμπειρίας.",
+    role: AUTHOR_ROLE,
+    bio: "Είναι ο δημιουργός του Reverse Momentum Model℠ και εργάζεται κυρίως με γονείς που φοβούνται ότι χάνουν τη σχέση με το παιδί τους, καθώς και με ανθρώπους που ζουν μέσα σε σχέσεις και διαζύγια υψηλής σύγκρουσης. Έχει περισσότερες από 1.500 ώρες κλινικής εμπειρίας σε αυτές τις δύσκολες συνθήκες.",
   },
   {
     name: "Σοφία Μίαρη — Ψυχολόγος",
-    role: "Σύνταξη · Επιστημονική επιμέλεια",
-    bio: "Οικογενειακή–Συστημική Ψυχοθεραπεύτρια (MSc, PhD), με βαθιά γνώση και εμπειρία στη δυναμική και στις προκλήσεις των επανασυσταμένων οικογενειών.",
+    role: AUTHOR_ROLE,
+    bio: "Είναι Οικογενειακή–Συστημική Ψυχοθεραπεύτρια και εργάζεται με ζευγάρια, γονείς και παιδιά. Γνωρίζει τις δυσκολίες που εμφανίζονται όταν δημιουργείται μια νέα οικογένεια μετά από έναν χωρισμό και όλοι προσπαθούν να βρουν ξανά τη θέση τους.",
   },
 ];
 
 const benefits = [
   {
     label: "Επικύρωση",
-    title: "Αυτό που νιώθεις έχει νόημα",
+    title: "Βάζεις σε λέξεις αυτό που νιώθεις",
     description:
-      "Βρίσκεις λέξεις για την εμπειρία σου και αναγνωρίζεις ότι δεν είσαι «υπερβολικός».",
+      "Καταλαβαίνεις ότι ο πόνος και η σύγχυσή σου δεν είναι υπερβολή. Αυτό που ζεις σε επηρεάζει πραγματικά και αξίζει να το πάρεις στα σοβαρά.",
   },
   {
     label: "Κατανόηση",
-    title: "Βρίσκεις απαντήσεις στο «γιατί»",
+    title: "Βλέπεις πιο καθαρά",
     description:
-      "Φωτίζεις μοτίβα και μηχανισμούς πίσω από όσα μέχρι τώρα έμοιαζαν ανεξήγητα.",
+      "Ξεχωρίζεις αυτό που έχει πραγματικά συμβεί από αυτό που φοβάσαι ή υποθέτεις ότι σημαίνει. Βλέπεις περισσότερες από μία πιθανές εξηγήσεις, χωρίς να βιάζεσαι να αποφασίσεις ποιος φταίει.",
   },
   {
     label: "Πλοήγηση",
-    title: "Χαράζεις πιο καθαρά και σταθερά βήματα",
+    title: "Σταματάς πριν βιαστείς",
     description:
-      "Μετατρέπεις την κατανόηση σε πιο καθαρή και λειτουργική κατεύθυνση στην πορεία.",
+      "Δημιουργείς λίγο χώρο ανάμεσα στον φόβο και στην πράξη. Έτσι μπορείς να επιλέξεις ένα μικρότερο, ασφαλέστερο βήμα που δεν θα προσθέσει νέα ένταση.",
   },
 ];
 
-const included = [
+const included: {
+  title: string;
+  description: string;
+  /** Optional second paragraph, rendered under the description. */
+  detail?: string;
+}[] = [
   {
-    title: "Ψηφιακή ηχητική σειρά",
-    description: "Αυτοτελές θεματικό προϊόν — όχι συνεδρία.",
+    title: "Μία ολοκληρωμένη ηχητική σειρά",
+    description:
+      "Είναι ένα ξεχωριστό ψηφιακό προϊόν που ακούς στον δικό σου χώρο και χρόνο. Δεν είναι συνεδρία και δεν χρειάζεται να το ακούσεις όλο μαζί.",
   },
   {
-    title: "3 Χάρτες × περίπου 20 λεπτά",
-    description: "Περίπου 60 λεπτά οργανωμένης ηχητικής πλοήγησης.",
+    title: "3 Ηχητικοί Χάρτες",
+    description:
+      "Κάθε Χάρτης διαρκεί περίπου 20 λεπτά. Ολόκληρη η σειρά διαρκεί περίπου μία ώρα.",
   },
   {
     title: "29€ τελική τιμή με ΦΠΑ",
-    description:
-      "Απεριόριστη ακρόαση μέσω LearnWorlds — streaming only, χωρίς λήψη αρχείων.",
+    description: "Ακρόαση μέσω LearnWorlds.",
+    detail:
+      "Μπορείς να ακούς τη σειρά από κινητό, tablet ή υπολογιστή. Η ακρόαση γίνεται online και δεν προβλέπεται λήψη των αρχείων.",
   },
 ];
 
 const series = [
   {
+    product: audioMapProducts.childDistancing,
     eyebrow: "Πλοήγηση στην Καταιγίδα",
     title: "Όταν το Παιδί Απομακρύνεται",
-    description:
+    description: [
+      "Για γονείς που φοβούνται ότι χάνουν το παιδί τους. Και που φοβούνται ότι ένα μήνυμα, μια πίεση ή μια βιαστική κίνηση μπορεί να μεγαλώσει ακόμη περισσότερο την απόσταση.",
+      "Η σειρά δεν σου λέει ποιος φταίει και δεν σου υπόσχεται ότι όλα θα λυθούν. Σε βοηθά να σταματήσεις, να καταλάβεις καλύτερα τι μπορεί να συμβαίνει και να επιλέξεις την πρώτη ασφαλή κίνηση.",
       "Για προβλήματα ή ρήξη επαφής γονέα-παιδιού, πιθανή Γονεϊκή Αποξένωση και διαζύγια υψηλής σύγκρουσης.",
+    ],
     image: "/images/audio-maps-split-left-side.jpg",
     imageAlt:
       "Πατέρας δίπλα σε άδεια παιδική κούνια, σε σκηνή συναισθηματικής απουσίας.",
     includes: [
-      "3 Ηχητικοί Χάρτες × περίπου 20 λεπτά",
-      "Επιστημονική ενημέρωση και πρακτική πλοήγηση",
-      "Πρόσβαση μέσω LearnWorlds",
+      "Τι συμβαίνει μέσα σου όταν νιώθεις ότι το παιδί σε απορρίπτει.",
+      "Τι μπορεί να συμβαίνει στον κόσμο του παιδιού.",
+      "Πώς να περάσεις από τον φόβο στην πρώτη ασφαλή πράξη.",
+      "3 Ηχητικούς Χάρτες, περίπου 20 λεπτά ο καθένας.",
+      "Online ακρόαση μέσω LearnWorlds.",
     ],
-    author: "Σύνταξη, επιμέλεια & αφήγηση: Γιάννης Γιαννόπουλος",
+    author:
+      "Σύνταξη, επιστημονική επιμέλεια και αφήγηση: Γιάννης Γιαννόπουλος",
     price: "29€ με ΦΠΑ",
   },
   {
+    product: audioMapProducts.familyReconstitution,
     eyebrow: "Οικογένεια σε Ανασύσταση",
     title: "Νέοι Δεσμοί, Νέοι Ρόλοι, Νέος Χάρτης",
-    description:
-      "Για ζευγάρια, βιολογικούς γονείς και νέους συντρόφους που δημιουργούν ένα νέο οικογενειακό σύστημα μετά από χωρισμό, διαζύγιο ή απώλεια.",
+    description: [
+      "Για ζευγάρια, γονείς και νέους συντρόφους που προσπαθούν να δημιουργήσουν μια νέα οικογένεια μετά από χωρισμό, διαζύγιο ή απώλεια.",
+      "Όταν μια νέα οικογένεια δημιουργείται, κανείς δεν ξέρει από την αρχή ποια είναι η θέση του. Η σειρά βοηθά τα μέλη της οικογένειας να καταλάβουν καλύτερα τους νέους ρόλους, τα όρια, τους παλιούς δεσμούς και τις δυσκολίες της καθημερινότητας.",
+    ],
     image: "/images/audio-maps-split-right-side.png",
     imageAlt:
       "Ενήλικες και παιδιά σε κοινό οικογενειακό χώρο, συμβολίζοντας νέους δεσμούς και ρόλους.",
     includes: [
-      "3 Ηχητικοί Χάρτες × περίπου 20 λεπτά",
-      "Ρόλοι, όρια, δεσμοί και συγκρούσεις πίστης",
-      "Πρόσβαση μέσω LearnWorlds",
+      "Τους νέους ρόλους μέσα στην οικογένεια.",
+      "Τα όρια ανάμεσα σε γονείς, παιδιά και νέους συντρόφους.",
+      "Τις δυσκολίες που νιώθει ένα παιδί όταν αγαπά ανθρώπους από δύο οικογένειες.",
+      "3 Ηχητικούς Χάρτες, περίπου 20 λεπτά ο καθένας.",
+      "Online ακρόαση μέσω LearnWorlds.",
     ],
-    author: "Σύνταξη, επιμέλεια & αφήγηση: Σοφία Μίαρη",
+    author: "Σύνταξη, επιστημονική επιμέλεια και αφήγηση: Σοφία Μίαρη",
     price: "29€ με ΦΠΑ",
   },
 ];
@@ -124,44 +147,73 @@ const audiences = [
   {
     label: "Όταν το Παιδί Απομακρύνεται",
     description:
-      "Για γονείς που βιώνουν αλλαγή ή ρήξη στην επικοινωνία, νιώθουν απόρριψη, σύγχυση ή απώλεια της θέσης τους και αναζητούν απαντήσεις και σταθερότερη κατεύθυνση.",
+      "Για σένα που νιώθεις ότι το παιδί σου αλλάζει, κλείνεται, σε αποφεύγει ή σε απορρίπτει. Για σένα που φοβάσαι ότι το χάνεις και δεν ξέρεις αν πρέπει να μιλήσεις, να περιμένεις, να πιέσεις ή να κάνεις πίσω.",
   },
   {
     label: "Οικογένεια σε Ανασύσταση",
     description:
-      "Για ζευγάρια, βιολογικούς γονείς και νέους συντρόφους που προσπαθούν να κατανοήσουν ρόλους, όρια και δεσμούς και να χτίσουν ασφαλέστερη κοινή καθημερινότητα.",
+      "Για σένα που έχεις δημιουργήσει ή προσπαθείς να δημιουργήσεις μια νέα οικογένεια μετά από έναν χωρισμό. Για σένα που δυσκολεύεσαι να καταλάβεις ποιος είναι ο ρόλος σου, ποια όρια χρειάζονται και πώς μπορούν όλοι να βρουν θέση χωρίς να σβήσουν οι παλιοί δεσμοί.",
   },
 ];
 
 const canHelp = [
-  "να κατανοήσεις καλύτερα τη δυναμική,",
-  "να μειώσεις παρορμητικές αντιδράσεις,",
-  "να οργανώσεις τα επόμενα βήματά σου,",
-  "να επιστρέφεις σε σταθερά σημεία αναφοράς.",
+  "βάλεις σε σειρά τις σκέψεις και τα συναισθήματά σου,",
+  "καταλάβεις καλύτερα τι μπορεί να συμβαίνει,",
+  "ξεχωρίσεις τα γεγονότα από τους φόβους και τις υποθέσεις,",
+  "μειώσεις τις βιαστικές αντιδράσεις,",
+  "επιλέξεις ένα μικρότερο και ασφαλέστερο επόμενο βήμα,",
+  "επιστρέψεις σε σταθερά σημεία όταν η ένταση ανεβαίνει ξανά.",
 ];
 
 const isNot = [
-  "ψυχοθεραπεία ή εξατομικευμένη αξιολόγηση,",
-  "υπηρεσία άμεσης παρέμβασης σε κρίση,",
-  "νομική συμβουλή ή πραγματογνωμοσύνη,",
-  "υποκατάστατο επαγγελματικής υποστήριξης.",
+  "σου πουν με βεβαιότητα γιατί απομακρύνθηκε το παιδί,",
+  "επιβεβαιώσουν ότι υπάρχει Γονεϊκή Αποξένωση,",
+  "σου δώσουν προσωπικές οδηγίες για τη δική σου υπόθεση,",
+  "αντικαταστήσουν την ψυχοθεραπεία ή την επαγγελματική αξιολόγηση,",
+  "δώσουν νομικές συμβουλές,",
+  "χρησιμοποιηθούν ως έκθεση ή πραγματογνωμοσύνη για δικαστήριο,",
+  "προσφέρουν άμεση βοήθεια σε κατάσταση κινδύνου.",
 ];
 
 const practicalInfo = [
   {
     question: "Πώς θα ακούσω;",
     answer:
-      "Από κινητό, tablet ή υπολογιστή, μόνο μέσα από το LearnWorlds. Δεν προβλέπεται λήψη.",
+      "Από κινητό, tablet ή υπολογιστή, μέσα από τον προσωπικό σου λογαριασμό στο LearnWorlds.",
+  },
+  {
+    question: "Μπορώ να κατεβάσω τα αρχεία;",
+    answer: "Όχι. Η ακρόαση γίνεται μόνο online μέσα από το LearnWorlds.",
+  },
+  {
+    question: "Πρέπει να ακούσω και τους τρεις Χάρτες μαζί;",
+    answer:
+      "Όχι. Μπορείς να κάνεις παύση και να συνεχίσεις όταν αισθανθείς έτοιμος. Καλό είναι να ακούσεις τους Χάρτες με τη σειρά.",
+  },
+  {
+    question: "Θα μου πει αν υπάρχει Γονεϊκή Αποξένωση;",
+    answer:
+      "Όχι. Μια ηχητική σειρά δεν μπορεί να αξιολογήσει τη δική σου οικογένεια. Μπορεί όμως να σε βοηθήσει να καταλάβεις καλύτερα τη ρήξη της επαφής και να αποφύγεις βιαστικά συμπεράσματα.",
+  },
+  {
+    question: "Θα μου πει ακριβώς τι να κάνω;",
+    answer:
+      "Όχι, γιατί κάθε οικογένεια είναι διαφορετική. Θα σε βοηθήσει όμως να σταματήσεις, να σκεφτείς καθαρότερα και να επιλέξεις μια ασφαλέστερη επόμενη κίνηση.",
+  },
+  {
+    question: "Είναι ψυχοθεραπεία;",
+    answer:
+      "Όχι. Δεν είναι συνεδρία και δεν δημιουργεί σχέση ψυχολόγου και θεραπευομένου.",
   },
   {
     question: "Για πόσο έχω πρόσβαση;",
     answer:
-      "Απεριόριστα. Ο ακροατής μπορεί να επιστρέφει και να ακούει ξανά τη σειρά.",
+      "Η διάρκεια της πρόσβασης θα αναγράφεται καθαρά πριν από την αγορά.",
   },
   {
     question: "Ποιον θα ακούσω;",
     answer:
-      "Τον δημιουργό κάθε σειράς: τον Γιάννη Γιαννόπουλο στις δικές του σειρές και τη Σοφία Μίαρη στις δικές της.",
+      "Θα ακούσεις τον δημιουργό της κάθε σειράς: τον Γιάννη Γιαννόπουλο στις δικές του σειρές και τη Σοφία Μίαρη στις δικές της.",
   },
 ];
 
@@ -174,38 +226,11 @@ function Eyebrow({ children }: { children: React.ReactNode }) {
   );
 }
 
-/** The placeholder call to action, until the LearnWorlds URLs exist. */
-function ComingSoonButton({
-  label,
-  className,
-}: {
-  label?: string;
-  className?: string;
-}) {
-  return (
-    <Button
-      size="lg"
-      variant="outline"
-      disabled
-      aria-disabled="true"
-      className={cn(
-        // 44px minimum touch target, and full opacity so the label keeps real
-        // contrast instead of the default 50% disabled wash.
-        "min-h-11 border-primary/30 bg-muted/40 text-foreground/80 disabled:opacity-100",
-        className,
-      )}
-    >
-      {label ? <span>{label}</span> : null}
-      <span className="rounded-md bg-primary/10 px-2 py-0.5 text-xs font-semibold uppercase tracking-wider text-primary">
-        Προσεχώς
-      </span>
-    </Button>
-  );
-}
-
 export default function AudioMapsPage() {
   return (
     <>
+      <AudioMapsViewTracker />
+
       {/* 1. Hero */}
       <Section className="py-12 md:py-16 lg:py-20">
         <div className="mx-auto grid max-w-6xl items-center gap-10 md:grid-cols-2">
@@ -216,11 +241,16 @@ export default function AudioMapsPage() {
               <br className="hidden sm:block" /> έχει νόημα.
             </h1>
             <p className="max-w-prose leading-relaxed text-muted-foreground">
-              Οι Ηχητικοί Χάρτες φωτίζουν ερωτήματα που μέχρι τώρα έμεναν
-              αναπάντητα και σε βοηθούν να χαράξεις πιο καθαρά και σταθερά
-              βήματα στην πορεία.
+              Μερικές φορές κάτι σε πονά, αλλά δεν ξέρεις πώς να το πεις. Οι
+              Ηχητικοί Χάρτες σε βοηθούν να βάλεις σε σειρά όσα νιώθεις, να
+              καταλάβεις τι μπορεί να συμβαίνει και να κάνεις μια παύση πριν από
+              την επόμενη κίνησή σου.
             </p>
-            <ComingSoonButton
+            <p className="max-w-prose leading-relaxed text-muted-foreground">
+              Δεν σου δίνουν μια μαγική λύση. Σου προσφέρουν έναν πρώτο χάρτη
+              μέσα στη σύγχυση.
+            </p>
+            <AudioMapCta
               label="Δες τις διαθέσιμες σειρές"
               className="h-auto w-full flex-wrap gap-3 whitespace-normal py-3 sm:w-auto"
             />
@@ -247,7 +277,7 @@ export default function AudioMapsPage() {
       <Section className="bg-primary/5 py-12 md:py-16">
         <div className="mx-auto max-w-6xl">
           <h2 className="mb-10 text-center text-2xl font-bold md:text-3xl">
-            Ποιοι βρίσκονται πίσω από τους Ηχητικούς Χάρτες
+            Ποιοι δημιούργησαν τους Ηχητικούς Χάρτες
           </h2>
           <div className="grid gap-6 md:grid-cols-2">
             {authors.map((author) => (
@@ -269,11 +299,11 @@ export default function AudioMapsPage() {
       <Section className="py-12 md:py-16">
         <div className="mx-auto max-w-6xl">
           <h2 className="mb-3 text-center text-2xl font-bold md:text-3xl">
-            Τι μπορεί να σου προσφέρει μια σειρά
+            Τι μπορεί να σου προσφέρει ένας Ηχητικός Χάρτης
           </h2>
           <p className="mx-auto mb-10 max-w-2xl text-center text-muted-foreground">
-            Από την επικύρωση του βιώματος, στην κατανόηση και από εκεί σε μια
-            σταθερότερη πορεία.
+            Πρώτα βρίσκεις λέξεις για αυτό που ζεις. Μετά βλέπεις πιο καθαρά.
+            Και ύστερα αποφασίζεις πιο προσεκτικά το επόμενο βήμα.
           </p>
           <div className="grid gap-8 md:grid-cols-3">
             {benefits.map((benefit) => (
@@ -311,6 +341,11 @@ export default function AudioMapsPage() {
                 <p className="text-sm leading-relaxed text-muted-foreground">
                   {item.description}
                 </p>
+                {item.detail ? (
+                  <p className="text-sm leading-relaxed text-muted-foreground">
+                    {item.detail}
+                  </p>
+                ) : null}
               </div>
             ))}
           </div>
@@ -344,9 +379,14 @@ export default function AudioMapsPage() {
                   <div className="space-y-2">
                     <Eyebrow>{item.eyebrow}</Eyebrow>
                     <h3 className="text-xl font-bold">{item.title}</h3>
-                    <p className="leading-relaxed text-muted-foreground">
-                      {item.description}
-                    </p>
+                    {item.description.map((paragraph) => (
+                      <p
+                        key={paragraph}
+                        className="leading-relaxed text-muted-foreground"
+                      >
+                        {paragraph}
+                      </p>
+                    ))}
                   </div>
 
                   <div className="space-y-2 border-t border-primary/10 pt-4">
@@ -373,7 +413,7 @@ export default function AudioMapsPage() {
 
                   <div className="mt-auto flex flex-wrap items-center justify-between gap-3 pt-2">
                     <span className="text-lg font-bold">{item.price}</span>
-                    <ComingSoonButton />
+                    <AudioMapCta product={item.product} />
                   </div>
                 </CardContent>
               </Card>
@@ -386,7 +426,7 @@ export default function AudioMapsPage() {
       <Section className="py-12 md:py-16">
         <div className="mx-auto max-w-6xl">
           <h2 className="mb-10 text-center text-2xl font-bold md:text-3xl">
-            Για ποιον είναι κάθε σειρά
+            Ποια σειρά ταιριάζει σε αυτό που ζεις;
           </h2>
           <div className="grid gap-8 md:grid-cols-2">
             {audiences.map((audience) => (
@@ -405,12 +445,12 @@ export default function AudioMapsPage() {
       <Section className="bg-muted/30 py-12 md:py-16">
         <div className="mx-auto max-w-6xl">
           <h2 className="mb-10 text-center text-2xl font-bold md:text-3xl">
-            Τι προσφέρουν — και τι δεν αντικαθιστούν
+            Τι μπορούν να κάνουν οι Χάρτες — και τι δεν μπορούν
           </h2>
           <div className="grid gap-8 md:grid-cols-2">
             <div className="space-y-4">
               <h3 className="text-lg font-bold text-primary">
-                Οι Χάρτες μπορούν να βοηθήσουν
+                Μπορούν να σε βοηθήσουν να:
               </h3>
               <ul className="space-y-2">
                 {canHelp.map((line) => (
@@ -427,7 +467,9 @@ export default function AudioMapsPage() {
               </ul>
             </div>
             <div className="space-y-4">
-              <h3 className="text-lg font-bold text-primary">Δεν αποτελούν</h3>
+              <h3 className="text-lg font-bold text-primary">
+                Δεν μπορούν να:
+              </h3>
               <ul className="space-y-2">
                 {isNot.map((line) => (
                   <li
@@ -443,6 +485,10 @@ export default function AudioMapsPage() {
               </ul>
             </div>
           </div>
+          <p className="mx-auto mt-10 max-w-2xl text-center leading-relaxed text-muted-foreground">
+            Οι Ηχητικοί Χάρτες είναι ένα πρώτο σταθερό σημείο. Δεν είναι
+            ολόκληρη η διαδρομή.
+          </p>
         </div>
       </Section>
 
@@ -450,7 +496,7 @@ export default function AudioMapsPage() {
       <Section className="py-12 md:py-16">
         <div className="mx-auto max-w-6xl">
           <h2 className="mb-10 text-center text-2xl font-bold md:text-3xl">
-            Χρήσιμες πληροφορίες πριν ξεκινήσεις
+            Απλές απαντήσεις πριν ξεκινήσεις
           </h2>
           <div className="grid gap-8 md:grid-cols-3">
             {practicalInfo.map((info) => (

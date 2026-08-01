@@ -91,12 +91,12 @@ export default function WaysToSupport({
             </CardHeader>
             <CardContent className="space-y-4">
               <p className="text-muted-foreground leading-relaxed">
-                Μια πλοήγηση στον δικό σου χώρο και χρόνο.
+                Ένας ήρεμος χώρος ακρόασης, όταν όλα μέσα σου τρέχουν.
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                Σειρές ηχητικής ψυχολογικής καθοδήγησης που σε βοηθούν να
-                αναγνωρίσεις αυτό που ζεις, να βρεις απαντήσεις και να χαράξεις
-                πιο καθαρά και σταθερά βήματα.
+                Σύντομες ηχητικές σειρές που σε βοηθούν να βάλεις σε τάξη όσα
+                ζεις, να δεις πιο καθαρά τι μπορεί να συμβαίνει και να μη
+                βιαστείς να κάνεις μια κίνηση που μπορεί αργότερα να μετανιώσεις.
               </p>
               <Button asChild className="w-full" variant="outline">
                 <Link href="/audio-maps">
